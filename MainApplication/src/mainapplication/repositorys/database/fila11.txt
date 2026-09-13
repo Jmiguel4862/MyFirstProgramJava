@@ -1,0 +1,6 @@
+3,Depa 'Darth' Vader,60,63.6119292725192,100
+2,Cere Krennic the Trandoshan,48,84.9645627491321,100
+5,Galen Erso,45,110.95964980677525,100
+5,Lord Qui-Gon Shadow,44,92.00493377557521,100
+3,Grand Inquisitor the Pantoran,59,50.30885269491685,100
+5,Plagueis Vanth of Exegol,58,101.49710102516335,100
