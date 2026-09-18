@@ -5,14 +5,13 @@
 package mainapplication.models;
 
 import java.util.ArrayList;
-import mainapplication.repositorys.querys.FileOfLine;
 import mainapplication.controllers.BattleSettings;
 
 /**
  *
  * @author João Miguel
  */
-public class Lorde extends Guerreiro{
+public class Lorde extends DarkSide{
     private boolean espectro = false;
     public Lorde(String name, int age, double weight) {
         super(name, age, weight, 50);
@@ -23,18 +22,39 @@ public class Lorde extends Guerreiro{
     public void setEspectro(boolean bool){
         this.espectro = bool;
     }
-        @Override
-    public void attack(ArrayList<Guerreiro> Gs) {
-        String nameL = "Lorde";
+
+    @Override 
+    public void alterHp(int alter){
+        super.alterHp(alter);
         ArrayList<Guerreiro> sd = null;
-        Guerreiro sith = null;
+        Acolito acolito = null;
+        if (this.getHp() ==  0) {
+            sd = BattleSettings.getSideSithDroides();
+            System.out.println("\n->> Lorde morreu, porém deixou 4 acolitos em seu lugar para terminarem o trabalho que ele começou!!");
+            for (int i = 0; i < 4; i++) {
+                acolito = new Acolito(this.getName(), this.getAge(), this.getWeight());
+                sd.add(acolito);
+                acolito = null;
+            }
+        }
+    }
+
+    @Override
+    public void attack(ArrayList<Guerreiro> Gs) {
+        super.attack(Gs);
+        String nameL = null;
+        ArrayList<Guerreiro> sd = null;
+        Lorde sith = null;
         if (espectro)nameL = "Espectro Sith";
+        else nameL = "Lorde";   
         hit(Gs, 1, nameL, this.getHit());
-        if (Gs.getFirst().getHp() == 0 && !espectro)
+        if (Gs.getFirst().getHp() == 0 && !this.espectro)
         {
-            sd = FileOfLine.reader_Guerreiros(2, BattleSettings.getOrder(2));
+            System.out.println("\n->> Lorde fez seu Ritual de reanimação e trouxe inimigo derrotado de volta a vida");
+            sd = BattleSettings.getSideSithDroides();
             sith = new Lorde(Gs.getFirst().getName(), Gs.getFirst().getAge(), Gs.getFirst().getWeight());
             sith.setHit(5);
+            sith.espectro = true;
             sd.add(sith);
         }
     }

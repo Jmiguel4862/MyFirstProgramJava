@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author João Miguel
  */
-public class JediGeneral extends Guerreiro{
+public class JediGeneral extends LightSide{
     
     public JediGeneral(String name, int age, double weight) {
         super(name, age, weight , 50);
@@ -20,6 +20,7 @@ public class JediGeneral extends Guerreiro{
     }
     @Override
     public void attack(ArrayList<Guerreiro> Gs) {
+        super.attack(Gs);
         hit(Gs,1, "Jide General", this.getHit());
         if (Gs.getFirst().getHp() == 0) {
             this.alterHp(50);

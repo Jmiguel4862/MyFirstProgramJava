@@ -11,11 +11,27 @@ import java.util.Scanner;
 public class BattleSettings {
 
     private static int[] orderOfBattle = new int[]{1,1};
+    private static ArrayList<Guerreiro> SideJediClones = new ArrayList<>();
+    private static ArrayList<Guerreiro> SideSithDroides = new ArrayList<>();;
+
+    public static ArrayList<Guerreiro> getSideJediClones() {
+        return SideJediClones;
+    }
+
+    public static ArrayList<Guerreiro> getSideSithDroides() {
+        return SideSithDroides;
+    }
+
+    public static void setSideJediClones(ArrayList<Guerreiro> SideJediClones) {
+        BattleSettings.SideJediClones = SideJediClones;
+    }
+
+    public static void setSideSithDroides(ArrayList<Guerreiro> SideSithDroides) {
+        BattleSettings.SideSithDroides = SideSithDroides;
+    }
+
     public static int getOrder(int team){
         return orderOfBattle[team-1];
-    }
-    public static void alterOrder(int n , int team){
-        orderOfBattle[team - 1] = orderOfBattle[team - 1] + n;
     }
 
     public static void pushGuerreiro(int side , int line) {
@@ -36,6 +52,7 @@ public class BattleSettings {
         for (int i = 0; i < Gs.size(); i++){
             if (Gs.get(i).getHp() <= 0 )
             {
+                System.out.println("\n\nEVENTO DA GUERRA ->> Guerreiro "+Gs.get(i).getClass().getSimpleName()+Gs.get(i).getName()+" foi derrotado(MORREU)!!\n\n");
                 Gs.remove(i);
                 i--;
             }
@@ -87,8 +104,6 @@ public class BattleSettings {
     }
 
     public static int battleArena(){  
-        ArrayList<Guerreiro> SideJediClones = new ArrayList<>();
-        ArrayList<Guerreiro> SideSithDroides = new ArrayList<>();
         Scanner scan = new Scanner(System.in);
         while(true){
             for (int i = 1; i <= 2; i++)
@@ -112,7 +127,7 @@ public class BattleSettings {
                     }
                     FileOfLine.write_Guerreiros(SideJediClones, 1, j);
                     FileOfLine.write_Guerreiros(SideSithDroides, 2, j);
-                    //scan.nextLine();
+                    scan.nextLine();
                 }
             }
             if (SideJediClones.size() > 0 && SideSithDroides.size() > 0)

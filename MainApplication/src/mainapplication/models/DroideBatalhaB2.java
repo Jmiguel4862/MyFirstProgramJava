@@ -6,13 +6,12 @@ package mainapplication.models;
 
 import java.util.ArrayList;
 import mainapplication.controllers.BattleSettings;
-import mainapplication.repositorys.querys.FileOfLine;
 
 /**
  *
  * @author João Miguel
  */
-public class DroideBatalhaB2 extends Guerreiro{
+public class DroideBatalhaB2 extends DarkSide{
     public DroideBatalhaB2(String name, int age, double weight) {
         super(name, age, weight , 10);
     }
@@ -23,6 +22,7 @@ public class DroideBatalhaB2 extends Guerreiro{
 
     @Override
     public void attack(ArrayList<Guerreiro> Gs) {
+        super.attack(Gs);
         hit(Gs, 1, "Droide de Batalha B2", this.getHit());
     }   
 
@@ -33,7 +33,7 @@ public class DroideBatalhaB2 extends Guerreiro{
         super.alterHp(alter); 
         if (this.getHp() == 0 && this.getHp_ref() > 1) {
             System.out.println("\n\n->> O Droide B2 se morreu e renaceu em dois novos Droides B2 cada um com " +  this.getHp_ref()/2);
-            sd = FileOfLine.reader_Guerreiros(2,BattleSettings.getOrder(2));
+            sd = BattleSettings.getSideJediClones();
             for (int i = 1; i <= 2; i++) {
                 newb2 = new DroideBatalhaB2(this);
                 newb2.defineHp(this.getHp_ref()/2);
@@ -41,7 +41,6 @@ public class DroideBatalhaB2 extends Guerreiro{
                 sd.add(newb2);
                 newb2 = null;
             }
-            FileOfLine.write_Guerreiros(sd,2, BattleSettings.getOrder(2));
         }
     }
 }

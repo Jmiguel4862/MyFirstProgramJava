@@ -1,6 +1,6 @@
-3,Depa 'Darth' Vader,60,63.6119292725192,100
-2,Cere Krennic the Trandoshan,48,84.9645627491321,100
-5,Galen Erso,45,110.95964980677525,100
-5,Lord Qui-Gon Shadow,44,92.00493377557521,100
-3,Grand Inquisitor the Pantoran,59,50.30885269491685,100
-5,Plagueis Vanth of Exegol,58,101.49710102516335,100
+2,Thexan 'Chieftain' Erso,54,92.9588999868674,75
+2,Depa Sunrider the Jedi,62,132.85414259229535,90
+2,Thrawn 'Baron' Bane,53,70.65283663649306,90
+1,Asajj Bridger the Trandoshan,37,119.49270851720985,100
+1,Tarkin Jinn,50,145.19237828356722,100
+1,Lord Qui-Gon Shadow,22,54.74097095320565,100

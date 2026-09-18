@@ -11,7 +11,7 @@ import mainapplication.controllers.BattleSettings;
  *
  * @author João Miguel
  */
-public class ClonePesado extends Guerreiro{
+public class ClonePesado extends LightSide{
     
     public ClonePesado(String name, int age, double weight) {
         super(name, age, weight , 30);
@@ -26,11 +26,14 @@ public class ClonePesado extends Guerreiro{
     @Override
     public void alterHp(int alter) {
         super.alterHp(alter);
-        if (BattleSettings.getOrder(1)==1)
-            BattleSettings.alterOrder(-1, 2);
+        if(BattleSettings.getOrder(1) == 1)
+            DarkSide.setPreference_hit(true);
+        else
+            DarkSide.setPreference_hit(false);
     }
     @Override
     public void attack(ArrayList<Guerreiro> Gs) {
+        super.attack(Gs);
         hit(Gs, 1, "Clone Pesado", this.getHit());
     }
 

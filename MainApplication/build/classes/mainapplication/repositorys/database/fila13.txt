@@ -1,1 +1,6 @@
-1,Aayla Qel-Droma the Kel Dor,52,142.69800502222813,50
+4,Finn Solo of Corellia,22,91.29915177348592,100
+3,Grogu Opress,24,95.68852754630568,100
+5,Marshal Rey Ventress,42,103.86421733780332,100
+2,Elder Fennec Holdo,52,58.98674717670536,100
+2,Depa Organa the Mirialan,20,119.60791163905206,100
+6,Sloane 'Marshal' Malbus,55,141.51623608061288,390

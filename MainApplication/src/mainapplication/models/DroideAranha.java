@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author João Miguel
  */
-public class DroideAranha extends Guerreiro{
+public class DroideAranha extends DarkSide{
     
     public DroideAranha(String name, int age, double weight) {
         super(name, age, weight , 10);
@@ -22,6 +22,8 @@ public class DroideAranha extends Guerreiro{
 
     @Override
     public void attack(ArrayList<Guerreiro> Gs) {
+        super.attack(Gs);
+        System.out.println("->> Droide Aranha usa seu canhão para causar dano a todos os presente na fila adversaria!!");
         for(int i = 1; i <= Gs.size();i++)
           hit(Gs,i, "Droide Aranha", this.getHit());  
     }

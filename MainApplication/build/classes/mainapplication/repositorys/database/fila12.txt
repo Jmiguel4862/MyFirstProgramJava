@@ -1,1 +1,6 @@
-5,Aayla Shand the Jedi,53,139.2215123644977,50
+4,Hux Jinn the Cathar,35,120.21360375141874,85
+6,Mace Inquisitor,47,89.0072150049366,400
+4,Pellaeon 'Baron' Vader,47,75.02391883386824,100
+6,Zeb 'Hunter' Admiral,23,125.83701690261742,400
+1,Hux 'Emperor' Admiral,32,101.08699035809778,100
+2,Thrawn 'Shadow' Dritus,28,87.61921071600165,65

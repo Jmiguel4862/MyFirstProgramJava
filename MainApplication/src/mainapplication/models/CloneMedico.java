@@ -5,14 +5,13 @@
 package mainapplication.models;
 
 import java.util.ArrayList;
-import  mainapplication.repositorys.querys.FileOfLine;
 import  mainapplication.controllers.BattleSettings;
 
 /**
  *
  * @author João Miguel
  */
-public class CloneMedico extends Guerreiro{
+public class CloneMedico extends LightSide{
     
     public CloneMedico(String name, int age, double weight) {
         super(name, age, weight , 20);
@@ -20,11 +19,14 @@ public class CloneMedico extends Guerreiro{
 
     @Override
     public void attack(ArrayList<Guerreiro> Gs) {
-        ArrayList <Guerreiro> gs = null;
+        super.attack(Gs);
+        ArrayList <Guerreiro> gs = BattleSettings.getSideJediClones();
         hit(Gs , 1 , "Clone Médico" , this.getHit());
-        gs = FileOfLine.reader_Guerreiros(1, BattleSettings.getOrder(1));
-        if(gs.size() > 1)
+        if(gs.size() > 1 && gs.get(1).getHp() < gs.get(1).getHp_ref())
+        {
+            System.out.println("\n->> Clone Medico recuperou 20 pontos de vida do guerreiro" + gs.get(1).getClass().getSimpleName() +gs.get(1).getName() +" logo atrás dele!!" );
             gs.get(1).alterHp(20);
+        }
     }
     
 }

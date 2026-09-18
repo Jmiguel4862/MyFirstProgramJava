@@ -14,7 +14,7 @@ public abstract class Guerreiro {
     private String name;
     private int age;    
     private double weight;
-    private int hit = 10;
+    private int hit = -10;
     private int hp_ref = 100;
     private int hp = 100;
     
@@ -22,7 +22,7 @@ public abstract class Guerreiro {
         this.name = name;
         this.age = age;
         this.weight = weight;
-        this.hit = hit;
+        this.hit = -hit;
     }
 
     public Guerreiro(Guerreiro G){
@@ -78,7 +78,7 @@ public abstract class Guerreiro {
 
     public void hit(ArrayList<Guerreiro> gs , int order, String sideName , int damage){
         gs.get(order-1).alterHp(damage);
-        System.out.println("\n\n>Guerreiro "+sideName+" "+ this.getName() + " atacou o guerreiro " +gs.getFirst().getClass().getSimpleName() +" "+gs.get(0).getName() + " e causou "+ (-this.getHit()/2) +" de dano");    
+        System.out.println("\n\n> Guerreiro "+sideName+" "+ this.getName() + " atacou o guerreiro " +gs.getFirst().getClass().getSimpleName() +" "+gs.get(0).getName() + " e causou "+ (-damage) +" de dano");    
     }
     
     public void alterHp(int alter){

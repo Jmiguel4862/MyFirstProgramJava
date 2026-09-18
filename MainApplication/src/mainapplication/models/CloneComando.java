@@ -5,14 +5,13 @@
 package mainapplication.models;
 
 import java.util.ArrayList;
-import mainapplication.repositorys.querys.FileOfLine;
 import mainapplication.controllers.BattleSettings;
 
 /**
  *
  * @author João Miguel
  */
-public class CloneComando extends Guerreiro{
+public class CloneComando extends LightSide{
     
     public CloneComando(String name, int age, double weight) {
         super(name, age, weight , 40);
@@ -20,14 +19,15 @@ public class CloneComando extends Guerreiro{
 
     @Override
     public void attack(ArrayList<Guerreiro> Gs) {
-        int equals =0;
-       ArrayList<Guerreiro> jc = FileOfLine.reader_Guerreiros(1, BattleSettings.getOrder(1));
-       if (jc.size() > 1)
+        super.attack(Gs);
+        int equals = 0;
+        ArrayList<Guerreiro> jc = BattleSettings.getSideJediClones();
+        if (jc.size() > 1)
         {
-            for (int i = 0; i < jc.size(); i++) 
+            for (int i = 1; i < jc.size(); i++) 
                 if(jc.get(i).getClass() == this.getClass())
                     equals++;
-            if (equals > 1)System.out.println("\n\n->> O Clone Comando atual encontro "+equals+" semelhantes seus na fila para ajuda no ataque e vai dar "+(equals*8)+" a mais de dano neste ataque");
+            if (equals > 0)System.out.println("\n\n->> O Clone Comando atual encontro "+equals+" semelhantes seus na fila para ajuda no ataque e vai dar "+(equals*8)+" a mais de dano neste ataque");
         }
         hit(Gs, 1, "Clone Comando", (this.getHit()) + (equals*8));
     }
