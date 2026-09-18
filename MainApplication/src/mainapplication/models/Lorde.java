@@ -30,7 +30,7 @@ public class Lorde extends DarkSide{
         Acolito acolito = null;
         if (this.getHp() ==  0) {
             sd = BattleSettings.getSideSithDroides();
-            System.out.println("\n->> Lorde morreu, porém deixou 4 acolitos em seu lugar para terminarem o trabalho que ele começou!!");
+            System.out.println("\n->> [HABILIDADE] Lorde morreu, porém deixou 4 acolitos em seu lugar para terminarem o trabalho que ele começou!!");
             for (int i = 0; i < 4; i++) {
                 acolito = new Acolito(this.getName(), this.getAge(), this.getWeight());
                 sd.add(acolito);
@@ -50,7 +50,7 @@ public class Lorde extends DarkSide{
         hit(Gs, 1, nameL, this.getHit());
         if (Gs.getFirst().getHp() == 0 && !this.espectro)
         {
-            System.out.println("\n->> Lorde fez seu Ritual de reanimação e trouxe inimigo derrotado de volta a vida");
+            System.out.println("\n->> [HABILIDADE] Lorde fez seu Ritual de reanimação e trouxe inimigo derrotado de volta a vida");
             sd = BattleSettings.getSideSithDroides();
             sith = new Lorde(Gs.getFirst().getName(), Gs.getFirst().getAge(), Gs.getFirst().getWeight());
             sith.setHit(5);

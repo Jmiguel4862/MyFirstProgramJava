@@ -23,9 +23,9 @@ public class DroideAranha extends DarkSide{
     @Override
     public void attack(ArrayList<Guerreiro> Gs) {
         super.attack(Gs);
-        System.out.println("->> Droide Aranha usa seu canhão para causar dano a todos os presente na fila adversaria!!");
+        System.out.println("\n\n->> [HABILIDADE] Droide Aranha usa seu canhão para causar dano a todos os presente na fila adversaria!!");
         for(int i = 1; i <= Gs.size();i++)
-          hit(Gs,i, "Droide Aranha", this.getHit());  
+          hit(Gs,i, "Droide Aranha", this.getHit());
     }
 
 }

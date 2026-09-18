@@ -28,7 +28,7 @@ public class Presentation {
     private static PresentationDatas presentationGuerreiros(int side , String SideOfForce ){            
         double total_weight=0;
         Guerreiro Most_Weight = null;
-        System.out.println("\n << Guerreiros do lado dos " + SideOfForce + ">>\n");
+        System.out.println("\n << GUERREIROS DO LADO DOS" + SideOfForce + ">>\n");
         for(int i = 1 ; i <= Constants.MAX_FILES ; i++){
             System.out.println("\nGuerreiro da fila " + i + ":\n");
             for (Guerreiro G : FileOfLine.reader_Guerreiros(side, i)) {
@@ -42,12 +42,12 @@ public class Presentation {
     }
 
     public static void presentationGuerreiros(){
-        PresentationDatas datas1 = presentationGuerreiros(1, "Jedi & Clones");
-        PresentationDatas datas2 = presentationGuerreiros(2, "Sith & Droides");
-        System.out.println("\n\nPeso total do lado dos Jedi & Clones: " + String.format("%.2f", datas1.getTotal_weight()) + " kg\n");
-        System.out.println("\nGuerreiro mais pesado do lado dos Jedi & Clones: " + datas1.getMost_Weight().getName() + " - " + String.format("%.2f", datas1.getMost_Weight().getWeight()) + " kg\n");
-        System.out.println("\n\nPeso total do lado dos Sith & Droides: " + String.format("%.2f", datas2.getTotal_weight()) + " kg\n");
-        System.out.println("\nGuerreiro mais pesado do lado dos Sith & Droides: " + datas2.getMost_Weight().getName() + " - " + String.format("%.2f", datas2.getMost_Weight().getWeight()) + " kg\n");
+        PresentationDatas datas1 = presentationGuerreiros(1, "JEDI & CLONES");
+        PresentationDatas datas2 = presentationGuerreiros(2, "SITH & DROIDES");
+        System.out.println("\n\nPESO TOTAL DO LADO DOS JEDI & CLONES:" + String.format("%.2f", datas1.getTotal_weight()) + " kg\n");
+        System.out.println("\nGUERREIRO MAIS PESADO DO LADO DOS JEDI & CLONES: " + datas1.getMost_Weight().getName() + " - " + String.format("%.2f", datas1.getMost_Weight().getWeight()) + " kg\n");
+        System.out.println("\n\nPESO TOTAL DO LADO DOS SITH & DROIDES:" + String.format("%.2f", datas2.getTotal_weight()) + " kg\n");
+        System.out.println("\nGUERREIRO MAIS PESADO DO LADO DOS SITH & DROIDES: " + datas2.getMost_Weight().getName() + " - " + String.format("%.2f", datas2.getMost_Weight().getWeight()) + " kg\n");
     }
 
     
