@@ -77,8 +77,14 @@ public abstract class Guerreiro {
     }
 
     public void hit(ArrayList<Guerreiro> gs , int order, String sideName , int damage){
-        gs.get(order-1).alterHp(damage);
-        System.out.println("\n\n> Guerreiro "+sideName+" "+ this.getName() + " atacou o guerreiro " +gs.getFirst().getClass().getSimpleName() +" "+gs.get(0).getName() + " e causou "+ (-damage) +" de dano");    
+        int index = order -1;
+        gs.get(index).alterHp(damage);
+        if (gs.get(index).hp == 0) System.out.println("\n\n> Guerreiro "+sideName+" "+ this.getName() + " atacou o guerreiro " +gs.get(index).getClass().getSimpleName() +" "+gs.get(order).getName() + " e causou "+ (-damage) +" de dano");    
+        else 
+        {
+            System.out.println("\n\nEVENTO DA GUERRA ->> Guerreiro "+sideName+" "+ this.getName() + "MATOU " + gs.get(index).getClass().getSimpleName()+gs.get(index).getName()+" foi derrotado(MORREU)!!\n\n");
+            gs.remove(index);
+        }
     }
     
     public void alterHp(int alter){

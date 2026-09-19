@@ -26,6 +26,7 @@ public class ClonePesado extends LightSide{
     @Override
     public void alterHp(int alter) {
         super.alterHp(alter);
+        System.out.println("\n\n->> [HABILIDADE] enquanto clone pessado estiver vivo ou a rodada acabar o este clone pessado será atacado!!");
         if(BattleSettings.getOrder(1) == 1)
             DarkSide.setPreference_hit(true);
         else

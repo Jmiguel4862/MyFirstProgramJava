@@ -24,6 +24,7 @@ public class DroideExterminador extends DarkSide{
     public void attack(ArrayList<Guerreiro> Gs) {
         super.attack(Gs);
         Gs.getFirst().setHp(0);
-        System.out.println("\n\n>Guerreiro Droide Exterminador"+ this.getName() + " MATOU o guerreiro " +Gs.getFirst().getClass().getSimpleName() +" "+Gs.get(0).getName() + "!!!");   
+        System.out.println("\n\n->> [HABILIDADE] Guerreiro Droide Exterminador"+ this.getName() + " MATOU o guerreiro " +Gs.getFirst().getClass().getSimpleName() +" "+Gs.get(0).getName() + "!!!");   
+        Gs.remove(Gs.getFirst());
     }
 }

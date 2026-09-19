@@ -99,7 +99,7 @@ public class BattleSettings {
         if(!fileSettings(wholesale, (side==1)?2:1 ))
             return  false;
         attacker.getFirst().attack(wholesale);
-        BattleSettings.remove_Defeated(wholesale);
+        //BattleSettings.remove_Defeated(wholesale);
         return true;
     }
 
@@ -128,6 +128,7 @@ public class BattleSettings {
                     FileOfLine.write_Guerreiros(SideJediClones, 1, j);
                     FileOfLine.write_Guerreiros(SideSithDroides, 2, j);
                     scan.nextLine();
+                    System.out.println("\n=========================================\n");
                 }
             }
             if (SideJediClones.size() > 0 && SideSithDroides.size() > 0)

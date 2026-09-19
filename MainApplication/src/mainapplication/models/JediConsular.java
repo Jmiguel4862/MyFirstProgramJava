@@ -29,17 +29,22 @@ public class JediConsular extends LightSide{
         if ((BattleSettings.getOrder(2)+ 1 ) <= 4)
         {
             gsNext = FileOfLine.reader_Guerreiros(2, BattleSettings.getOrder(2) + 1 );
-            System.out.println("\n->> HABILIDADO DO JIDE CONSULAR(ATACA INIMICO A DIREITA)");
             if (gsNext != null)
+            {
+                System.out.println("\n->> [HABILIDADE] JIDE CONSULAR(ATACA INIMICO A DIREITA)");
                 hit(gsNext , 1 , "Jedi Consular" , (this.getHit()/2));
-            FileOfLine.write_Guerreiros(gsNext, 2, BattleSettings.getOrder(2)+1);
+                FileOfLine.write_Guerreiros(gsNext, 2, BattleSettings.getOrder(2)+1);
+            }
+                
         }
         if(BattleSettings.getOrder(2) - 1 >= 1){
             gsPrev = FileOfLine.reader_Guerreiros(2, BattleSettings.getOrder(2) - 1 );
-            System.out.println("\n->> HABILIDADO DO JIDE CONSULAR(ATACA INIMICO A ESQUERDA)");
-            if (gsPrev != null)      
+            if (gsPrev != null)
+            {
+                System.out.println("\n\n->> [HABILIDADE] JIDE CONSULAR(ATACA INIMICO A ESQUERDA)!!");
                 hit(gsPrev , 1 , "Jedi Consular" , (this.getHit()/2));
-            FileOfLine.write_Guerreiros(gsPrev, 2, BattleSettings.getOrder(2)-1);
+                FileOfLine.write_Guerreiros(gsPrev, 2, BattleSettings.getOrder(2)-1);
+            }    
         }
     }
 }
