@@ -119,11 +119,11 @@ public class BattleSettings {
                     orderOfBattle[1] = j;
                     if (i == 1){
                         if(!battle(SideJediClones, SideSithDroides , i))
-                            break;
+                            continue;
                     }
                     else {
                         if(!battle(SideSithDroides, SideJediClones , i))
-                            break; 
+                            continue; 
                     }
                     FileOfLine.write_Guerreiros(SideJediClones, 1, j);
                     FileOfLine.write_Guerreiros(SideSithDroides, 2, j);
