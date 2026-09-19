@@ -1,6 +1,1 @@
-1,Nihilus 'Agent' Skywalker,34,69.7632341822827,100
-2,Jango Erso the Twi'lek,40,139.861464328326,100
-4,Theron Organa of Ryloth,37,93.58994614982976,100
-1,Aurra 'Knight' Suduri,30,65.87443743276631,100
-2,Finn 'Baron' Vizsla,47,131.78834337114898,100
-6,Enforcer Caleb Windu,18,136.81204333562246,400
+6,General Chirrut Sing,62,90.09320112037346,290

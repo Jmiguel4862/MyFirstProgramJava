@@ -20,7 +20,8 @@ public class Acolito extends DarkSide{
     public void attack(ArrayList<Guerreiro> Gs) {
         super.attack(Gs);
         System.out.println("\n->> [HABILIDADE] Acalito atacou o primeiro da fila saltou e atacou o ultimo da fila ");
+        System.out.println("\n\n"+Gs.size()+"\n\n");
         hit(Gs, 1, "Acolito", this.getHit());
-        hit(Gs, Gs.size(), "Acolito", this.getHit());
+        if(Gs.size() > 0)hit(Gs, Gs.size(), "Acolito", this.getHit());
     }
 }

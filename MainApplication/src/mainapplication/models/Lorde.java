@@ -44,15 +44,13 @@ public class Lorde extends DarkSide{
         super.attack(Gs);
         String nameL = null;
         ArrayList<Guerreiro> sd = null;
-        Lorde sith = null;
+        Lorde sith = new Lorde(Gs.getFirst().getName(), Gs.getFirst().getAge(), Gs.getFirst().getWeight());
         if (espectro)nameL = "Espectro Sith";
-        else nameL = "Lorde";   
-        hit(Gs, 1, nameL, this.getHit());
-        if (Gs.getFirst().getHp() == 0 && !this.espectro)
+        else nameL = "Lorde";
+        if (hit(Gs, 1, nameL, this.getHit()))
         {
             System.out.println("\n->> [HABILIDADE] Lorde fez seu Ritual de reanimação e trouxe inimigo derrotado de volta a vida");
             sd = BattleSettings.getSideSithDroides();
-            sith = new Lorde(Gs.getFirst().getName(), Gs.getFirst().getAge(), Gs.getFirst().getWeight());
             sith.setHit(5);
             sith.espectro = true;
             sd.add(sith);

@@ -31,7 +31,7 @@ public abstract class Guerreiro {
         this.weight = G.getWeight();
         this.hp_ref = G.getHp();
         this.hp = G.getHp();
-        this.hit = -(G.getHit());
+        this.hit = G.getHit();
     }
 
      public int getHp_ref(){
@@ -76,14 +76,19 @@ public abstract class Guerreiro {
         this.hp = newhp;
     }
 
-    public void hit(ArrayList<Guerreiro> gs , int order, String sideName , int damage){
-        int index = order -1;
+    public boolean hit(ArrayList<Guerreiro> gs , int order, String sideName , int damage){
+        int index = order - 1;
         gs.get(index).alterHp(damage);
-        if (gs.get(index).hp == 0) System.out.println("\n\n> Guerreiro "+sideName+" "+ this.getName() + " atacou o guerreiro " +gs.get(index).getClass().getSimpleName() +" "+gs.get(order).getName() + " e causou "+ (-damage) +" de dano");    
+        if (gs.get(index).hp > 0)
+        {
+            System.out.println("\n\n> Guerreiro "+sideName+" "+ this.getName() + " atacou o guerreiro " +gs.get(index).getClass().getSimpleName() +" "+gs.get(index).getName() + " e causou "+ (-damage) +" de dano");    
+            return false;
+        }
         else 
         {
-            System.out.println("\n\nEVENTO DA GUERRA ->> Guerreiro "+sideName+" "+ this.getName() + "MATOU " + gs.get(index).getClass().getSimpleName()+gs.get(index).getName()+" foi derrotado(MORREU)!!\n\n");
             gs.remove(index);
+            System.out.println("\n\n[EVENTO DA GUERRA] ->> Guerreiro "+sideName+" "+ this.getName() + " MATOU " + gs.get(index).getClass().getSimpleName()+gs.get(index).getName()+" foi derrotado(MORREU)!!\n\n");
+            return true;
         }
     }
     

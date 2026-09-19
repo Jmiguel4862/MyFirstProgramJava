@@ -1,6 +1,4 @@
-2,Rey Inquisitor,37,122.57192200806942,100
-3,Enforcer Aurra Holdo,51,83.50564078201573,100
-4,Satele 'Assassin' Djarin,42,121.39832504208945,100
-5,Tarkin Bridger the Nautolan,55,83.98236907440591,100
-2,Chirrut 'Consul' Krennic,41,113.84974356819235,100
-5,Han Solo,45,76.66700302503088,100
+6,Quinlan Qel-Droma of Coruscant,61,89.60205058402232,235
+4,Bo-Katan Organa the Mon Calamari,61,114.2577879599709,5
+1,Enforcer Tarkin Jinn,57,97.30917360337693,30
+6,Omega,19,143.56958718645868,150

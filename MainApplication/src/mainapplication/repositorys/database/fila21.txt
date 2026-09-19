@@ -1,6 +1,3 @@
-1,Fennec Sunrider,34,99.06646279004951,100
-1,Ahsoka Vader the Kel Dor,23,58.0254914879155,100
-1,Greef Vader of Bespin,41,83.66539135854433,100
-3,Finn Solo of Corellia,38,96.43704146430994,60
-4,Hux Malbus of Corellia,22,108.47433401782104,100
-6,Merrin 'Warrior' Orrelios,31,147.22702777053973,100
+1,Thrawn 'Shadow' Dritus.1,62,109.02159552036326,20
+1,Thrawn 'Shadow' Dritus.2.1,62,109.02159552036326,20
+1,Thrawn 'Shadow' Dritus.2.2,62,109.02159552036326,20

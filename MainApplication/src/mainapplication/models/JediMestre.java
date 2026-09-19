@@ -26,7 +26,7 @@ public class JediMestre extends LightSide{
 
     @Override
     public void alterHp(int alter) {
-        if(BattleSettings.getOrder(1) == 1)
+        if(BattleSettings.getOrder(1) == 1 && this == BattleSettings.getSideJediClones().getFirst())
             System.out.println("\n\n->> [HABILIDADE] Devido a habilidade do Jedi Mestre por ser o primeiro a atacar ele empurara o adversario para o final da fila e anulara seu ataque.");
         else
             super.alterHp(alter);

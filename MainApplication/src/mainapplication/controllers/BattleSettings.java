@@ -47,21 +47,14 @@ public class BattleSettings {
         for (int i = 1; i <= Constants.MAX_FILES; i++)
             pushGuerreiro(side, i);
     }
-    
-    private static void remove_Defeated(ArrayList<Guerreiro> Gs){
-        for (int i = 0; i < Gs.size(); i++){
-            if (Gs.get(i).getHp() <= 0 )
-            {
-                System.out.println("\n\nEVENTO DA GUERRA ->> Guerreiro "+Gs.get(i).getClass().getSimpleName()+Gs.get(i).getName()+" foi derrotado(MORREU)!!\n\n");
-                Gs.remove(i);
-                i--;
-            }
-        }
-    }
 
     private static boolean fileSettings(ArrayList<Guerreiro> Gs, int side){
         int i = side -1;
         ArrayList<Guerreiro> temp = null;
+        if (Gs != null)
+            Gs.clear();
+        else 
+            Gs = new ArrayList<>();
         while (orderOfBattle[i] <=  Constants.MAX_FILES)
         {
             temp = FileOfLine.reader_Guerreiros(side, orderOfBattle[i]);
@@ -95,11 +88,9 @@ public class BattleSettings {
         }
         else 
             return false;
-        wholesale.clear();
         if(!fileSettings(wholesale, (side==1)?2:1 ))
             return  false;
         attacker.getFirst().attack(wholesale);
-        //BattleSettings.remove_Defeated(wholesale);
         return true;
     }
 

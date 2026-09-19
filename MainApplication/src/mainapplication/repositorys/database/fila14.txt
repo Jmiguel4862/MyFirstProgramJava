@@ -1,6 +1,6 @@
-1,Fennec Shand the Nautolan,33,132.16749737970468,100
-6,Darth Kun,39,99.5648585876313,400
-5,Obi-Wan Organa the Twi'lek,58,91.81365242367872,100
-6,Cad Bane,54,78.70746500955511,400
-6,Han Saxon,43,74.9378802073845,400
-5,Ezra Thorne the Wookiee,35,109.04441522938468,100
+6,Hux 'Commander' Sing,33,103.7499563605023,340
+4,Vaylin Calder the Togruta,63,88.9658154250795,10
+3,Aurra Palpatine of Mandalore,58,144.23946793161974,60
+1,Sloane Wren the Rattataki,34,72.73241850639558,20
+6,Quinlan Ventress of Ilum,32,105.81201863642511,320
+3,Greef Vader of Bespin,34,110.4518630550293,50
