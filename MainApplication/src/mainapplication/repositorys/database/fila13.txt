@@ -1,3 +1,4 @@
-3,Finn Rook of Ryloth,67,144.40389668104962,10
-6,Vaylin Calrissian the Wookiee,59,57.50923867476051,235
-5,Scout Savage Imwe,33,83.43957563501905,5
+2,Theron Calder of Mandalore,22,53.70510282221793,80
+6,Hux Saxon of Scarif,22,57.976412401829904,380
+2,Lando 'Darth' Shadow,51,93.04866549091525,30
+3,General Zeb Andor,26,149.94649466349807,90

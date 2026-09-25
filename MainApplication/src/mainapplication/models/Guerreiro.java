@@ -17,6 +17,7 @@ public abstract class Guerreiro {
     private int hit = -10;
     private int hp_ref = 100;
     private int hp = 100;
+    private String DataMeta = null;
     
     public Guerreiro(String name, int age, double weight , int hit){
         this.name = name;
@@ -78,6 +79,7 @@ public abstract class Guerreiro {
 
     public boolean hit(ArrayList<Guerreiro> gs , int order, String sideName , int damage){
         int index = order - 1;
+        //System.out.println("\n" + order + "\n");
         gs.get(index).alterHp(damage);
         if (gs.get(index).hp > 0)
         {
@@ -87,7 +89,7 @@ public abstract class Guerreiro {
         else 
         {
             gs.remove(index);
-            System.out.println("\n\n[EVENTO DA GUERRA] ->> Guerreiro "+sideName+" "+ this.getName() + " MATOU " + gs.get(index).getClass().getSimpleName()+gs.get(index).getName()+" foi derrotado(MORREU)!!\n\n");
+            System.out.println("\n\n[EVENTO DA GUERRA] ->> Guerreiro "+sideName+" "+ this.getName() + " MATOU " + gs.get(index).getClass().getSimpleName() +" "+  gs.get(index).getName()+" foi derrotado(MORREU)!!\n");
             return true;
         }
     }

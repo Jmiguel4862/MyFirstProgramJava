@@ -114,10 +114,10 @@ public class BattleSettings {
                     }
                     else {
                         if(!battle(SideSithDroides, SideJediClones , i))
-                            continue; 
+                            continue;
                     }
-                    FileOfLine.write_Guerreiros(SideJediClones, 1, j);
-                    FileOfLine.write_Guerreiros(SideSithDroides, 2, j);
+                    FileOfLine.write_Guerreiros(SideJediClones, 1, orderOfBattle[0]);
+                    FileOfLine.write_Guerreiros(SideSithDroides, 2, orderOfBattle[1]);
                     scan.nextLine();
                     System.out.println("\n=========================================\n");
                 }

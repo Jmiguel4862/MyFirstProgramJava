@@ -28,7 +28,7 @@ public class Lorde extends DarkSide{
         super.alterHp(alter);
         ArrayList<Guerreiro> sd = null;
         Acolito acolito = null;
-        if (this.getHp() ==  0) {
+        /*if (this.getHp() ==  0) {
             sd = BattleSettings.getSideSithDroides();
             System.out.println("\n->> [HABILIDADE] Lorde morreu, porém deixou 4 acolitos em seu lugar para terminarem o trabalho que ele começou!!");
             for (int i = 0; i < 4; i++) {
@@ -36,7 +36,7 @@ public class Lorde extends DarkSide{
                 sd.add(acolito);
                 acolito = null;
             }
-        }
+        }*/
     }
 
     @Override

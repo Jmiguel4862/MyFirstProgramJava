@@ -1,6 +1,2 @@
-6,Hux 'Commander' Sing,33,103.7499563605023,340
-4,Vaylin Calder the Togruta,63,88.9658154250795,10
-3,Aurra Palpatine of Mandalore,58,144.23946793161974,60
-1,Sloane Wren the Rattataki,34,72.73241850639558,20
-6,Quinlan Ventress of Ilum,32,105.81201863642511,320
-3,Greef Vader of Bespin,34,110.4518630550293,50
+6,Hunter Pryde Kestis,63,89.96901893752478,345
+1,Depa 'Darth' Vader,39,80.91856272146465,40
