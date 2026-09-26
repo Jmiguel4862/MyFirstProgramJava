@@ -1,9 +1,6 @@
-6,Thexan Krennic the Zabrak,28,116.30530088670382,5
-6,Fifth Tyranus the Sith,22,148.4304039605525,70
-4,Emperor Vitiate Palpatine,33,51.99295287273701,100
-4,Emperor Vitiate Palpatine,33,51.99295287273701,100
-4,Emperor Vitiate Palpatine,33,51.99295287273701,100
-4,Emperor Vitiate Palpatine,33,51.99295287273701,100
-2,Valkorion Solo of Mustafar,27,115.48689631854067,20
-1,Sion Fett.1,50,121.66143754231535,15
-1,Sion Fett.2,50,121.66143754231535,20
+4,Koska 'Warlord' Sing,20,71.98786639107053,70
+5,Plagueis Vanth of Exegol,40,141.38289205298426,100
+6,Vaylin Palpatine the Cathar,46,136.06044003554604,100
+4,Traya 'Hunter' Shadow,21,145.96894018993305,100
+4,Merrin Kun,25,130.71462600356216,100
+2,Revan Solo the Mon Calamari,44,102.36930146264886,100

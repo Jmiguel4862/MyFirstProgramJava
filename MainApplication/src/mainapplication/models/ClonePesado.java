@@ -26,11 +26,13 @@ public class ClonePesado extends LightSide{
     @Override
     public void alterHp(int alter) {
         super.alterHp(alter);
-        System.out.println("\n\n->> [HABILIDADE] enquanto clone pessado estiver vivo ou a rodada acabar o este clone pessado será atacado!!");
-        if(BattleSettings.getOrder(1) == 1)
+        /*if(BattleSettings.getOrder(1) == 1 && alter < 0)
+        {
+            System.out.println("\n\n->> [HABILIDADE] enquanto clone pessado estiver vivo ou a rodada acabar o este clone pessado será atacado!!");
             DarkSide.setPreference_hit(true);
+        }
         else
-            DarkSide.setPreference_hit(false);
+            DarkSide.setPreference_hit(false);*/
     }
     @Override
     public void attack(ArrayList<Guerreiro> Gs) {

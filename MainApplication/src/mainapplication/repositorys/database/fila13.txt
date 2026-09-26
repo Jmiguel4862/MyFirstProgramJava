@@ -1,3 +1,6 @@
-3,Finn Rook of Ryloth,67,144.40389668104962,10
-6,Vaylin Calrissian the Wookiee,59,57.50923867476051,235
-5,Scout Savage Imwe,33,83.43957563501905,5
+5,Mace Vanth the Trandoshan,53,139.72430000777717,100
+6,Warlord Thexan Tano,47,101.16003190099218,400
+5,Hunter Wilhuff Suduri,60,147.77210986236375,100
+6,Grogu Qel-Droma the Nautolan,35,140.90904615795193,400
+6,Grand 'Pilot' Inquisitor,31,65.41296289595118,400
+4,Obi-Wan Orrelios of Dathomir,63,107.22703710672141,100

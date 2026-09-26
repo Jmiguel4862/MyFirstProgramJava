@@ -26,7 +26,7 @@ public abstract class LightSide extends Guerreiro{
     @Override 
     public void alterHp(int alter){
         super.alterHp(alter);
-        if (BattleSettings.getSideSithDroides().getFirst().getClass() == Assassino.class) {
+        if ( alter < 0 && BattleSettings.getSideSithDroides().getFirst().getClass() == Assassino.class) {
             this.poisoned =true;
         }
     }

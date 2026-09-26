@@ -51,10 +51,7 @@ public class BattleSettings {
     private static boolean fileSettings(ArrayList<Guerreiro> Gs, int side){
         int i = side -1;
         ArrayList<Guerreiro> temp = null;
-        if (Gs != null)
-            Gs.clear();
-        else 
-            Gs = new ArrayList<>();
+        Gs.clear();
         while (orderOfBattle[i] <=  Constants.MAX_FILES)
         {
             temp = FileOfLine.reader_Guerreiros(side, orderOfBattle[i]);
@@ -65,7 +62,6 @@ public class BattleSettings {
             }
             orderOfBattle[i]++;
         }
-        orderOfBattle[i] = Constants.MAX_FILES;
         while (orderOfBattle[i] >= 1)
         {
             temp = FileOfLine.reader_Guerreiros(side, orderOfBattle[i]);

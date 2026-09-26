@@ -28,7 +28,7 @@ public class Lorde extends DarkSide{
         super.alterHp(alter);
         ArrayList<Guerreiro> sd = null;
         Acolito acolito = null;
-        if (this.getHp() ==  0) {
+        /*if (this.getHp() ==  0) {
             sd = BattleSettings.getSideSithDroides();
             System.out.println("\n->> [HABILIDADE] Lorde morreu, porém deixou 4 acolitos em seu lugar para terminarem o trabalho que ele começou!!");
             for (int i = 0; i < 4; i++) {
@@ -36,14 +36,15 @@ public class Lorde extends DarkSide{
                 sd.add(acolito);
                 acolito = null;
             }
-        }
+        }*/
     }
 
     @Override
     public void attack(ArrayList<Guerreiro> Gs) {
         super.attack(Gs);
         String nameL = null;
-        ArrayList<Guerreiro> sd = null;
+        hit(Gs, 1, nameL, this.getHit());//Linha temporaria
+        /*ArrayList<Guerreiro> sd = null;
         Lorde sith = new Lorde(Gs.getFirst().getName(), Gs.getFirst().getAge(), Gs.getFirst().getWeight());
         if (espectro)nameL = "Espectro Sith";
         else nameL = "Lorde";
@@ -54,6 +55,6 @@ public class Lorde extends DarkSide{
             sith.setHit(5);
             sith.espectro = true;
             sd.add(sith);
-        }
+        }*/
     }
 }

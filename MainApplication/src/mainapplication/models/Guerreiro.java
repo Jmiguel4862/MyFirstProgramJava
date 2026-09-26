@@ -86,8 +86,8 @@ public abstract class Guerreiro {
         }
         else 
         {
+            System.out.println("\n\n[EVENTO DA GUERRA] ->> Guerreiro "+sideName+" "+ this.getName() + " MATOU " + gs.get(index).getClass().getSimpleName() +" "+ gs.get(index).getName()+" foi derrotado(MORREU)!!\n\n");
             gs.remove(index);
-            System.out.println("\n\n[EVENTO DA GUERRA] ->> Guerreiro "+sideName+" "+ this.getName() + " MATOU " + gs.get(index).getClass().getSimpleName()+gs.get(index).getName()+" foi derrotado(MORREU)!!\n\n");
             return true;
         }
     }

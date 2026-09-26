@@ -31,16 +31,17 @@ public class DroideBatalhaB2 extends DarkSide{
         ArrayList <Guerreiro> sd =null;
         Guerreiro newb2 = null;
         super.alterHp(alter); 
-        if (this.getHp() == 0 && this.getHp_ref() > 1) {
+        /*if (this.getHp() == 0 && this.getHp_ref() > 1) {
             System.out.println("\n\n->> [HABILIDADE] O Droide B2 se morreu e renaceu em dois novos Droides B2 cada um com " +  (this.getHp_ref()/2));
             sd = BattleSettings.getSideSithDroides();
             for (int i = 1; i <= 2; i++) {
                 newb2 = new DroideBatalhaB2(this);
+                System.out.println("\n\n hp_ref" + this.getHp_ref() + "\n\n");
                 newb2.defineHp(this.getHp_ref()/2);
                 newb2.setName(this.getName()+"."+i);
                 sd.add(newb2);
                 newb2 = null;
             }
-        }
+        }*/
     }
 }
