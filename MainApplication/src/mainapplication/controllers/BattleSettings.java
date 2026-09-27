@@ -52,25 +52,25 @@ public class BattleSettings {
         int i = side -1;
         ArrayList<Guerreiro> temp = null;
         Gs.clear();
-        while (orderOfBattle[i] <=  Constants.MAX_FILES)
+        for(int j = orderOfBattle[i]; j <=  Constants.MAX_FILES;j++)
         {
-            temp = FileOfLine.reader_Guerreiros(side, orderOfBattle[i]);
+            temp = FileOfLine.reader_Guerreiros(side, j);
             if (temp != null)
             {
                 Gs.addAll(temp);
+                orderOfBattle[i] = j;
                 return true;
             }
-            orderOfBattle[i]++;
         }
-        while (orderOfBattle[i] >= 1)
+        for(int j = (orderOfBattle[i] - 1); j > 0;j--)
         {
-            temp = FileOfLine.reader_Guerreiros(side, orderOfBattle[i]);
+            temp = FileOfLine.reader_Guerreiros(side, j);
             if (temp != null)
             {
                 Gs.addAll(temp);
+                orderOfBattle[i] = j;
                 return true;
             }
-            orderOfBattle[i]--;
         }
         return false;
     }
@@ -92,9 +92,11 @@ public class BattleSettings {
 
     public static int battleArena(){  
         Scanner scan = new Scanner(System.in);
-        while(true){
+        int count_defeat = 0;
+        while(count_defeat != Constants.MAX_FILES){
             for (int i = 1; i <= 2; i++)
             {
+                count_defeat = 0;
                 if (i == 1)
                     System.out.println("JEDI E CLONES VÃO ATACAR O SITH E OS DROIDES ");
                 else 
@@ -106,25 +108,29 @@ public class BattleSettings {
                     orderOfBattle[1] = j;
                     if (i == 1){
                         if(!battle(SideJediClones, SideSithDroides , i))
-                            continue;
+                            {
+                                count_defeat++;
+                                continue;
+                            }
                     }
                     else {
                         if(!battle(SideSithDroides, SideJediClones , i))
-                            continue; 
+                            {
+                                count_defeat++;
+                                continue;
+                            }
                     }
-                    FileOfLine.write_Guerreiros(SideJediClones, 1, j);
-                    FileOfLine.write_Guerreiros(SideSithDroides, 2, j);
+                    FileOfLine.write_Guerreiros(SideJediClones, 1, orderOfBattle[0]);
+                    FileOfLine.write_Guerreiros(SideSithDroides, 2, orderOfBattle[1]);
                     scan.nextLine();
                     System.out.println("\n=========================================\n");
                 }
             }
-            if (SideJediClones.size() > 0 && SideSithDroides.size() > 0)
+            if(count_defeat != Constants.MAX_FILES)
             {
                 pushSide(1);
                 pushSide(2);
             }
-            else
-                break;
         }
        return  (SideJediClones.size() > 0)? 1: 2;
     }

@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.io.FileInputStream;
 import java.util.Scanner;
 
+
+
 public class ManipulationTxt {
+
     public static String ReadTxt(int n){
         try{
             String result = null;

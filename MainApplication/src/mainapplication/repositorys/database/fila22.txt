@@ -1,6 +1,5 @@
-4,Koska 'Warlord' Sing,20,71.98786639107053,70
-5,Plagueis Vanth of Exegol,40,141.38289205298426,100
-6,Vaylin Palpatine the Cathar,46,136.06044003554604,100
-4,Traya 'Hunter' Shadow,21,145.96894018993305,100
-4,Merrin Kun,25,130.71462600356216,100
-2,Revan Solo the Mon Calamari,44,102.36930146264886,100
+4,Lando 'Darth' Calrissian,59,138.74573796932418,50
+4,Lando 'Darth' Calrissian,59,138.74573796932418,100
+4,Lando 'Darth' Calrissian,59,138.74573796932418,100
+2,Zeb 'Hunter' Admiral,24,53.7328568242411,10
+4,Lando 'Darth' Calrissian,59,138.74573796932418,100
