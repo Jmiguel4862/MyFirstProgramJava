@@ -14,10 +14,9 @@ public abstract class Guerreiro {
     private String name;
     private int age;    
     private double weight;
-    private int hit = -10;
     private int hp_ref = 100;
     private int hp = 100;
-    private String DataMeta = null;
+    private int hit = -10;
     
     public Guerreiro(String name, int age, double weight , int hit){
         this.name = name;
@@ -35,51 +34,58 @@ public abstract class Guerreiro {
         this.hit = G.getHit();
     }
 
-     public int getHp_ref(){
-        return hp_ref;
-     }
-
-    public String getName() {
+    public String getName(){// Função N° 1
         return name;
     }
-
     
-    public int getAge() {
+    public void setName(String name) {// Função N° 2
+        this.name = name;
+    }
+    
+    public int getAge() {// Função N° 3
         return age;
     }
     
-    public double getWeight() {
+    public double getWeight() {// Função N° 4
         return weight;
     }
-    
-    public int getHit(){
-        return hit;
+
+    public int getHp_ref(){// Função N° 5
+        return hp_ref;
     }
     
-    public int getHp() {
+    public void setHp_ref(int newhp){// Função N° 6
+        this.hp_ref = newhp;
+    }
+    
+    public int getHp() {// Função N° 7
         return hp;
     }
     
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setHit(int hit){
-        this.hit = hit;
-    }
-
-    public void setHp(int hp) {
+    public void setHp(int hp) { // Função N° 8
         this.hp = hp;
     }
 
-    public void defineHp(int newhp){
-        this.hp_ref = newhp;
-        this.hp = newhp;
+    public int getHit(){// Função N° 9
+        return hit;
+    }
+    
+
+    public void setHit(int hit){// Função N° 10
+        this.hit = hit;
     }
 
-    public boolean hit(ArrayList<Guerreiro> gs , int order, String sideName , int damage){
+
+    public void alterHp(int alter){// Função N° 11
+        this.hp = hp + alter;
+        if(this.hp < 0)
+            this.hp = 0;
+        if (this.hp > hp_ref)
+            this.hp = hp_ref;
+    }
+
+    public boolean hit(ArrayList<Guerreiro> gs , int order, String sideName , int damage){// Função N° 12
         int index = order - 1;
-        //System.out.println("\n" + order + "\n");
         gs.get(index).alterHp(damage);
         if (gs.get(index).hp > 0)
         {
@@ -94,13 +100,7 @@ public abstract class Guerreiro {
         }
     }
     
-    public void alterHp(int alter){
-        this.hp = hp + alter;
-        if(this.hp < 0)
-            this.hp = 0;
-        if (this.hp > hp_ref)
-            this.hp = hp_ref;
-    }
     
-    public abstract void attack(ArrayList<Guerreiro> Gs);
+    public abstract void attack(ArrayList<Guerreiro> Gs);// Função N° 13
+
 }

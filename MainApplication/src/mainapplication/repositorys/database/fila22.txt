@@ -1,5 +1,6 @@
-4,Lando 'Darth' Calrissian,59,138.74573796932418,50
-4,Lando 'Darth' Calrissian,59,138.74573796932418,100
-4,Lando 'Darth' Calrissian,59,138.74573796932418,100
-2,Zeb 'Hunter' Admiral,24,53.7328568242411,10
-4,Lando 'Darth' Calrissian,59,138.74573796932418,100
+1,Cobb 'Lord' Fett,45,127.02553263795998,70
+1,Luke Erso of Hoth,26,57.54029273283284,100
+3,Obi-Wan 'Acolyte' Vizsla,57,146.49439310485928,60
+1,Mace Vanth the Trandoshan,44,125.23131901013686,100
+5,Din Holdo of Scarif,43,144.20618366141207,100
+5,Asajj Imwe the Jedi,33,71.02002641891178,100

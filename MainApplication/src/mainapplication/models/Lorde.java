@@ -24,7 +24,7 @@ public class Lorde extends DarkSide{
     }
 
     @Override 
-    public void alterHp(int alter){
+    public void alterHp(int alter){// Função N° 11
         super.alterHp(alter);
         ArrayList<Guerreiro> sd = null;
         Acolito acolito = null;
@@ -40,10 +40,10 @@ public class Lorde extends DarkSide{
     }
 
     @Override
-    public void attack(ArrayList<Guerreiro> Gs) {
+    public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
         super.attack(Gs);
         String nameL = null;
-        hit(Gs, 1, nameL, this.getHit());//Linha temporaria
+        hit(Gs, 1, "Lorde", this.getHit());//Linha temporaria
         /*ArrayList<Guerreiro> sd = null;
         Lorde sith = new Lorde(Gs.getFirst().getName(), Gs.getFirst().getAge(), Gs.getFirst().getWeight());
         if (espectro)nameL = "Espectro Sith";

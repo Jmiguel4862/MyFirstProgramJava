@@ -1,3 +1,6 @@
-4,Barriss Inquisitor the Jedi,35,57.72095990698356,25
-4,Barriss Inquisitor the Jedi,35,57.72095990698356,10
-4,Barriss Inquisitor the Jedi,35,57.72095990698356,30
+2,Ahsoka Tano of Endor,37,147.40737557285686,70
+4,Nomi Palpatine the Mon Calamari,31,105.32310583039913,100
+5,Luke Skywalker,61,73.96611165829877,100
+3,Agent Baze Saxon,49,109.09912184212388,60
+1,Scout Koska Dune,23,87.44846024227422,100
+5,Nomi Palpatine,18,55.7425064906335,100

@@ -17,7 +17,7 @@ public class Acolito extends DarkSide{
     }
 
     @Override
-    public void attack(ArrayList<Guerreiro> Gs) {
+    public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
         super.attack(Gs);
         System.out.println("\n->> [HABILIDADE] Acalito atacou o primeiro da fila saltou e atacou o ultimo da fila ");
         hit(Gs, 1, "Acolito", this.getHit());

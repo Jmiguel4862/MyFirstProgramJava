@@ -5,6 +5,7 @@
 package mainapplication.models;
 
 import java.util.ArrayList;
+import mainapplication.controllers.Constants;
 
 /**
  *
@@ -13,17 +14,19 @@ import java.util.ArrayList;
 public class DroideExterminador extends DarkSide{
     
     public DroideExterminador(String name, int age, double weight) {
-        super(name, age, weight , 0);
-        this.defineHp(60);
+        super(name, age, weight , Constants.MOST_HP);
+            setHp_ref(60);
+            setHp(60);
     }
     public DroideExterminador(Guerreiro G) {
         super(G);
-        this.defineHp(60);
+            setHp(60);
+            setHp(60);
     }
     @Override
-    public void attack(ArrayList<Guerreiro> Gs) {
+    public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
         super.attack(Gs);
         System.out.println("\n\n->> [HABILIDADE] Guerreiro Droide Exterminador "+ this.getName() + " MATOU o guerreiro " +Gs.getFirst().getClass().getSimpleName() +" "+Gs.get(0).getName() + "!!!");   
-        Gs.remove(Gs.getFirst());
+        hit(Gs, 1, "Droide Exterminador", this.getHit());
     }
 }

@@ -15,27 +15,40 @@ public class TypeGuerreiro {
         String name = field[1];
         int age = Integer.parseInt(field[2]);
         double weight = Double.parseDouble(field[3]);
+        String meta_data [] = field[4].split(" ");
         if(side == 1)
         {
             return switch (type) {
-                case 1 -> new JediMestre(name, age, weight);
-                case 2 -> new JediConsular(name, age, weight);
-                case 3 -> new JediGeneral(name, age, weight);
-                case 4 -> new CloneMedico(name, age, weight);
-                case 5 -> new CloneComando(name, age, weight);
-                case 6 -> new ClonePesado(name, age, weight);
+                case 1 -> 
+                    new JediMestre(name, age, weight);
+                case 2 -> 
+                    new JediConsular(name, age, weight);
+                case 3 -> 
+                    new JediGeneral(name, age, weight);
+                case 4 -> 
+                    new CloneMedico(name, age, weight);
+                case 5 -> 
+                    new CloneComando(name, age, weight);
+                case 6 -> 
+                    new ClonePesado(name, age, weight);
                 default -> null;
             };
         }
         else 
         {
             return switch (type) {
-                case 1 -> new DroideBatalhaB2(name, age, weight);
-                case 2 -> new DroideAranha(name, age, weight);
-                case 3 -> new DroideExterminador(name, age, weight);
-                case 4 -> new Acolito(name, age, weight);
-                case 5 -> new Assassino(name, age, weight);
-                case 6 -> new Lorde(name, age, weight);
+                case 1 -> 
+                    new DroideBatalhaB2(name, age, weight);
+                case 2 -> 
+                    new DroideAranha(name, age, weight);
+                case 3 -> 
+                    new DroideExterminador(name, age, weight);
+                case 4 -> 
+                    new Acolito(name, age, weight);
+                case 5 -> 
+                    new Assassino(name, age, weight);
+                case 6 -> 
+                    new Lorde(name, age, weight);
                 default -> null;
             };
         }

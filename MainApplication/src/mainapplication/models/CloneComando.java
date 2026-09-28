@@ -18,7 +18,7 @@ public class CloneComando extends LightSide{
     }
 
     @Override
-    public void attack(ArrayList<Guerreiro> Gs) {
+    public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
         super.attack(Gs);
         int equals = 0;
         ArrayList<Guerreiro> jc = BattleSettings.getSideJediClones();

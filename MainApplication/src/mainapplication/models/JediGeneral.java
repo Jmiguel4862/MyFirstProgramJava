@@ -19,7 +19,7 @@ public class JediGeneral extends LightSide{
         super(G);
     }
     @Override
-    public void attack(ArrayList<Guerreiro> Gs) {
+    public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
         super.attack(Gs);
         if ((Gs.getFirst().getHp() + this.getHit()) < 1) {
             this.alterHp(50);

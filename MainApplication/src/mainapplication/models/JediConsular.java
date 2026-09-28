@@ -21,7 +21,7 @@ public class JediConsular extends LightSide{
         super(G);
     }
     @Override
-    public void attack(ArrayList<Guerreiro> Gs) {
+    public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
         super.attack(Gs);
         ArrayList<Guerreiro> gsNext = null;
         ArrayList<Guerreiro> gsPrev = null;

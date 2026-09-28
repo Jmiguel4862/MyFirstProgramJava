@@ -1,3 +1,6 @@
-6,Hux Jinn the Cathar,26,131.3406541828682,45
-6,Kanan Bane the Cathar,24,110.73085278537147,30
-2,Greez Dune the Mirialan,49,91.78223552685162,10
+1,Caleb 'Warlord' Kestis,51,114.2065545122468,65
+1,Quinlan Ventress of Ilum,18,141.60020246182444,100
+2,Obi-Wan Skywalker,63,137.25260381971054,100
+4,Vaylin Woves of Exegol,18,96.30145261118304,100
+4,Aurra Erso the Trandoshan,28,83.91084237965737,100
+5,Valkorion Moff,26,122.83172730736308,100

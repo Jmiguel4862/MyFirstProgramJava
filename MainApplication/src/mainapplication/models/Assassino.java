@@ -17,7 +17,7 @@ public class Assassino extends DarkSide{
     }
 
     @Override
-    public void attack(ArrayList<Guerreiro> Gs) {
+    public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
         super.attack(Gs);
         //System.out.println("\n\n->> [HABILIDADE] Este assasino enveneno o guerreiro atacado agora a cada ataque deste guereiro ele perdera 5 pontos ");
         hit(Gs, 1, "Assasino", this.getHit());

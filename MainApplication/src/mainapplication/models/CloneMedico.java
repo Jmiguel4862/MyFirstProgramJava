@@ -18,7 +18,7 @@ public class CloneMedico extends LightSide{
     }
 
     @Override
-    public void attack(ArrayList<Guerreiro> Gs) {
+    public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
         super.attack(Gs);
         ArrayList <Guerreiro> gs = BattleSettings.getSideJediClones();
         hit(Gs , 1 , "Clone Médico" , this.getHit());

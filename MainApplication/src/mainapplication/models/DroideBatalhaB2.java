@@ -21,13 +21,13 @@ public class DroideBatalhaB2 extends DarkSide{
     }
 
     @Override
-    public void attack(ArrayList<Guerreiro> Gs) {
+    public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
         super.attack(Gs);
         hit(Gs, 1, "Droide de Batalha B2", this.getHit());
     }   
 
     @Override
-    public void alterHp(int alter) {
+    public void alterHp(int alter) {// Função N° 11
         ArrayList <Guerreiro> sd =null;
         Guerreiro newb2 = null;
         super.alterHp(alter); 

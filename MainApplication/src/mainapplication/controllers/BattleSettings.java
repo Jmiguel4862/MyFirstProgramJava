@@ -12,7 +12,8 @@ public class BattleSettings {
 
     private static int[] orderOfBattle = new int[]{1,1};
     private static ArrayList<Guerreiro> SideJediClones = new ArrayList<>();
-    private static ArrayList<Guerreiro> SideSithDroides = new ArrayList<>();;
+    private static ArrayList<Guerreiro> SideSithDroides = new ArrayList<>();
+    private static boolean FirstOfLine = false;
 
     public static ArrayList<Guerreiro> getSideJediClones() {
         return SideJediClones;
@@ -31,7 +32,15 @@ public class BattleSettings {
     }
 
     public static int getOrder(int team){
+        if (FirstOfLine)
+            return  1;
+        else
         return orderOfBattle[team-1];
+    }
+
+    public static void setOrder(int team , int neworder){
+        if(team <= 4 || team >= 1)
+            orderOfBattle[team-1] = neworder;
     }
 
     public static void pushGuerreiro(int side , int line) {
@@ -48,6 +57,10 @@ public class BattleSettings {
             pushGuerreiro(side, i);
     }
 
+    private static void resetVeriablesBattle(){
+        DarkSide.setPreference_hit(0);
+    }
+    
     private static boolean fileSettings(ArrayList<Guerreiro> Gs, int side){
         int i = side -1;
         ArrayList<Guerreiro> temp = null;
@@ -106,6 +119,8 @@ public class BattleSettings {
                 {
                     orderOfBattle[0] = j;
                     orderOfBattle[1] = j;
+                    if (j == 1) FirstOfLine = true;
+                    else FirstOfLine = false;
                     if (i == 1){
                         if(!battle(SideJediClones, SideSithDroides , i))
                             {
@@ -128,6 +143,7 @@ public class BattleSettings {
             }
             if(count_defeat != Constants.MAX_FILES)
             {
+                resetVeriablesBattle();
                 pushSide(1);
                 pushSide(2);
             }

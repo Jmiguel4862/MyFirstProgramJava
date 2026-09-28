@@ -1,6 +1,6 @@
-4,Cara Opress the Nautolan,55,61.182573609014746,100
-4,Cara Opress the Nautolan,55,61.182573609014746,100
-4,Cara Opress the Nautolan,55,61.182573609014746,100
-4,Cara Opress the Nautolan,55,61.182573609014746,100
-6,Sion Jarrus of Corellia,50,130.31052352510716,22
-3,Reva Dritus,45,63.78456650255981,25
+2,Cere 'Emperor' Reeves,49,98.43507368022846,44
+4,Cara 'the Great' Inquisitor,36,59.10363726010573,100
+1,Nihilus Woves of Bespin,38,142.03431925739562,100
+1,Rey Malbus of Scarif,46,85.59476808577205,100
+2,Trilla Junda,64,97.30777509123067,100
+6,Fifth Bane of Dathomir,31,110.73742632076687,100
