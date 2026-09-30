@@ -27,17 +27,11 @@ public abstract class DarkSide extends Guerreiro{
     @Override 
     public void attack(ArrayList<Guerreiro> Gs){// Função N° 13
         ArrayList<Guerreiro> temp = null;
-        int i = 1;
         if (Preference_hit != 0){
-            do{
-                temp = FileOfLine.reader_Guerreiros(1, Preference_hit);
-                i++;
-            }while(temp == null && i <= Constants.MAX_FILES);
-            if (temp != null) {
-                Gs.clear();
-                Gs.addAll(temp);
-            }
-            BattleSettings.setOrder(1, (i-1));
+            temp = FileOfLine.reader_Guerreiros(1, Preference_hit);
+            Gs.clear();
+            Gs.addAll(temp);
+            BattleSettings.setOrder(1, Preference_hit);
         }
     }
 

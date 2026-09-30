@@ -33,23 +33,21 @@ public class ClonePesado extends LightSide{
 
     @Override
     public void alterHp(int alter) {// Função N° 11
-        System.out.println(DarkSide.getPreference_hit());
-        BattleSettings.setOrder(1, DarkSide.getPreference_hit());
-        if((this.getHp()-alter) <= 0 && DarkSide.getPreference_hit() > 1)
+        if((this.getHp()-alter) >= 0 && DarkSide.getPreference_hit() >= 1)
         {
-            DarkSide.setPreference_hit(DarkSide.getPreference_hit()-1);
+            DarkSide.setPreference_hit(DarkSide.getPreference_hit());
             BattleSettings.setOrder(1, DarkSide.getPreference_hit());
         }
         else
             if (DarkSide.getPreference_hit() != 0) 
-                DarkSide.setPreference_hit(0);
+                DarkSide.setPreference_hit(DarkSide.getPreference_hit()-1);
         super.alterHp(alter);
         if(this == BattleSettings.getSideJediClones().getFirst()) System.out.println("\n\n->> [HABILIDADE] enquanto clone pessado estiver vivo ou a rodada acabar o este clone pessado será atacado!!");
     }
     @Override
     public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
         ArrayList<Guerreiro> temp = null;
-        int index = 1;
+        int index = 0;
         super.attack(Gs);
         hit(Gs, 1, "Clone Pesado", this.getHit());
         if(BattleSettings.getOrder(1) == 1)
@@ -61,7 +59,5 @@ public class ClonePesado extends LightSide{
             DarkSide.setPreference_hit(index-1);
         }
     }
-
-    
     
 }
