@@ -1,6 +1,0 @@
-1,Maul Vader,54,119.66414474326874,100
-4,Qui-Gon Sunrider of Mustafar,29,122.82025693113566,100
-1,Sentinel Greef Organa,42,86.52548122549958,100
-2,Maul Windu the Kel Dor,57,136.14520579506345,100
-6,Commander Quinlan Woves,66,113.16696970356031,400
-3,Sentinel Boba Tyranus,65,81.40142089804667,100

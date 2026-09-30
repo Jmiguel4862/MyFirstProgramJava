@@ -16,8 +16,8 @@ public abstract class LightSide extends Guerreiro{
         return poisoned;
     }
 
-    public LightSide(String name, int age, double weight , int hit) {
-        super(name, age, weight , hit);
+    public LightSide(String name, int age, double weight , int hit , String metaData) {
+        super(name, age, weight , hit , metaData);
     }
     public LightSide(Guerreiro G) {
         super(G);

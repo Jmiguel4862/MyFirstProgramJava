@@ -14,10 +14,10 @@ import mainapplication.repositorys.querys.FileOfLine;
  */
 public class ClonePesado extends LightSide{
     
-    public ClonePesado(String name, int age, double weight) {
-        super(name, age, weight , 30);
-        setHp_ref(400);
-        setHp(400);
+    public ClonePesado(String name, int age, double weight , String metaData) {
+        super(name, age, weight , 30 , metaData);
+        this.setHp(400);
+        this.setHp_ref(400);
     }
 
     public ClonePesado(Guerreiro G) {

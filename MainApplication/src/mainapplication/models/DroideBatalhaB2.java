@@ -12,8 +12,8 @@ import mainapplication.controllers.BattleSettings;
  * @author João Miguel
  */
 public class DroideBatalhaB2 extends DarkSide{
-    public DroideBatalhaB2(String name, int age, double weight) {
-        super(name, age, weight , 10);
+    public DroideBatalhaB2(String name, int age, double weight , String metaData) {
+        super(name, age, weight , 10 , metaData);
     }
     
     public DroideBatalhaB2(Guerreiro G) {

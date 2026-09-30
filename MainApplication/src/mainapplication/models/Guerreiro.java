@@ -17,12 +17,15 @@ public abstract class Guerreiro {
     private int hp_ref = 100;
     private int hp = 100;
     private int hit = -10;
+    private String metaData[] = null;
     
-    public Guerreiro(String name, int age, double weight , int hit){
+    public Guerreiro(String name, int age, double weight , int hit, String metaData){
         this.name = name;
         this.age = age;
         this.weight = weight;
         this.hit = -hit;
+        this.metaData = metaData.split(" ");
+
     }
 
     public Guerreiro(Guerreiro G){
@@ -32,6 +35,7 @@ public abstract class Guerreiro {
         this.hp_ref = G.getHp();
         this.hp = G.getHp();
         this.hit = G.getHit();
+        this.metaData = G.getMetaData();
     }
 
     public String getName(){// Função N° 1
@@ -84,7 +88,11 @@ public abstract class Guerreiro {
             this.hp = hp_ref;
     }
 
-    public boolean hit(ArrayList<Guerreiro> gs , int order, String sideName , int damage){// Função N° 12
+    public String[] getMetaData(){// Função N° 12
+        return metaData;
+    }
+
+    public boolean hit(ArrayList<Guerreiro> gs , int order, String sideName , int damage){// Função N° 13
         int index = order - 1;
         gs.get(index).alterHp(damage);
         if (gs.get(index).hp > 0)
@@ -101,6 +109,6 @@ public abstract class Guerreiro {
     }
     
     
-    public abstract void attack(ArrayList<Guerreiro> Gs);// Função N° 13
+    public abstract void attack(ArrayList<Guerreiro> Gs);// Função N° 14
 
 }

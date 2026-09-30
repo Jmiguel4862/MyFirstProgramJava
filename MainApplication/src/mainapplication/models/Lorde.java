@@ -13,8 +13,8 @@ import mainapplication.controllers.BattleSettings;
  */
 public class Lorde extends DarkSide{
     private boolean espectro = false;
-    public Lorde(String name, int age, double weight) {
-        super(name, age, weight, 50);
+    public Lorde(String name, int age, double weight, String metaData) {
+        super(name, age, weight , 50 , metaData);
     }
     public Lorde(Guerreiro G) {
         super(G);
@@ -28,11 +28,12 @@ public class Lorde extends DarkSide{
         super.alterHp(alter);
         ArrayList<Guerreiro> sd = null;
         Acolito acolito = null;
+        String fieldsAcolito = null;
         if (this.getHp() ==  0) {
             sd = BattleSettings.getSideSithDroides();
             System.out.println("\n->> [HABILIDADE] Lorde morreu, porém deixou 4 acolitos em seu lugar para terminarem o trabalho que ele começou!!");
             for (int i = 0; i < 4; i++) {
-                acolito = new Acolito(this.getName(), this.getAge(), this.getWeight());
+                acolito = new Acolito(this.getName(), this.getAge(), this.getWeight(), null);
                 sd.add(acolito);
                 acolito = null;
             }

@@ -12,8 +12,8 @@ import java.util.ArrayList;
  */
 public class DroideAranha extends DarkSide{
     
-    public DroideAranha(String name, int age, double weight) {
-        super(name, age, weight , 10);
+    public DroideAranha(String name, int age, double weight , String metaData) {
+        super(name, age, weight , 10 , metaData);
     }
     
     public DroideAranha(Guerreiro G) {

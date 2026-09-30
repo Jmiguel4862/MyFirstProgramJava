@@ -13,8 +13,8 @@ import mainapplication.controllers.Constants;
  */
 public class DroideExterminador extends DarkSide{
     
-    public DroideExterminador(String name, int age, double weight) {
-        super(name, age, weight , Constants.MOST_HP);
+    public DroideExterminador(String name, int age, double weight , String metaData) {
+        super(name, age, weight , Constants.MOST_HP , metaData);
             setHp_ref(60);
             setHp(60);
     }

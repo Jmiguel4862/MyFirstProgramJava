@@ -11,8 +11,8 @@ import java.util.ArrayList;
  * @author João Miguel
  */
 public class JediMestre extends LightSide{
-    public JediMestre(String name, int age, double weight) {
-        super(name, age, weight , 35);
+    public JediMestre(String name, int age, double weight , String metaData) {
+        super(name, age, weight , 35 , metaData);
     }
     public JediMestre(Guerreiro G) {
         super(G);

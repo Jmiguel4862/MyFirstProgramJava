@@ -8,8 +8,8 @@ public abstract class DarkSide extends Guerreiro{
 
     private static int Preference_hit = 0;
 
-    public DarkSide(String name, int age, double weight , int hit) {
-        super(name, age, weight , hit);
+    public DarkSide(String name, int age, double weight , int hit , String metaData) {
+        super(name, age, weight , hit , metaData);
     }
 
     public DarkSide(Guerreiro G) {

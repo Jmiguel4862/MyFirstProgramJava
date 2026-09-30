@@ -13,8 +13,8 @@ import  mainapplication.controllers.BattleSettings;
  */
 public class CloneMedico extends LightSide{
     
-    public CloneMedico(String name, int age, double weight) {
-        super(name, age, weight , 20);
+    public CloneMedico(String name, int age, double weight , String metaData) {
+        super(name, age, weight , 20 , metaData);
     }
 
     @Override

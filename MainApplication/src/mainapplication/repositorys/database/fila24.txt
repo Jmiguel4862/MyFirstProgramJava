@@ -1,6 +1,4 @@
-5,Kanan 'Padawan' Ventress,52,129.97438992550747,50
-2,Axe Tano of Ryloth,19,77.61916928791567,100
-1,Reva Dritus,38,80.74747224514084,100
-4,Satele 'Consul' Kestis,37,136.13726456920287,100
-6,Anakin Vizsla of Corellia,48,53.46604433948474,100
-1,Ninth 'Captain' Shan,33,131.72707368472044,50
+4,Kylo Admiral of Tatooine,44,124.01604829958808,100
+4,Kylo Admiral of Tatooine,44,124.01604829958808,100,null
+4,Kylo Admiral of Tatooine,44,124.01604829958808,100,null
+4,Kylo Admiral of Tatooine,44,124.01604829958808,100,null

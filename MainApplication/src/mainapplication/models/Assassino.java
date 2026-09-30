@@ -12,8 +12,8 @@ import java.util.ArrayList;
  */
 public class Assassino extends DarkSide{
     
-    public Assassino(String name, int age, double weight) {
-        super(name, age, weight, 20);
+    public Assassino(String name, int age, double weight , String metaData) {
+        super(name, age, weight , 20 , metaData);
     }
 
     @Override

@@ -14,8 +14,8 @@ import mainapplication.controllers.BattleSettings;
  */
 public class JediConsular extends LightSide{
     
-    public JediConsular(String name, int age, double weight) {
-        super(name, age, weight , 30);
+    public JediConsular(String name, int age, double weight , String metaData) {
+        super(name, age, weight , 40 , metaData);
     }
     public JediConsular(Guerreiro G) {
         super(G);

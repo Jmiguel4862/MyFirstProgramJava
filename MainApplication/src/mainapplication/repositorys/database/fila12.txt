@@ -1,6 +1,0 @@
-2,Cere Dune the Mandalorian,62,120.8512200737981,90
-3,Hux 'Marshal' Suduri,22,123.72757254731756,90
-4,Rey Tano the Wookiee,57,129.55690012086689,90
-1,Nomi 'Captain' Orrelios,48,140.44181483410438,90
-5,Ninth Palpatine,30,65.753208166604,75
-6,Reva 'Darth' Starkiller,34,55.460639962347,55

@@ -1,6 +1,7 @@
-5,Pellaeon 'Marshal' Calder,28,110.37301994430146,55
-2,Caleb 'Warlord' Kestis,61,90.76982246577438,100
-6,Satele Suduri,35,83.40442206655413,100
-6,Maul Qel-Droma of Kashyyyk,20,86.76603577419334,100
-4,Ninth Palpatine,38,85.15151923233859,100
-2,Commander Gree,45,131.70949258891238,65
+4,Hunter Grand Thorne,65,138.1693700096264,35
+4,Hunter Grand Thorne,65,138.1693700096264,30,null
+4,Trilla Dune,67,134.9691491814043,50,null
+4,Trilla Dune,67,134.9691491814043,50,null
+4,Trilla Dune,67,134.9691491814043,65,null
+4,Trilla Dune,67,134.9691491814043,50,null
+4,Hunter Grand Thorne,65,138.1693700096264,20,null
