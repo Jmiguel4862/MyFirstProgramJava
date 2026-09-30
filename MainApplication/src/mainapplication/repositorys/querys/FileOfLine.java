@@ -26,6 +26,7 @@ public class FileOfLine {
      * @return 
      */
 
+    
     public static ArrayList<Guerreiro> reader_Guerreiros( int side, int queue){
        try {
             String line = "MainApplication/src/mainapplication/repositorys/database/fila"+side+ queue +".txt";
