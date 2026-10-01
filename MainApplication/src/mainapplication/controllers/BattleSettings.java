@@ -75,7 +75,7 @@ public class BattleSettings {
                 return true;
             }
         }
-        for(int j = (orderOfBattle[i] - 1); j > 0;j--)
+        for(int j = (orderOfBattle[i] - 1); j >= 0;j--)
         {
             if (Gs.get(j).size() > 0)
             {
@@ -144,7 +144,7 @@ public class BattleSettings {
                             }
                     }
                     System.out.println(count_defeat);
-                    scan.nextLine();
+                    //scan.nextLine();
                     System.out.println("\n=========================================\n");
                 }
             }
