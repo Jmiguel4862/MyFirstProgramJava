@@ -16,6 +16,10 @@ public class BattleSettings {
     private static ArrayList<ArrayList<Guerreiro>> SideSithDroides = new ArrayList<>();
     private static boolean FirstOfLine = false;
 
+    public static boolean getFirstOfLine(){
+        return FirstOfLine;
+    }
+
     public static ArrayList<ArrayList<Guerreiro>> getSideJediClones() {
         return SideJediClones;
     }
@@ -29,7 +33,7 @@ public class BattleSettings {
     }
 
     public static  ArrayList<Guerreiro> getCurrentLineSithDroides(){
-        return SideJediClones.get(getOrder(2));
+        return SideSithDroides.get(getOrder(2));
     }
 
     public static int getOrder(int team){
@@ -53,7 +57,7 @@ public class BattleSettings {
     }
 
     private static void pushSide(int side){
-        for (int i = 1; i <= Constants.MAX_FILES; i++)
+        for (int i = 0; i < Constants.MAX_FILES; i++)
             pushGuerreiro(side, i);
     }
 
@@ -63,7 +67,7 @@ public class BattleSettings {
     
     private static boolean fileSettings(ArrayList<ArrayList<Guerreiro>> Gs, int side){
         int i = side -1;
-        for(int j = orderOfBattle[i]; j <=  Constants.MAX_FILES;j++)
+        for(int j = orderOfBattle[i]; j <  Constants.MAX_FILES;j++)
         {
             if (Gs.get(j).size() > 0)
             {
@@ -119,7 +123,7 @@ public class BattleSettings {
                 else 
                     System.out.println("SITH E OS DROIDES VÃO ATACAR O JEDI E CLONES DA FILA");
                     
-                for (int j = 1; j <= Constants.MAX_FILES; j++) 
+                for (int j = 0; j < Constants.MAX_FILES; j++) 
                 {
                     orderOfBattle[0] = j;
                     orderOfBattle[1] = j;
@@ -139,6 +143,7 @@ public class BattleSettings {
                                 continue;
                             }
                     }
+                    System.out.println(count_defeat);
                     scan.nextLine();
                     System.out.println("\n=========================================\n");
                 }

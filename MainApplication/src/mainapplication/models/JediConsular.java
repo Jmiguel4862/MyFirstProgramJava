@@ -26,7 +26,7 @@ public class JediConsular extends LightSide{
         int orderSith = (BattleSettings.getOrder(2));
         super.attack(Gs);
         hit(Gs , 1 , "Jedi Consular" , this.getHit());
-        if ((orderSith + 1 ) <= 4)
+        if ((orderSith + 1 ) < 4)
         {
             gsRight = BattleSettings.getSideSithDroides().get(orderSith+1);
             if (gsRight.size() > 0) {
@@ -34,7 +34,7 @@ public class JediConsular extends LightSide{
                 hit(gsRight, 1, "Jedi Consular", this.getHit());
             }    
         }
-        if(orderSith - 1 >= 1){
+        if(orderSith - 1 >= 0){
             gsLeft = BattleSettings.getSideSithDroides().get(orderSith - 1);
             if (gsLeft.size() > 0) {
                 System.out.println("\n\n->> [HABILIDADE] JIDE CONSULAR(ATACA INIMICO A ESQUERDA)!!");

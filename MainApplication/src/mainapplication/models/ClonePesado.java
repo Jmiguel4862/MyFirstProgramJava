@@ -45,11 +45,11 @@ public class ClonePesado extends LightSide{
         int index = 0;
         super.attack(Gs);
         hit(Gs, 1, "Clone Pesado", this.getHit());
-        if(BattleSettings.getOrder(1) == 1)
+        if(BattleSettings.getOrder(1) == 0)
         {
             do{
                 index++;
-            }while(BattleSettings.getSideJediClones().get(index).getFirst().getClass() == ClonePesado.class);
+            }while( BattleSettings.getSideJediClones().get(index).size() > 0 && BattleSettings.getSideJediClones().get(index).getFirst().getClass() == ClonePesado.class);
             DarkSide.setPreference_hit(index-1);
         }
     }
