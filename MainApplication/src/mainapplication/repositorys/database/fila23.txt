@@ -1,7 +1,6 @@
-4,Hunter Grand Thorne,65,138.1693700096264,35
-4,Hunter Grand Thorne,65,138.1693700096264,30,null
-4,Trilla Dune,67,134.9691491814043,50,null
-4,Trilla Dune,67,134.9691491814043,50,null
-4,Trilla Dune,67,134.9691491814043,65,null
-4,Trilla Dune,67,134.9691491814043,50,null
-4,Hunter Grand Thorne,65,138.1693700096264,20,null
+4,Jyn Syndulla,53,138.02669753040146,100
+1,Merrin,60,59.10592927444044
+5,Thexan Sing the Mandalorian,30,73.10279406491858
+1,Arcann Syndulla the Cathar,41,84.01394635428454
+2,Cassian 'Enforcer' Shadow,66,53.09652341667614
+1,Finn Ventress,66,66.00979592094835

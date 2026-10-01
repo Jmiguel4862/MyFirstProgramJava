@@ -1,0 +1,6 @@
+6,Quinlan Bane of Kamino,45,128.36702545911524,100
+6,Yoda Calder of Naboo,67,111.07039754285323
+1,Caleb 'Consul' Imwe,26,50.52279954210489
+3,Sion Kast the Twi'lek,37,103.25249032298672
+4,Pryde Tano,44,128.2758521044468
+1,Grand Inquisitor the Pantoran,38,82.71083390239573

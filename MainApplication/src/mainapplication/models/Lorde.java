@@ -13,8 +13,8 @@ import mainapplication.controllers.BattleSettings;
  */
 public class Lorde extends DarkSide{
     private boolean espectro = false;
-    public Lorde(String name, int age, double weight, String metaData) {
-        super(name, age, weight , 50 , metaData);
+    public Lorde(String name, int age, double weight) {
+        super(name, age, weight , 50 );
     }
     public Lorde(Guerreiro G) {
         super(G);
@@ -26,15 +26,12 @@ public class Lorde extends DarkSide{
     @Override 
     public void alterHp(int alter){// Função N° 11
         super.alterHp(alter);
-        ArrayList<Guerreiro> sd = null;
         Acolito acolito = null;
-        String fieldsAcolito = null;
         if (this.getHp() ==  0) {
-            sd = BattleSettings.getSideSithDroides();
             System.out.println("\n->> [HABILIDADE] Lorde morreu, porém deixou 4 acolitos em seu lugar para terminarem o trabalho que ele começou!!");
             for (int i = 0; i < 4; i++) {
-                acolito = new Acolito(this.getName(), this.getAge(), this.getWeight(), null);
-                sd.add(acolito);
+                acolito = new Acolito(this.getName(), this.getAge(), this.getWeight());
+                BattleSettings.getSideSithDroides().get(BattleSettings.getOrder(2)).add(acolito);
                 acolito = null;
             }
         }
@@ -44,18 +41,16 @@ public class Lorde extends DarkSide{
     public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
         super.attack(Gs);
         String nameL = null;
-        hit(Gs, 1, "Lorde", this.getHit());//Linha temporaria
-        /*ArrayList<Guerreiro> sd = null;
-        Lorde sith = new Lorde(Gs.getFirst().getName(), Gs.getFirst().getAge(), Gs.getFirst().getWeight());
+        Lorde sith = null;
         if (espectro)nameL = "Espectro Sith";
         else nameL = "Lorde";
         if (hit(Gs, 1, nameL, this.getHit()))
         {
+            sith = new Lorde(Gs.getFirst().getName(), Gs.getFirst().getAge(), Gs.getFirst().getWeight());
             System.out.println("\n->> [HABILIDADE] Lorde fez seu Ritual de reanimação e trouxe inimigo derrotado de volta a vida");
-            sd = BattleSettings.getSideSithDroides();
             sith.setHit(5);
             sith.espectro = true;
-            sd.add(sith);
-        }*/
+            BattleSettings.getCurrentLineSithDroides().add(sith);
+        }
     }
 }

@@ -5,7 +5,6 @@
 package mainapplication.models;
 
 import java.util.ArrayList;
-import mainapplication.repositorys.querys.FileOfLine;
 import mainapplication.controllers.BattleSettings;
 
 /**
@@ -14,36 +13,32 @@ import mainapplication.controllers.BattleSettings;
  */
 public class JediConsular extends LightSide{
     
-    public JediConsular(String name, int age, double weight , String metaData) {
-        super(name, age, weight , 40 , metaData);
+    public JediConsular(String name, int age, double weight) {
+        super(name, age, weight , 40);
     }
     public JediConsular(Guerreiro G) {
         super(G);
     }
     @Override
     public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
+        ArrayList<Guerreiro> gsRight= null;
+        ArrayList<Guerreiro> gsLeft= null;
+        int orderSith = (BattleSettings.getOrder(2));
         super.attack(Gs);
-        ArrayList<Guerreiro> gsNext = null;
-        ArrayList<Guerreiro> gsPrev = null;
         hit(Gs , 1 , "Jedi Consular" , this.getHit());
-        if ((BattleSettings.getOrder(2)+ 1 ) <= 4)
+        if ((orderSith + 1 ) <= 4)
         {
-            gsNext = FileOfLine.reader_Guerreiros(2, BattleSettings.getOrder(2) + 1 );
-            if (gsNext != null)
-            {
-                System.out.println("\n->> [HABILIDADE] JIDE CONSULAR(ATACA INIMICO A DIREITA)");
-                hit(gsNext , 1 , "Jedi Consular" , (this.getHit()/2));
-                FileOfLine.write_Guerreiros(gsNext, 2, BattleSettings.getOrder(2)+1);
-            }
-                
+            gsRight = BattleSettings.getSideSithDroides().get(orderSith+1);
+            if (gsRight.size() > 0) {
+                System.out.println("\n\n->> [HABILIDADE] JIDE CONSULAR(ATACA INIMICO A DIREITA)!!");
+                hit(gsRight, 1, "Jedi Consular", this.getHit());
+            }    
         }
-        if(BattleSettings.getOrder(2) - 1 >= 1){
-            gsPrev = FileOfLine.reader_Guerreiros(2, BattleSettings.getOrder(2) - 1 );
-            if (gsPrev != null)
-            {
+        if(orderSith - 1 >= 1){
+            gsLeft = BattleSettings.getSideSithDroides().get(orderSith - 1);
+            if (gsLeft.size() > 0) {
                 System.out.println("\n\n->> [HABILIDADE] JIDE CONSULAR(ATACA INIMICO A ESQUERDA)!!");
-                hit(gsPrev , 1 , "Jedi Consular" , (this.getHit()/2));
-                FileOfLine.write_Guerreiros(gsPrev, 2, BattleSettings.getOrder(2)-1);
+                hit(gsLeft, 1, "Jedi Consular", this.getHit());
             }    
         }
     }

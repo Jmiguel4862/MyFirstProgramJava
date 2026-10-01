@@ -19,17 +19,17 @@ public class TypeGuerreiro {
         {
             return switch (type) {
                 case 1 -> 
-                    new JediMestre(name, age, weight , field[4]);
+                    new JediMestre(name, age, weight );
                 case 2 -> 
-                    new JediConsular(name, age, weight, field[4]);
+                    new JediConsular(name, age, weight);
                 case 3 -> 
-                    new JediGeneral(name, age, weight, field[4]);
+                    new JediGeneral(name, age, weight);
                 case 4 -> 
-                    new CloneMedico(name, age, weight, field[4]);
+                    new CloneMedico(name, age, weight);
                 case 5 -> 
-                    new CloneComando(name, age, weight, field[4]);
+                    new CloneComando(name, age, weight);
                 case 6 -> 
-                    new ClonePesado(name, age, weight, field[4]);
+                    new ClonePesado(name, age, weight);
                 default -> null;
             };
         }
@@ -37,17 +37,17 @@ public class TypeGuerreiro {
         {
             return switch (type) {
                 case 1 -> 
-                    new DroideBatalhaB2(name, age, weight, field[4]);
+                    new DroideBatalhaB2(name, age, weight);
                 case 2 -> 
-                    new DroideAranha(name, age, weight, field[4]);
+                    new DroideAranha(name, age, weight);
                 case 3 -> 
-                    new DroideExterminador(name, age, weight, field[4]);
+                    new DroideExterminador(name, age, weight);
                 case 4 -> 
-                    new Acolito(name, age, weight, field[4]);
+                    new Acolito(name, age, weight);
                 case 5 -> 
-                    new Assassino(name, age, weight, field[4]);
+                    new Assassino(name, age, weight);
                 case 6 -> 
-                    new Lorde(name, age, weight, field[4]);
+                    new Lorde(name, age, weight);
                 default -> null;
             };
         }

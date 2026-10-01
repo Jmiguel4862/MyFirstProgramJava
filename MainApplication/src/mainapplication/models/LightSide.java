@@ -16,8 +16,8 @@ public abstract class LightSide extends Guerreiro{
         return poisoned;
     }
 
-    public LightSide(String name, int age, double weight , int hit , String metaData) {
-        super(name, age, weight , hit , metaData);
+    public LightSide(String name, int age, double weight , int hit) {
+        super(name, age, weight , hit);
     }
     public LightSide(Guerreiro G) {
         super(G);
@@ -26,10 +26,11 @@ public abstract class LightSide extends Guerreiro{
     @Override 
     public void alterHp(int alter){// Função N° 11
         super.alterHp(alter);
-        if ( alter < 0 && BattleSettings.getSideSithDroides().getFirst().getClass() == Assassino.class) {
+        if ( alter < 0 && BattleSettings.getSideSithDroides().get(BattleSettings.getOrder(2)).getFirst().getClass() == Assassino.class) {
             this.poisoned =true;
         }
     }
+
     
     @Override
     public void attack(ArrayList<Guerreiro> Gs){// Função N° 13

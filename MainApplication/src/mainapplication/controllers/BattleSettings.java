@@ -1,9 +1,10 @@
 package mainapplication.controllers;
 
 import mainapplication.models.*;
+import  mainapplication.repositorys.querys.FileOfLine;
 import java.util.ArrayList;
-import mainapplication.repositorys.querys.*;
 import java.util.Scanner;
+import java.util.Random;
 
 /**
  * BattleSettings
@@ -11,24 +12,24 @@ import java.util.Scanner;
 public class BattleSettings {
 
     private static int[] orderOfBattle = new int[]{1,1};
-    private static ArrayList<Guerreiro> SideJediClones = new ArrayList<>();
-    private static ArrayList<Guerreiro> SideSithDroides = new ArrayList<>();
+    private static ArrayList<ArrayList<Guerreiro>> SideJediClones = new ArrayList<>();
+    private static ArrayList<ArrayList<Guerreiro>> SideSithDroides = new ArrayList<>();
     private static boolean FirstOfLine = false;
 
-    public static ArrayList<Guerreiro> getSideJediClones() {
+    public static ArrayList<ArrayList<Guerreiro>> getSideJediClones() {
         return SideJediClones;
     }
 
-    public static ArrayList<Guerreiro> getSideSithDroides() {
+    public static ArrayList<ArrayList<Guerreiro>> getSideSithDroides() {
         return SideSithDroides;
     }
 
-    public static void setSideJediClones(ArrayList<Guerreiro> SideJediClones) {
-        BattleSettings.SideJediClones = SideJediClones;
+    public static  ArrayList<Guerreiro> getCurrentLineJediClones(){
+        return SideJediClones.get(getOrder(1));
     }
 
-    public static void setSideSithDroides(ArrayList<Guerreiro> SideSithDroides) {
-        BattleSettings.SideSithDroides = SideSithDroides;
+    public static  ArrayList<Guerreiro> getCurrentLineSithDroides(){
+        return SideJediClones.get(getOrder(2));
     }
 
     public static int getOrder(int team){
@@ -44,12 +45,11 @@ public class BattleSettings {
     }
 
     public static void pushGuerreiro(int side , int line) {
-        ArrayList<Guerreiro> Gs = FileOfLine.reader_Guerreiros(side, line);
-        if (Gs == null)
+        ArrayList<Guerreiro> Gs = (side == 1)? SideJediClones.get(line):SideSithDroides.get(line);
+        if (Gs.size() == 0)
             return ;
         Guerreiro temp = Gs.removeFirst();
         Gs.add(temp);
-        FileOfLine.write_Guerreiros(Gs, side, line);
     }
 
     private static void pushSide(int side){
@@ -61,26 +61,20 @@ public class BattleSettings {
         DarkSide.setPreference_hit(0);
     }
     
-    private static boolean fileSettings(ArrayList<Guerreiro> Gs, int side){
+    private static boolean fileSettings(ArrayList<ArrayList<Guerreiro>> Gs, int side){
         int i = side -1;
-        ArrayList<Guerreiro> temp = null;
-        Gs.clear();
         for(int j = orderOfBattle[i]; j <=  Constants.MAX_FILES;j++)
         {
-            temp = FileOfLine.reader_Guerreiros(side, j);
-            if (temp != null)
+            if (Gs.get(j).size() > 0)
             {
-                Gs.addAll(temp);
                 orderOfBattle[i] = j;
                 return true;
             }
         }
         for(int j = (orderOfBattle[i] - 1); j > 0;j--)
         {
-            temp = FileOfLine.reader_Guerreiros(side, j);
-            if (temp != null)
+            if (Gs.get(j).size() > 0)
             {
-                Gs.addAll(temp);
                 orderOfBattle[i] = j;
                 return true;
             }
@@ -88,27 +82,37 @@ public class BattleSettings {
         return false;
     }
 
-    private static boolean battle(ArrayList<Guerreiro> attacker ,ArrayList<Guerreiro> wholesale , int side){
-        ArrayList<Guerreiro> temp = FileOfLine.reader_Guerreiros(side, orderOfBattle[side -1]);
-        if (temp != null)
-        {
-            attacker.clear();
-            attacker.addAll(temp);
-        }
-        else 
+    private static boolean battle(ArrayList<ArrayList<Guerreiro>> attacker ,ArrayList<ArrayList<Guerreiro>> wholesale , int side){
+        int sideW= (side==1)?2:1;
+        if (attacker.get(getOrder(side)).size() < 1)
             return false;
-        if(!fileSettings(wholesale, (side==1)?2:1 ))
+        if(!fileSettings(wholesale, sideW ))
             return  false;
-        attacker.getFirst().attack(wholesale);
+        attacker.get(getOrder(side)).getFirst().attack(wholesale.get(getOrder(sideW)));
         return true;
+    }
+
+
+    public static void loadingGuerreiros(){
+        for (int i = 1; i <= Constants.MAX_FILES; i++) {
+            SideJediClones.add(FileOfLine.reader_Guerreiros(1, i));
+            SideSithDroides.add(FileOfLine.reader_Guerreiros(2, i));
+        }
     }
 
     public static int battleArena(){  
         Scanner scan = new Scanner(System.in);
+        Random ran = new Random();
+        boolean firstRound = true;
         int count_defeat = 0;
         while(count_defeat != Constants.MAX_FILES){
             for (int i = 1; i <= 2; i++)
             {
+                if (!firstRound)
+                {
+                    firstRound = false;
+                    i = ran.nextInt() / 2 + 1;   
+                }
                 count_defeat = 0;
                 if (i == 1)
                     System.out.println("JEDI E CLONES VÃO ATACAR O SITH E OS DROIDES ");
@@ -135,8 +139,6 @@ public class BattleSettings {
                                 continue;
                             }
                     }
-                    FileOfLine.write_Guerreiros(SideJediClones, 1, orderOfBattle[0]);
-                    FileOfLine.write_Guerreiros(SideSithDroides, 2, orderOfBattle[1]);
                     scan.nextLine();
                     System.out.println("\n=========================================\n");
                 }

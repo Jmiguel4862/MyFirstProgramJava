@@ -13,15 +13,15 @@ import mainapplication.controllers.BattleSettings;
  */
 public class CloneComando extends LightSide{
     
-    public CloneComando(String name, int age, double weight , String metaData) {
-        super(name, age, weight , 40 , metaData);
+    public CloneComando(String name, int age, double weight) {
+        super(name, age, weight , 40);
     }
 
     @Override
     public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
         super.attack(Gs);
         int equals = 0;
-        ArrayList<Guerreiro> jc = BattleSettings.getSideJediClones();
+        ArrayList<Guerreiro> jc = BattleSettings.getSideJediClones().get(BattleSettings.getOrder(1));
         if (jc.size() > 1)
         {
             for (int i = 1; i < jc.size(); i++) 

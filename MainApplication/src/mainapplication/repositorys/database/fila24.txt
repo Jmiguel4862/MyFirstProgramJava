@@ -1,4 +1,6 @@
-4,Kylo Admiral of Tatooine,44,124.01604829958808,100
-4,Kylo Admiral of Tatooine,44,124.01604829958808,100,null
-4,Kylo Admiral of Tatooine,44,124.01604829958808,100,null
-4,Kylo Admiral of Tatooine,44,124.01604829958808,100,null
+1,Axe Sidious of Endor,36,120.56859109198314,100
+3,Hunter Jyn Kryze,18,91.07338629126937
+1,Prime Ben Holdo,30,139.50470509594493
+2,Ahsoka 'General' Admiral,23,50.31027878200269
+5,Thexan Krennic the Zabrak,59,66.67201322449316
+4,Shadow Hux Vader,59,139.46546208077922

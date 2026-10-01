@@ -3,7 +3,6 @@ package mainapplication.views;
 
 import mainapplication.models.*;
 import mainapplication.controllers.*;
-import mainapplication.repositorys.querys.*;
 /**
  * PresentationGuerreiros
  */
@@ -31,7 +30,7 @@ public class Presentation {
         System.out.println("\n << GUERREIROS DO LADO DOS" + SideOfForce + ">>\n");
         for(int i = 1 ; i <= Constants.MAX_FILES ; i++){
             System.out.println("\nGuerreiro da fila " + i + ":\n");
-            for (Guerreiro G : FileOfLine.reader_Guerreiros(side, i)) {
+            for (Guerreiro G : ((i == 1)? BattleSettings.getSideJediClones().get(i):BattleSettings.getSideSithDroides().get(i))) {
                 System.out.println(TypeGuerreiro.get_guerreiro(side, G) + " - " + G.getName() + " - " + G.getAge() + " anos - " + String.format("%.2f", G.getWeight()) + " kg - " + G.getHp() + " HP");
                 total_weight += G.getWeight();
                 if (Most_Weight == null || G.getWeight() > Most_Weight.getWeight())

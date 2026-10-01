@@ -1,15 +1,14 @@
 package mainapplication.models;
 
 import java.util.ArrayList;
-import mainapplication.repositorys.querys.FileOfLine;
 import mainapplication.controllers.*;
 
 public abstract class DarkSide extends Guerreiro{
 
     private static int Preference_hit = 0;
 
-    public DarkSide(String name, int age, double weight , int hit , String metaData) {
-        super(name, age, weight , hit , metaData);
+    public DarkSide(String name, int age, double weight , int hit) {
+        super(name, age, weight , hit);
     }
 
     public DarkSide(Guerreiro G) {
@@ -26,11 +25,8 @@ public abstract class DarkSide extends Guerreiro{
     
     @Override 
     public void attack(ArrayList<Guerreiro> Gs){// Função N° 13
-        ArrayList<Guerreiro> temp = null;
         if (Preference_hit != 0){
-            temp = FileOfLine.reader_Guerreiros(1, Preference_hit);
-            Gs.clear();
-            Gs.addAll(temp);
+            Gs = BattleSettings.getSideJediClones().get(Preference_hit);
             BattleSettings.setOrder(1, Preference_hit);
         }
     }

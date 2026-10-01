@@ -1,0 +1,6 @@
+4,Finn 'Agent' Karga,27,90.36501832820582,100
+2,Hux 'Marshal' Suduri,67,75.9737852783862
+6,Wilhuff Orrelios the Mandalorian,48,147.93317313600187
+2,Poe Vizsla,61,104.22463941523085
+5,Marshal Yoda Ventress,52,127.06036406899297
+1,Sabine 'Acolyte' Ren,50,112.72063665676242

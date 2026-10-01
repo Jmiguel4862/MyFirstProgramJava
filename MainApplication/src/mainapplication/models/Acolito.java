@@ -12,8 +12,8 @@ import java.util.ArrayList;
  */
 public class Acolito extends DarkSide{
     
-    public Acolito(String name, int age, double weight, String metaData) {
-        super(name, age, weight , 15 , metaData);
+    public Acolito(String name, int age, double weight) {
+        super(name, age, weight , 15);
     }
 
     @Override

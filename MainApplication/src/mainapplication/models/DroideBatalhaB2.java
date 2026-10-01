@@ -12,8 +12,8 @@ import mainapplication.controllers.BattleSettings;
  * @author João Miguel
  */
 public class DroideBatalhaB2 extends DarkSide{
-    public DroideBatalhaB2(String name, int age, double weight , String metaData) {
-        super(name, age, weight , 10 , metaData);
+    public DroideBatalhaB2(String name, int age, double weight) {
+        super(name, age, weight , 10);
     }
     
     public DroideBatalhaB2(Guerreiro G) {
@@ -28,20 +28,19 @@ public class DroideBatalhaB2 extends DarkSide{
 
     @Override
     public void alterHp(int alter) {// Função N° 11
-        ArrayList <Guerreiro> sd =null;
         Guerreiro newb2 = null;
         super.alterHp(alter); 
-        /*if (this.getHp() == 0 && this.getHp_ref() > 1) {
+        if (this.getHp() == 0 && this.getHp_ref() > 1) {
             System.out.println("\n\n->> [HABILIDADE] O Droide B2 se morreu e renaceu em dois novos Droides B2 cada um com " +  (this.getHp_ref()/2));
-            sd = BattleSettings.getSideSithDroides();
             for (int i = 1; i <= 2; i++) {
                 newb2 = new DroideBatalhaB2(this);
                 System.out.println("\n\n hp_ref" + this.getHp_ref() + "\n\n");
-                newb2.defineHp(this.getHp_ref()/2);
+                newb2.setHp(this.getHp_ref()/2);
+                newb2.setHp_ref(this.getHp_ref()/2);
                 newb2.setName(this.getName()+"."+i);
-                sd.add(newb2);
+                BattleSettings.getCurrentLineSithDroides().add(newb2);
                 newb2 = null;
             }
-        }*/
+        }
     }
 }

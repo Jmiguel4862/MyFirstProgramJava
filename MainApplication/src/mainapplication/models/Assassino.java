@@ -5,21 +5,20 @@
 package mainapplication.models;
 
 import java.util.ArrayList;
-
 /**
  *
  * @author João Miguel
  */
 public class Assassino extends DarkSide{
     
-    public Assassino(String name, int age, double weight , String metaData) {
-        super(name, age, weight , 20 , metaData);
+    public Assassino(String name, int age, double weight) {
+        super(name, age, weight , 20);
     }
 
     @Override
     public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
         super.attack(Gs);
-        //System.out.println("\n\n->> [HABILIDADE] Este assasino enveneno o guerreiro atacado agora a cada ataque deste guereiro ele perdera 5 pontos ");
+        System.out.println("\n\n->> [HABILIDADE] Este assasino enveneno o guerreiro atacado agora a cada ataque deste guereiro ele perdera 5 pontos ");
         hit(Gs, 1, "Assasino", this.getHit());
     }   
 }
