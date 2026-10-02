@@ -25,7 +25,7 @@ public abstract class DarkSide extends Guerreiro{
     
     @Override 
     public void attack(ArrayList<Guerreiro> Gs){// Função N° 13
-        if (Preference_hit != 0){
+        if (Preference_hit != -1){
             Gs = BattleSettings.getSideJediClones().get(Preference_hit);
             BattleSettings.setOrder(1, Preference_hit);
         }

@@ -38,7 +38,7 @@ public class BattleSettings {
 
     public static int getOrder(int team){
         if (FirstOfLine)
-            return  1;
+            return  0;
         else
         return orderOfBattle[team-1];
     }
@@ -50,7 +50,7 @@ public class BattleSettings {
 
     public static void pushGuerreiro(int side , int line) {
         ArrayList<Guerreiro> Gs = (side == 1)? SideJediClones.get(line):SideSithDroides.get(line);
-        if (Gs.size() == 0)
+        if (Gs.size() < 1)
             return ;
         Guerreiro temp = Gs.removeFirst();
         Gs.add(temp);
@@ -107,16 +107,12 @@ public class BattleSettings {
     public static int battleArena(){  
         Scanner scan = new Scanner(System.in);
         Random ran = new Random();
-        boolean firstRound = true;
         int count_defeat = 0;
         while(count_defeat != Constants.MAX_FILES){
             for (int i = 1; i <= 2; i++)
             {
-                if (!firstRound)
-                {
-                    firstRound = false;
-                    i = ran.nextInt() / 2 + 1;   
-                }
+                FirstOfLine = false;
+                i = ran.nextInt() / 2 + 1;   
                 count_defeat = 0;
                 if (i == 1)
                     System.out.println("JEDI E CLONES VÃO ATACAR O SITH E OS DROIDES ");
@@ -127,7 +123,7 @@ public class BattleSettings {
                 {
                     orderOfBattle[0] = j;
                     orderOfBattle[1] = j;
-                    if (j == 1) FirstOfLine = true;
+                    if (j == 0) FirstOfLine = true;
                     else FirstOfLine = false;
                     if (i == 1){
                         if(!battle(SideJediClones, SideSithDroides , i))
@@ -143,7 +139,6 @@ public class BattleSettings {
                                 continue;
                             }
                     }
-                    System.out.println(count_defeat);
                     //scan.nextLine();
                     System.out.println("\n=========================================\n");
                 }

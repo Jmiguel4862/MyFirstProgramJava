@@ -26,6 +26,8 @@ public class MainApplication {
         Scanner scan= new Scanner(System.in);
         if (Generate.create_Side(1) && Generate.create_Side(2))
         {
+            System.out.println("\n <<< CLIQUE EM QUALQUER TECLA PARA CARREGAR SEUS QUERREIROS >>>");
+            scan.nextLine();// Espera pelo entrada do usuario
             BattleSettings.loadingGuerreiros();
             Presentation.presentationGuerreiros();
             System.out.println("\n <<< CLIQUE EM QUALQUER TECLA PARA COMEÇAR AS BATALHAS >>>");
