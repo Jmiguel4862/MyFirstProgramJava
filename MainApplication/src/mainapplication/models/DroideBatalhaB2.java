@@ -23,7 +23,7 @@ public class DroideBatalhaB2 extends DarkSide{
     @Override
     public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
         super.attack(Gs);
-        hit(Gs, 1, "Droide de Batalha B2", this.getHit());
+        hit(Gs, 0, "Droide de Batalha B2", this.getHit());
     }   
 
     @Override
@@ -34,7 +34,6 @@ public class DroideBatalhaB2 extends DarkSide{
             System.out.println("\n\n->> [HABILIDADE] O Droide B2 se morreu e renaceu em dois novos Droides B2 cada um com " +  (this.getHp_ref()/2));
             for (int i = 1; i <= 2; i++) {
                 newb2 = new DroideBatalhaB2(this);
-                System.out.println("\n\n hp_ref" + this.getHp_ref() + "\n\n");
                 newb2.setHp(this.getHp_ref()/2);
                 newb2.setHp_ref(this.getHp_ref()/2);
                 newb2.setName(this.getName()+"."+i);

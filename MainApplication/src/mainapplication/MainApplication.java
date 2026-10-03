@@ -5,6 +5,8 @@
 package mainapplication;
 
 import mainapplication.controllers.*;
+
+import java.io.IOException;
 import java.util.Scanner;
 import mainapplication.views.*;
 /**
@@ -25,6 +27,8 @@ public class MainApplication {
         Scanner scan= new Scanner(System.in);
         if (Generate.create_Side(1) && Generate.create_Side(2))
         {
+            System.out.println("\n <<< CLIQUE EM QUALQUER TECLA PARA CARREGAR OS GUERREIROS >>>");
+            scan.nextLine();
             BattleSettings.loadingGuerreiros();
             Presentation.presentationGuerreiros();
             System.out.println("\n <<< CLIQUE EM QUALQUER TECLA PARA COMEÇAR AS BATALHAS >>>");

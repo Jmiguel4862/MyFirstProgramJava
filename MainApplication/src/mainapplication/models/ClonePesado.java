@@ -5,7 +5,7 @@
 package mainapplication.models;
 
 import java.util.ArrayList;
-import mainapplication.controllers.BattleSettings;
+import mainapplication.controllers.*;
 
 /**
  *
@@ -32,24 +32,29 @@ public class ClonePesado extends LightSide{
 
     @Override
     public void alterHp(int alter) {// Função N° 11
-        if((this.getHp()-alter) > 1 && DarkSide.getPreference_hit() >= 1)
+        if((this.getHp()-alter) > 0 && DarkSide.getPreference_hit() > -1)
+        {
+            if(this == BattleSettings.getCurrentLineJediClones().getFirst()) System.out.println("\n\n->> [HABILIDADE] enquanto clone pessado estiver vivo ou a rodada acabar o este clone pessado será atacado!!");
             BattleSettings.setOrder(1, DarkSide.getPreference_hit());
+        }
         else
-            if (DarkSide.getPreference_hit() > 0) 
+            if (DarkSide.getPreference_hit() > -1) 
                 DarkSide.setPreference_hit(DarkSide.getPreference_hit()-1);
         super.alterHp(alter);
-        if(this == BattleSettings.getCurrentLineJediClones().getFirst()) System.out.println("\n\n->> [HABILIDADE] enquanto clone pessado estiver vivo ou a rodada acabar o este clone pessado será atacado!!");
     }
     @Override
     public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
-        int index = 0;
+        int index;
         super.attack(Gs);
-        hit(Gs, 1, "Clone Pesado", this.getHit());
-        if(BattleSettings.getOrder(1) == 1)
-        {
+        hit(Gs, 0, "Clone Pesado", this.getHit());
+        ArrayList<Guerreiro> temp = null;
+        if(BattleSettings.getFirstAttack() && this == BattleSettings.getCurrentLineJediClones().getFirst())
+        { 
+            index = BattleSettings.getOrder(1) + 1;
             do{
+                temp = BattleSettings.getSideJediClones().get(index);
                 index++;
-            }while(BattleSettings.getSideJediClones().get(index).getFirst().getClass() == ClonePesado.class);
+            }while( index < Constants.MAX_FILES && temp.size() > 0 && temp.getFirst().getClass() == ClonePesado.class);
             DarkSide.setPreference_hit(index-1);
         }
     }

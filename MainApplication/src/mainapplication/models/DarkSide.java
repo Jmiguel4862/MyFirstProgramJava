@@ -5,7 +5,7 @@ import mainapplication.controllers.*;
 
 public abstract class DarkSide extends Guerreiro{
 
-    private static int Preference_hit = 0;
+    private static int preference_hit = -1 ;
 
     public DarkSide(String name, int age, double weight , int hit) {
         super(name, age, weight , hit);
@@ -16,18 +16,21 @@ public abstract class DarkSide extends Guerreiro{
     }
 
     public static int getPreference_hit(){// Função N° 15
-        return  Preference_hit;
+        return  preference_hit;
     }
 
     public static void setPreference_hit(int preferece){// Função N° 16
-        Preference_hit = preferece;
+        preferece--;
+        if (preferece >= 0 && preferece < Constants.MAX_FILES)
+            preference_hit = preferece;
     }
     
     @Override 
     public void attack(ArrayList<Guerreiro> Gs){// Função N° 13
-        if (Preference_hit != 0){
-            Gs = BattleSettings.getSideJediClones().get(Preference_hit);
-            BattleSettings.setOrder(1, Preference_hit);
+        if (preference_hit > -1){
+            Gs = null;
+            Gs = BattleSettings.getSideJediClones().get(preference_hit);
+            System.out.println(Gs.getFirst().getName() + " foi atacado por preferencia do lado escuro!!");
         }
     }
 

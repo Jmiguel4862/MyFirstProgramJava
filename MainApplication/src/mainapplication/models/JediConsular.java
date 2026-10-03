@@ -14,7 +14,7 @@ import mainapplication.controllers.BattleSettings;
 public class JediConsular extends LightSide{
     
     public JediConsular(String name, int age, double weight) {
-        super(name, age, weight , 40);
+        super(name, age, weight , 30);
     }
     public JediConsular(Guerreiro G) {
         super(G);
@@ -25,20 +25,20 @@ public class JediConsular extends LightSide{
         ArrayList<Guerreiro> gsLeft= null;
         int orderSith = (BattleSettings.getOrder(2));
         super.attack(Gs);
-        hit(Gs , 1 , "Jedi Consular" , this.getHit());
-        if ((orderSith + 1 ) <= 4)
+        hit(Gs , 0 , "Jedi Consular" , this.getHit());
+        if ((orderSith + 1 ) < 4)
         {
             gsRight = BattleSettings.getSideSithDroides().get(orderSith+1);
             if (gsRight.size() > 0) {
                 System.out.println("\n\n->> [HABILIDADE] JIDE CONSULAR(ATACA INIMICO A DIREITA)!!");
-                hit(gsRight, 1, "Jedi Consular", this.getHit());
+                hit(gsRight, 0, "Jedi Consular", (this.getHit()/2));
             }    
         }
-        if(orderSith - 1 >= 1){
+        if(orderSith - 1 > -1){
             gsLeft = BattleSettings.getSideSithDroides().get(orderSith - 1);
             if (gsLeft.size() > 0) {
                 System.out.println("\n\n->> [HABILIDADE] JIDE CONSULAR(ATACA INIMICO A ESQUERDA)!!");
-                hit(gsLeft, 1, "Jedi Consular", this.getHit());
+                hit(gsLeft, 0, "Jedi Consular", (this.getHit()/2));
             }    
         }
     }

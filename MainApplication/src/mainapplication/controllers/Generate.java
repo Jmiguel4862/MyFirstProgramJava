@@ -18,8 +18,8 @@ public class Generate {
     private static ArrayList<Guerreiro> generateGuerreiros(int side , ArrayList<Integer> usedIndices) {
         ArrayList<Guerreiro> guerreiros = new ArrayList<>();
         Random rand = new Random();
-        for (int i = 1; i <= Constants.MAX_GUERREIROS; i++) {
-            int index;
+        int index;
+        for (int i = 0; i < Constants.MAX_GUERREIROS; i++) {
             do {
                 index = rand.nextInt(Constants.MAX_NAME_LENGTH);
             } while (usedIndices.contains(index));

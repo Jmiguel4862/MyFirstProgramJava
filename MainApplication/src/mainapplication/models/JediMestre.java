@@ -21,12 +21,12 @@ public class JediMestre extends LightSide{
     @Override
     public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
         super.attack(Gs);
-        hit(Gs, 1, "Jedi Mestre" , this.getHit());
+        hit(Gs, 0, "Jedi Mestre" , this.getHit());
     }
 
     @Override
     public void alterHp(int alter) {// Função N° 11
-        if(BattleSettings.getOrder(1) == 1 && this == BattleSettings.getSideJediClones().get(BattleSettings.getOrder(1)).getFirst())
+        if(BattleSettings.getFirstAttack() && this == BattleSettings.getSideJediClones().get(BattleSettings.getOrder(1)).getFirst())
             System.out.println("\n\n->> [HABILIDADE] Devido a habilidade do Jedi Mestre por ser o primeiro a atacar ele empurara o adversario para o final da fila e anulara seu ataque.");
         else
             super.alterHp(alter);

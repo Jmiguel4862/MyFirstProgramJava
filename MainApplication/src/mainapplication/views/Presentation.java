@@ -28,9 +28,9 @@ public class Presentation {
         double total_weight=0;
         Guerreiro Most_Weight = null;
         System.out.println("\n << GUERREIROS DO LADO DOS" + SideOfForce + ">>\n");
-        for(int i = 1 ; i <= Constants.MAX_FILES ; i++){
+        for(int i = 0 ; i < Constants.MAX_FILES ; i++){
             System.out.println("\nGuerreiro da fila " + i + ":\n");
-            for (Guerreiro G : ((i == 1)? BattleSettings.getSideJediClones().get(i):BattleSettings.getSideSithDroides().get(i))) {
+            for (Guerreiro G : ((side == 1)? BattleSettings.getSideJediClones().get(i):BattleSettings.getSideSithDroides().get(i))) {
                 System.out.println(TypeGuerreiro.get_guerreiro(side, G) + " - " + G.getName() + " - " + G.getAge() + " anos - " + String.format("%.2f", G.getWeight()) + " kg - " + G.getHp() + " HP");
                 total_weight += G.getWeight();
                 if (Most_Weight == null || G.getWeight() > Most_Weight.getWeight())

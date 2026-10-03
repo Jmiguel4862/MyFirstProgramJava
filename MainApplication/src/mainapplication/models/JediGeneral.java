@@ -23,10 +23,10 @@ public class JediGeneral extends LightSide{
         super.attack(Gs);
         if ((Gs.getFirst().getHp() + this.getHit()) < 1) {
             this.alterHp(50);
-            this.setHit(this.getHit() + 5);
+            this.setHit(this.getHit() - 5);
             System.out.println("\n\n->> [HABILIDADE] Jide General matou o inimigo, conseguindo se aproximar mais do equilibriu da força, ganhou 5 pontos a mais de ataque e recuperou 50 pontos de vita");
         }
-        hit(Gs,1, "Jide General", this.getHit());
+        hit(Gs, 0, "Jide General", this.getHit());
     }
     
 }

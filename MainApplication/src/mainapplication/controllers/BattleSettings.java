@@ -14,7 +14,11 @@ public class BattleSettings {
     private static int[] orderOfBattle = new int[]{1,1};
     private static ArrayList<ArrayList<Guerreiro>> SideJediClones = new ArrayList<>();
     private static ArrayList<ArrayList<Guerreiro>> SideSithDroides = new ArrayList<>();
-    private static boolean FirstOfLine = false;
+    private static boolean FirstAttack = false;
+
+    public static boolean getFirstAttack() {
+        return FirstAttack;
+    }
 
     public static ArrayList<ArrayList<Guerreiro>> getSideJediClones() {
         return SideJediClones;
@@ -29,18 +33,18 @@ public class BattleSettings {
     }
 
     public static  ArrayList<Guerreiro> getCurrentLineSithDroides(){
-        return SideJediClones.get(getOrder(2));
+        return SideSithDroides.get(getOrder(2));
     }
 
     public static int getOrder(int team){
-        if (FirstOfLine)
-            return  1;
+        if (FirstAttack)
+            return  0;
         else
         return orderOfBattle[team-1];
     }
 
     public static void setOrder(int team , int neworder){
-        if(team <= 4 || team >= 1)
+        if(neworder < 4 && neworder >= 0)
             orderOfBattle[team-1] = neworder;
     }
 
@@ -53,7 +57,7 @@ public class BattleSettings {
     }
 
     private static void pushSide(int side){
-        for (int i = 1; i <= Constants.MAX_FILES; i++)
+        for (int i = 0; i < Constants.MAX_FILES; i++)
             pushGuerreiro(side, i);
     }
 
@@ -63,7 +67,7 @@ public class BattleSettings {
     
     private static boolean fileSettings(ArrayList<ArrayList<Guerreiro>> Gs, int side){
         int i = side -1;
-        for(int j = orderOfBattle[i]; j <=  Constants.MAX_FILES;j++)
+        for(int j = orderOfBattle[i]; j <  Constants.MAX_FILES;j++)
         {
             if (Gs.get(j).size() > 0)
             {
@@ -71,7 +75,7 @@ public class BattleSettings {
                 return true;
             }
         }
-        for(int j = (orderOfBattle[i] - 1); j > 0;j--)
+        for(int j = (orderOfBattle[i] - 1); j >= 0;j--)
         {
             if (Gs.get(j).size() > 0)
             {
@@ -88,6 +92,8 @@ public class BattleSettings {
             return false;
         if(!fileSettings(wholesale, sideW ))
             return  false;
+        //System.out.println("\n\n ordem:: " +getOrder(sideW)+ "\n\n");
+        //System.out.println("\n\n quantos querreiros tem: " +wholesale.get(getOrder(sideW)).size()+ "\n\n");
         attacker.get(getOrder(side)).getFirst().attack(wholesale.get(getOrder(sideW)));
         return true;
     }
@@ -100,12 +106,26 @@ public class BattleSettings {
         }
     }
 
+    private static int hasWinner(ArrayList<ArrayList<Guerreiro>> P1 , ArrayList<ArrayList<Guerreiro>> P2){
+        boolean ContentLight = false, ContentDark = false;
+        for(int j = 0; j < Constants.MAX_FILES; j++)
+        {
+            if(SideJediClones.get(j).size() > 0 && !ContentLight ) 
+                ContentLight = true;
+            if(SideSithDroides.get(j).size() > 0 && !ContentDark) 
+                ContentDark = true;
+            if(ContentLight && ContentDark)
+                break;
+        }
+        return (ContentLight && ContentDark)? 0 : (ContentLight)? 1 : 2;
+    }
+
     public static int battleArena(){  
         Scanner scan = new Scanner(System.in);
         Random ran = new Random();
         boolean firstRound = true;
-        int count_defeat = 0;
-        while(count_defeat != Constants.MAX_FILES){
+        int winner = hasWinner(SideSithDroides, SideJediClones);
+        while(winner == 0){
             for (int i = 1; i <= 2; i++)
             {
                 if (!firstRound)
@@ -113,44 +133,39 @@ public class BattleSettings {
                     firstRound = false;
                     i = ran.nextInt() / 2 + 1;   
                 }
-                count_defeat = 0;
                 if (i == 1)
                     System.out.println("JEDI E CLONES VÃO ATACAR O SITH E OS DROIDES ");
                 else 
                     System.out.println("SITH E OS DROIDES VÃO ATACAR O JEDI E CLONES DA FILA");
                     
-                for (int j = 1; j <= Constants.MAX_FILES; j++) 
+                for (int j = 0; j < Constants.MAX_FILES; j++) 
                 {
                     orderOfBattle[0] = j;
                     orderOfBattle[1] = j;
-                    if (j == 1) FirstOfLine = true;
-                    else FirstOfLine = false;
+                    if (j == 0) FirstAttack = true;
+                    else FirstAttack = false;
                     if (i == 1){
                         if(!battle(SideJediClones, SideSithDroides , i))
-                            {
-                                count_defeat++;
-                                continue;
-                            }
+                            continue;
                     }
                     else {
                         if(!battle(SideSithDroides, SideJediClones , i))
-                            {
-                                count_defeat++;
-                                continue;
-                            }
+                            continue;
                     }
+                    winner = hasWinner(SideSithDroides, SideJediClones);
+                    if(winner != 0)
+                        break;
                     scan.nextLine();
                     System.out.println("\n=========================================\n");
                 }
             }
-            if(count_defeat != Constants.MAX_FILES)
-            {
-                resetVeriablesBattle();
-                pushSide(1);
-                pushSide(2);
-            }
+            if (winner != 0)
+                break;
+            resetVeriablesBattle();
+            pushSide(1);
+            pushSide(2);
         }
-       return  (SideJediClones.size() > 0)? 1: 2;
+       return  winner;
     }
     
 }

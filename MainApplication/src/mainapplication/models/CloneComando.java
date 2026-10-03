@@ -29,7 +29,7 @@ public class CloneComando extends LightSide{
                     equals++;
             if (equals > 0)System.out.println("\n\n->> [HABILIDADE] O Clone Comando atual encontro "+equals+" semelhantes seus na fila para ajuda no ataque e vai dar "+(equals*8)+" a mais de dano neste ataque");
         }
-        hit(Gs, 1, "Clone Comando", (this.getHit()) - (equals*8));
+        hit(Gs, 0, "Clone Comando", (this.getHit()) - (equals*8));
     }
 
 }
