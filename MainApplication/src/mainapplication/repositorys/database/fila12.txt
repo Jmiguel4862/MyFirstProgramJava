@@ -1,6 +1,6 @@
-6,Valkorion Bane of Alderaan,24,77.89198998905705,400
-2,Satele Jinn the Cathar,21,137.1921198342868
-5,K-2SO,61,134.5643997213068
-4,Orson Krennic,20,85.26978112910965
-3,Orson Starkiller of Ilum,54,77.84762266735568
-5,Hux Saxon of Scarif,50,53.12757720357324
+3,Nomi Krennic of Mustafar,42,78.50567103289444,100
+6,Plo 'Grandmaster' Windu,26,147.33234265725955
+4,Hera Dritus the Sith,29,107.62266419627883
+4,Vaylin Calder the Togruta,47,76.7980740033538
+1,Galen Erso,41,50.5437045647217
+4,Prime Thrawn Sing,44,78.6120941597822

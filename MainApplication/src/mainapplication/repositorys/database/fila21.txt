@@ -1,6 +1,6 @@
-1,Nomi Palpatine the Mon Calamari,47,118.13414316522248,100
-6,Maul Shadow the Rodian,22,86.87508684029099
-1,Din 'Baron' Saxon,29,91.03748105129571
-5,Warlord Cad Sunrider,66,107.16869914428004
-2,Obi-Wan 'Sentinel' Suduri,38,59.30380067347208
-6,Kylo Dritus of Coruscant,43,110.40651202031734
+3,Greez Ditus,53,53.776511050534026,60
+3,Aayla Qel-Droma,67,125.19330812565521
+5,Acolyte Axe Dune,59,81.44182829125779
+2,Vaylin Rook of Exegol,19,135.31685511294572
+4,Maul 'Commander' Rook,49,103.97026126923512
+1,Arcann Saxon of Geonosis,62,55.71541140432473
