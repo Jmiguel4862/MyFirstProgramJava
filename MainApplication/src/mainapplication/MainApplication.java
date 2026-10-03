@@ -4,6 +4,7 @@
  */
 package mainapplication;
 
+import java.io.*;
 import mainapplication.controllers.*;
 
 import java.io.IOException;
@@ -27,8 +28,13 @@ public class MainApplication {
         Scanner scan= new Scanner(System.in);
         if (Generate.create_Side(1) && Generate.create_Side(2))
         {
+<<<<<<< HEAD
             System.out.println("\n <<< CLIQUE EM QUALQUER TECLA PARA CARREGAR OS GUERREIROS >>>");
             scan.nextLine();
+=======
+            System.out.println("\n <<< CLIQUE EM QUALQUER TECLA PARA CARREGAR SEUS QUERREIROS >>>");
+            scan.nextLine();// Espera pelo entrada do usuario
+>>>>>>> 0a682b200a28fa0166f8331bff7cd9d9e3526606
             BattleSettings.loadingGuerreiros();
             Presentation.presentationGuerreiros();
             System.out.println("\n <<< CLIQUE EM QUALQUER TECLA PARA COMEÇAR AS BATALHAS >>>");

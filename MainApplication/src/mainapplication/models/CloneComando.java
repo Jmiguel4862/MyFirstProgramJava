@@ -21,7 +21,7 @@ public class CloneComando extends LightSide{
     public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
         super.attack(Gs);
         int equals = 0;
-        ArrayList<Guerreiro> jc = BattleSettings.getSideJediClones().get(BattleSettings.getOrder(1));
+        ArrayList<Guerreiro> jc = BattleSettings.getCurrentLineJediClones();
         if (jc.size() > 1)
         {
             for (int i = 1; i < jc.size(); i++) 

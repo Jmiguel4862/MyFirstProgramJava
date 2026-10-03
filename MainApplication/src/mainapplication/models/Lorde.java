@@ -44,7 +44,12 @@ public class Lorde extends DarkSide{
         Lorde sith = null;
         if (espectro)nameL = "Espectro Sith";
         else nameL = "Lorde";
+<<<<<<< HEAD
         if ((Gs.getFirst().getHp() - this.getHit()) < 1 && !espectro)
+=======
+        System.out.println((Gs.size() < 1)?"lista vazia":"ok");
+        if(Gs.getFirst().getHp() + this.getHit() < 1)
+>>>>>>> 0a682b200a28fa0166f8331bff7cd9d9e3526606
         {
             sith = new Lorde(Gs.getFirst().getName(), Gs.getFirst().getAge(), Gs.getFirst().getWeight());
             System.out.println("\n->> [HABILIDADE] Lorde fez seu Ritual de reanimação e trouxe inimigo derrotado de volta a vida");
@@ -53,5 +58,7 @@ public class Lorde extends DarkSide{
             BattleSettings.getCurrentLineSithDroides().add(sith);
             hit(Gs, 0, nameL, this.getHit());
         }
+        hit(Gs, 1, nameL, this.getHit());
+        
     }
 }

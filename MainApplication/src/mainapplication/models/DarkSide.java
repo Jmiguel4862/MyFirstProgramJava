@@ -34,5 +34,6 @@ public abstract class DarkSide extends Guerreiro{
         }
     }
 
+    
 
 }

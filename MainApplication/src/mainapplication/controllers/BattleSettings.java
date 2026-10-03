@@ -20,6 +20,10 @@ public class BattleSettings {
         return FirstAttack;
     }
 
+    public static boolean getFirstOfLine(){
+        return FirstOfLine;
+    }
+
     public static ArrayList<ArrayList<Guerreiro>> getSideJediClones() {
         return SideJediClones;
     }
@@ -37,7 +41,11 @@ public class BattleSettings {
     }
 
     public static int getOrder(int team){
+<<<<<<< HEAD
         if (FirstAttack)
+=======
+        if (FirstOfLine)
+>>>>>>> 0a682b200a28fa0166f8331bff7cd9d9e3526606
             return  0;
         else
         return orderOfBattle[team-1];
@@ -50,7 +58,7 @@ public class BattleSettings {
 
     public static void pushGuerreiro(int side , int line) {
         ArrayList<Guerreiro> Gs = (side == 1)? SideJediClones.get(line):SideSithDroides.get(line);
-        if (Gs.size() == 0)
+        if (Gs.size() < 1)
             return ;
         Guerreiro temp = Gs.removeFirst();
         Gs.add(temp);
@@ -123,6 +131,7 @@ public class BattleSettings {
     public static int battleArena(){  
         Scanner scan = new Scanner(System.in);
         Random ran = new Random();
+<<<<<<< HEAD
         boolean firstRound = true;
         int winner = hasWinner(SideSithDroides, SideJediClones);
         while(winner == 0){
@@ -133,6 +142,15 @@ public class BattleSettings {
                     firstRound = false;
                     i = ran.nextInt() / 2 + 1;   
                 }
+=======
+        int count_defeat = 0;
+        while(count_defeat != Constants.MAX_FILES){
+            for (int i = 1; i <= 2; i++)
+            {
+                FirstOfLine = false;
+                i = ran.nextInt() / 2 + 1;   
+                count_defeat = 0;
+>>>>>>> 0a682b200a28fa0166f8331bff7cd9d9e3526606
                 if (i == 1)
                     System.out.println("JEDI E CLONES VÃO ATACAR O SITH E OS DROIDES ");
                 else 
@@ -142,8 +160,13 @@ public class BattleSettings {
                 {
                     orderOfBattle[0] = j;
                     orderOfBattle[1] = j;
+<<<<<<< HEAD
                     if (j == 0) FirstAttack = true;
                     else FirstAttack = false;
+=======
+                    if (j == 0) FirstOfLine = true;
+                    else FirstOfLine = false;
+>>>>>>> 0a682b200a28fa0166f8331bff7cd9d9e3526606
                     if (i == 1){
                         if(!battle(SideJediClones, SideSithDroides , i))
                             continue;
@@ -152,10 +175,14 @@ public class BattleSettings {
                         if(!battle(SideSithDroides, SideJediClones , i))
                             continue;
                     }
+<<<<<<< HEAD
                     winner = hasWinner(SideSithDroides, SideJediClones);
                     if(winner != 0)
                         break;
                     scan.nextLine();
+=======
+                    //scan.nextLine();
+>>>>>>> 0a682b200a28fa0166f8331bff7cd9d9e3526606
                     System.out.println("\n=========================================\n");
                 }
             }
