@@ -12,16 +12,12 @@ import java.util.Random;
  */
 public class BattleSettings {
 
-    private static int[] orderOfBattle = new int[]{1,1};
+    private static int[] orderOfBattle = new int[]{0,0};
     private static ArrayList<ArrayList<Guerreiro>> SideJediClones = new ArrayList<>();
     private static ArrayList<ArrayList<Guerreiro>> SideSithDroides = new ArrayList<>();
     private static boolean FirstAttack = false;
 
     public static boolean getFirstAttack() {
-        return FirstAttack;
-    }
-
-    public static boolean getFirstOfLine(){
         return FirstAttack;
     }
 

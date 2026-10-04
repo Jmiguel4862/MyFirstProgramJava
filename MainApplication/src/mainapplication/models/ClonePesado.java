@@ -14,7 +14,7 @@ import mainapplication.controllers.*;
 public class ClonePesado extends LightSide{
     
     public ClonePesado(String name, int age, double weight) {
-        super(name, age, weight , 30, "Clone Pesado");
+        super(name, age, (weight + 300), 30, "Clone Pesado");
         this.setHp(400);
         this.setHp_ref(400);
     }
@@ -45,7 +45,7 @@ public class ClonePesado extends LightSide{
         ArrayList<Guerreiro> temp;
         super.attack();
         hit(0);
-        if(BattleSettings.getFirstOfLine())
+        if(BattleSettings.getFirstAttack())
         {
             index = BattleSettings.getOrder(1) + 1;
             do{

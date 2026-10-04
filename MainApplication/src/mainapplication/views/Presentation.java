@@ -28,11 +28,13 @@ public class Presentation {
     private static PresentationDatas presentationGuerreiros(int side , String SideOfForce ){            
         double total_weight=0;
         Guerreiro Most_Weight = null;
-        System.out.println("\n << GUERREIROS DO LADO DOS" + SideOfForce + ">>\n");
+        System.out.println("\n << GUERREIROS DO LADO DOS " + SideOfForce + ">>\n");
         for(int i = 0 ; i < Constants.MAX_FILES ; i++){
-            System.out.println("\nGuerreiro da fila " + (i+1) + ":\n");
+            System.out.println("\n->> Guerreiro da fila " + (i+1) + ":\n");
+            System.out.println(String.format("%-20s | %-40s | %-10s | %-10s | %-10s | %-10s", "TIPO", "NOME", "IDADE", "PESO", "HP", "DANO"));
+            System.out.println("------------------------------------------------------------------------------------------");
             for (Guerreiro G : ((side == 1)? BattleSettings.getSideJediClones().get(i):BattleSettings.getSideSithDroides().get(i))) {
-                System.out.println(G.getBaseName() + " | " + G.getName() + " | " + G.getAge() + " anos | " + String.format("%.2f", G.getWeight()) + " kg | " + G.getHp() + " HP | "+ (-G.getHit()) + " HIT");
+                System.out.println(String.format("%-20s | %-40s | %-10d | %-10.2f | %-10d | %+-10d", G.getBaseName(), G.getName(), G.getAge(), G.getWeight(), G.getHp(), -G.getHit()));
                 total_weight += G.getWeight();
                 if (Most_Weight == null || G.getWeight() > Most_Weight.getWeight())
                     Most_Weight = G;
@@ -55,11 +57,13 @@ public class Presentation {
         ArrayList<ArrayList<Guerreiro>> sideForce = (side == 1)? BattleSettings.getSideJediClones():BattleSettings.getSideSithDroides();
         for(int i = 0 ; i < Constants.MAX_FILES ; i++){
             System.out.println("\nGuerreiro da fila " + (i+1) + ":\n");
+            System.out.println(String.format("%-20s | %-40s | %-10s | %-10s | %-10s | %-10s", "TIPO", "NOME", "IDADE", "PESO", "HP", "DANO"));
+            System.out.println("------------------------------------------------------------------------------------------");
             if (sideForce.get(i).size() < 1)
                 System.out.println("[DEROTADO] -> Guerreiros da fila " + (i+1) + " foram eliminados!\n");
             else
                 for (Guerreiro G : sideForce.get(i))
-                    System.out.println(G.getBaseName() + " | " + G.getName() + " | " + G.getAge() + " anos | " + String.format("%.2f", G.getWeight()) + " kg | " + G.getHp() + " HP | "+ (-G.getHit()) + " HIT");
+                    System.out.println(String.format("%-20s | %-20s | %-10d | %-10.2f | %-10d | %+-10d", G.getBaseName(), G.getName(), G.getAge(), G.getWeight(), G.getHp(), -G.getHit()));
         }
     }
 

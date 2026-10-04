@@ -13,7 +13,7 @@ import mainapplication.controllers.*;
 public class DroideExterminador extends DarkSide{
     
     public DroideExterminador(String name, int age, double weight) {
-        super(name, age, weight , Constants.MOST_HP , "Droide Exterminador");
+        super(name, age, (weight + 200), Constants.MOST_HP, "Droide Exterminador");
             setHp_ref(60);
             setHp(60);
     }
