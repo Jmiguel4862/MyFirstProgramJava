@@ -157,7 +157,7 @@ public class BattleSettings {
                     winner = hasWinner();
                     if(winner != 0)
                         break;
-                    //scan.nextLine();
+                    scan.nextLine();
                     System.out.println("\n=========================================\n");
                 }
 
@@ -167,6 +167,7 @@ public class BattleSettings {
             resetVeriablesBattle();
             Presentation.StatusBattle();
             System.out.println("\n\nPressione ENTER para continuar a batalha");
+            scan.nextLine();
             pushSide(1);
             pushSide(2);
         }

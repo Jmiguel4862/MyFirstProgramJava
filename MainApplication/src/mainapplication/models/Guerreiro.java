@@ -36,6 +36,7 @@ public abstract class Guerreiro {
         this.hp_ref = G.getHp_ref();
         this.hp = G.getHp_ref();
         this.hit = G.getHit();
+        this.baseName = G.getBaseName();
 
     }
 

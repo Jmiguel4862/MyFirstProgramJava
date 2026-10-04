@@ -26,6 +26,7 @@ public class JediConsular extends LightSide{
         int orderSith = (BattleSettings.getOrder(2));
         super.attack();
         hit(0 );
+        this.setHit(this.getHit()/2);
         if ((orderSith + 1 ) < Constants.MAX_FILES) 
         {
             gsRight = BattleSettings.getSideSithDroides().get(orderSith+1);
@@ -44,5 +45,6 @@ public class JediConsular extends LightSide{
                 hit( 0);
             }    
         }
+        this.setHit(this.getHit()*2);
     }
 }
