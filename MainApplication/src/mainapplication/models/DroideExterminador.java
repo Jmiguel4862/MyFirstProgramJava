@@ -4,8 +4,7 @@
  */
 package mainapplication.models;
 
-import java.util.ArrayList;
-import mainapplication.controllers.Constants;
+import mainapplication.controllers.*;
 
 /**
  *
@@ -14,7 +13,7 @@ import mainapplication.controllers.Constants;
 public class DroideExterminador extends DarkSide{
     
     public DroideExterminador(String name, int age, double weight) {
-        super(name, age, weight , Constants.MOST_HP);
+        super(name, age, weight , Constants.MOST_HP , "Droide Exterminador");
             setHp_ref(60);
             setHp(60);
     }
@@ -24,9 +23,9 @@ public class DroideExterminador extends DarkSide{
             setHp(60);
     }
     @Override
-    public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
-        super.attack(Gs);
-        System.out.println("\n\n->> [HABILIDADE] Guerreiro Droide Exterminador "+ this.getName() + " MATOU o guerreiro " +Gs.getFirst().getClass().getSimpleName() +" "+Gs.get(0).getName() + "!!!");   
-        hit(Gs, 0, "Droide Exterminador", this.getHit());
+    public void attack() {// Função N° 13
+        super.attack();
+        System.out.println("\n\n->> [HABILIDADE] Guerreiro Droide Exterminador "+ this.getName() + " MATOU o guerreiro " + BattleSettings.getCurrentLineJediClones().get(0).getBaseName() +" "+BattleSettings.getCurrentLineJediClones().get(0).getName() + "!!!");   
+        hit(0);
     }
 }

@@ -14,14 +14,14 @@ import  mainapplication.controllers.BattleSettings;
 public class CloneMedico extends LightSide{
     
     public CloneMedico(String name, int age, double weight) {
-        super(name, age, weight , 20);
+        super(name, age, weight , 20 , "Clone Médico");
     }
 
     @Override
-    public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
-        super.attack(Gs);
+    public void attack() {// Função N° 13
+        super.attack();
         ArrayList <Guerreiro> gs = BattleSettings.getCurrentLineJediClones();
-        hit(Gs , 0 , "Clone Médico" , this.getHit());
+        hit(0);
         if(gs.size() > 1 && gs.get(1).getHp() < gs.get(1).getHp_ref())
         {
             System.out.println("\n->> [HABILIDADE] Clone Medico recuperou 20 pontos de vida do guerreiro " + gs.get(1).getClass().getSimpleName() +gs.get(1).getName() +" logo atrás dele!!" );

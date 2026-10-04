@@ -14,7 +14,7 @@ import mainapplication.controllers.BattleSettings;
 public class Lorde extends DarkSide{
     private boolean espectro = false;
     public Lorde(String name, int age, double weight) {
-        super(name, age, weight , 50 );
+        super(name, age, weight , 50 , "Lorde");
     }
     public Lorde(Guerreiro G) {
         super(G);
@@ -27,7 +27,7 @@ public class Lorde extends DarkSide{
     public void alterHp(int alter){// Função N° 11
         super.alterHp(alter);
         Acolito acolito = null;
-        if (this.getHp() ==  0) {
+        if (this.getHp() ==  0 && !espectro) {
             System.out.println("\n->> [HABILIDADE] Lorde morreu, porém deixou 4 acolitos em seu lugar para terminarem o trabalho que ele começou!!");
             for (int i = 0; i < 4; i++) {
                 acolito = new Acolito(this.getName(), this.getAge(), this.getWeight());
@@ -38,27 +38,20 @@ public class Lorde extends DarkSide{
     }
 
     @Override
-    public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
-        super.attack(Gs);
-        String nameL = null;
+    public void attack() {// Função N° 13
+        super.attack();
+        ArrayList<Guerreiro> Gs = BattleSettings.getCurrentLineJediClones();
         Lorde sith = null;
-        if (espectro)nameL = "Espectro Sith";
-        else nameL = "Lorde";
-<<<<<<< HEAD
         if ((Gs.getFirst().getHp() - this.getHit()) < 1 && !espectro)
-=======
-        System.out.println((Gs.size() < 1)?"lista vazia":"ok");
-        if(Gs.getFirst().getHp() + this.getHit() < 1)
->>>>>>> 0a682b200a28fa0166f8331bff7cd9d9e3526606
         {
             sith = new Lorde(Gs.getFirst().getName(), Gs.getFirst().getAge(), Gs.getFirst().getWeight());
             System.out.println("\n->> [HABILIDADE] Lorde fez seu Ritual de reanimação e trouxe inimigo derrotado de volta a vida");
             sith.setHit(-5);
+            sith.setBaseName("Espectro Sith");
             sith.espectro = true;
             BattleSettings.getCurrentLineSithDroides().add(sith);
-            hit(Gs, 0, nameL, this.getHit());
         }
-        hit(Gs, 1, nameL, this.getHit());
+        hit(0);
         
     }
 }

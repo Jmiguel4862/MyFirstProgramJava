@@ -1,14 +1,13 @@
 package mainapplication.models;
 
-import java.util.ArrayList;
 import mainapplication.controllers.*;
 
 public abstract class DarkSide extends Guerreiro{
 
     private static int preference_hit = -1 ;
 
-    public DarkSide(String name, int age, double weight , int hit) {
-        super(name, age, weight , hit);
+    public DarkSide(String name, int age, double weight , int hit , String baseName) {
+        super(name, age, weight , hit , baseName);
     }
 
     public DarkSide(Guerreiro G) {
@@ -26,14 +25,10 @@ public abstract class DarkSide extends Guerreiro{
     }
     
     @Override 
-    public void attack(ArrayList<Guerreiro> Gs){// Função N° 13
+    public void attack(){// Função N° 13
         if (preference_hit > -1){
-            Gs = null;
-            Gs = BattleSettings.getSideJediClones().get(preference_hit);
-            System.out.println(Gs.getFirst().getName() + " foi atacado por preferencia do lado escuro!!");
+            BattleSettings.setOrder(1, preference_hit);
         }
+        //System.out.println("\n\nQuantidade de Guerreiros sendo atacados: " + BattleSettings.getCurrentLineSithDroides().size());
     }
-
-    
-
 }

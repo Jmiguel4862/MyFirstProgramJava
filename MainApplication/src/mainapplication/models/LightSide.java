@@ -1,6 +1,5 @@
 package mainapplication.models;
 
-import java.util.ArrayList;
 import mainapplication.controllers.BattleSettings;
 
 public abstract class LightSide extends Guerreiro{
@@ -16,8 +15,8 @@ public abstract class LightSide extends Guerreiro{
         return poisoned;
     }
 
-    public LightSide(String name, int age, double weight , int hit) {
-        super(name, age, weight , hit);
+    public LightSide(String name, int age, double weight , int hit, String baseName) {
+        super(name, age, weight , hit , baseName);
     }
     public LightSide(Guerreiro G) {
         super(G);
@@ -33,12 +32,13 @@ public abstract class LightSide extends Guerreiro{
 
     
     @Override
-    public void attack(ArrayList<Guerreiro> Gs){// Função N° 13
+    public void attack(){// Função N° 13
         if (poisoned)
         {
             System.out.println("\n ->> O guerreiro que esta atacando esta envenenado por algum assasino e vai perder 5 ponto de HP por isso. ");
             this.alterHp(5);
         }
-    }
+        System.out.println("\n\nQuantidade de Guerreiros sendo atacados: " + BattleSettings.getCurrentLineSithDroides().size());
 
+    }
 }

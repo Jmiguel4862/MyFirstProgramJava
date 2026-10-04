@@ -4,7 +4,7 @@
  */
 package mainapplication.models;
 
-import java.util.ArrayList;
+import mainapplication.controllers.BattleSettings;
 
 /**
  *
@@ -13,20 +13,20 @@ import java.util.ArrayList;
 public class JediGeneral extends LightSide{
     
     public JediGeneral(String name, int age, double weight) {
-        super(name, age, weight , 50);
+        super(name, age, weight , 50 , "Jedi General");
     }
     public JediGeneral(Guerreiro G) {
         super(G);
     }
     @Override
-    public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
-        super.attack(Gs);
-        if ((Gs.getFirst().getHp() + this.getHit()) < 1) {
+    public void attack() {// Função N° 13
+        super.attack();
+        if ((BattleSettings.getCurrentLineSithDroides().get(0).getHp() + this.getHit()) < 1) {
             this.alterHp(50);
             this.setHit(this.getHit() - 5);
             System.out.println("\n\n->> [HABILIDADE] Jide General matou o inimigo, conseguindo se aproximar mais do equilibriu da força, ganhou 5 pontos a mais de ataque e recuperou 50 pontos de vita");
         }
-        hit(Gs, 0, "Jide General", this.getHit());
+        hit(0);
     }
     
 }

@@ -2,6 +2,7 @@ package mainapplication.controllers;
 
 import mainapplication.models.*;
 import  mainapplication.repositorys.querys.FileOfLine;
+import  mainapplication.views.Presentation;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
@@ -21,7 +22,7 @@ public class BattleSettings {
     }
 
     public static boolean getFirstOfLine(){
-        return FirstOfLine;
+        return FirstAttack;
     }
 
     public static ArrayList<ArrayList<Guerreiro>> getSideJediClones() {
@@ -41,13 +42,6 @@ public class BattleSettings {
     }
 
     public static int getOrder(int team){
-<<<<<<< HEAD
-        if (FirstAttack)
-=======
-        if (FirstOfLine)
->>>>>>> 0a682b200a28fa0166f8331bff7cd9d9e3526606
-            return  0;
-        else
         return orderOfBattle[team-1];
     }
 
@@ -100,9 +94,9 @@ public class BattleSettings {
             return false;
         if(!fileSettings(wholesale, sideW ))
             return  false;
-        //System.out.println("\n\n ordem:: " +getOrder(sideW)+ "\n\n");
-        //System.out.println("\n\n quantos querreiros tem: " +wholesale.get(getOrder(sideW)).size()+ "\n\n");
-        attacker.get(getOrder(side)).getFirst().attack(wholesale.get(getOrder(sideW)));
+        //System.out.println("\n\nOrdem de ataque: " + getOrder(sideW));
+        //System.out.println("Quantidade de guerreiros: " + wholesale.get(getOrder(sideW)).size());
+        attacker.get(getOrder(side)).getFirst().attack();
         return true;
     }
 
@@ -114,7 +108,7 @@ public class BattleSettings {
         }
     }
 
-    private static int hasWinner(ArrayList<ArrayList<Guerreiro>> P1 , ArrayList<ArrayList<Guerreiro>> P2){
+    private static int hasWinner(){
         boolean ContentLight = false, ContentDark = false;
         for(int j = 0; j < Constants.MAX_FILES; j++)
         {
@@ -131,26 +125,17 @@ public class BattleSettings {
     public static int battleArena(){  
         Scanner scan = new Scanner(System.in);
         Random ran = new Random();
-<<<<<<< HEAD
         boolean firstRound = true;
-        int winner = hasWinner(SideSithDroides, SideJediClones);
+        int winner = hasWinner();
         while(winner == 0){
             for (int i = 1; i <= 2; i++)
             {
+                FirstAttack = true;
                 if (!firstRound)
                 {
                     firstRound = false;
                     i = ran.nextInt() / 2 + 1;   
                 }
-=======
-        int count_defeat = 0;
-        while(count_defeat != Constants.MAX_FILES){
-            for (int i = 1; i <= 2; i++)
-            {
-                FirstOfLine = false;
-                i = ran.nextInt() / 2 + 1;   
-                count_defeat = 0;
->>>>>>> 0a682b200a28fa0166f8331bff7cd9d9e3526606
                 if (i == 1)
                     System.out.println("JEDI E CLONES VÃO ATACAR O SITH E OS DROIDES ");
                 else 
@@ -160,13 +145,7 @@ public class BattleSettings {
                 {
                     orderOfBattle[0] = j;
                     orderOfBattle[1] = j;
-<<<<<<< HEAD
-                    if (j == 0) FirstAttack = true;
-                    else FirstAttack = false;
-=======
-                    if (j == 0) FirstOfLine = true;
-                    else FirstOfLine = false;
->>>>>>> 0a682b200a28fa0166f8331bff7cd9d9e3526606
+                    if (j != 0) FirstAttack = false;
                     if (i == 1){
                         if(!battle(SideJediClones, SideSithDroides , i))
                             continue;
@@ -175,20 +154,19 @@ public class BattleSettings {
                         if(!battle(SideSithDroides, SideJediClones , i))
                             continue;
                     }
-<<<<<<< HEAD
-                    winner = hasWinner(SideSithDroides, SideJediClones);
+                    winner = hasWinner();
                     if(winner != 0)
                         break;
-                    scan.nextLine();
-=======
                     //scan.nextLine();
->>>>>>> 0a682b200a28fa0166f8331bff7cd9d9e3526606
                     System.out.println("\n=========================================\n");
                 }
+
             }
             if (winner != 0)
                 break;
             resetVeriablesBattle();
+            Presentation.StatusBattle();
+            System.out.println("\n\nPressione ENTER para continuar a batalha");
             pushSide(1);
             pushSide(2);
         }

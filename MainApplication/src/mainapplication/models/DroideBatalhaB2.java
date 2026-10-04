@@ -4,7 +4,6 @@
  */
 package mainapplication.models;
 
-import java.util.ArrayList;
 import mainapplication.controllers.BattleSettings;
 
 /**
@@ -13,7 +12,7 @@ import mainapplication.controllers.BattleSettings;
  */
 public class DroideBatalhaB2 extends DarkSide{
     public DroideBatalhaB2(String name, int age, double weight) {
-        super(name, age, weight , 10);
+        super(name, age, weight , 10 , "Droide de Batalha B2");
     }
     
     public DroideBatalhaB2(Guerreiro G) {
@@ -21,9 +20,9 @@ public class DroideBatalhaB2 extends DarkSide{
     }
 
     @Override
-    public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
-        super.attack(Gs);
-        hit(Gs, 0, "Droide de Batalha B2", this.getHit());
+    public void attack() {// Função N° 13
+        super.attack();
+        hit(0);
     }   
 
     @Override

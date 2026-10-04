@@ -5,6 +5,7 @@
 package mainapplication.models;
 
 import java.util.ArrayList;
+import mainapplication.controllers.BattleSettings;
 
 /**
  *
@@ -13,14 +14,15 @@ import java.util.ArrayList;
 public class Acolito extends DarkSide{
     
     public Acolito(String name, int age, double weight) {
-        super(name, age, weight , 15);
+        super(name, age, weight , 15 , "Acolito");
     }
 
     @Override
-    public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
-        super.attack(Gs);
+    public void attack() {// Função N° 13
+        super.attack();
+        ArrayList<Guerreiro> Gs = BattleSettings.getCurrentLineJediClones();
         System.out.println("\n->> [HABILIDADE] Acalito atacou o primeiro da fila saltou e atacou o ultimo da fila ");
-        hit(Gs, 0, "Acolito", this.getHit());
-        if(Gs.size() > 0)hit(Gs, Gs.size() - 1, "Acolito", this.getHit());
+        hit(0);
+        if(Gs.size() > 0)hit(Gs.size() - 1);
     }
 }

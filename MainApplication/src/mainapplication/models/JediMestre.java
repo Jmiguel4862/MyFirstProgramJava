@@ -4,7 +4,6 @@
  */
 package mainapplication.models;
 import mainapplication.controllers.BattleSettings;
-import java.util.ArrayList;
 
 /**
  *
@@ -12,25 +11,21 @@ import java.util.ArrayList;
  */
 public class JediMestre extends LightSide{
     public JediMestre(String name, int age, double weight) {
-        super(name, age, weight , 35);
+        super(name, age, weight , 35 , "Jedi Mestre");
     }
     public JediMestre(Guerreiro G) {
         super(G);
     }
 
     @Override
-    public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
-        super.attack(Gs);
-        hit(Gs, 0, "Jedi Mestre" , this.getHit());
+    public void attack() {// Função N° 13
+        super.attack();
+        hit(0);
     }
 
     @Override
     public void alterHp(int alter) {// Função N° 11
-<<<<<<< HEAD
         if(BattleSettings.getFirstAttack() && this == BattleSettings.getSideJediClones().get(BattleSettings.getOrder(1)).getFirst())
-=======
-        if(BattleSettings.getOrder(1) == 1 && BattleSettings.getFirstOfLine())
->>>>>>> 0a682b200a28fa0166f8331bff7cd9d9e3526606
             System.out.println("\n\n->> [HABILIDADE] Devido a habilidade do Jedi Mestre por ser o primeiro a atacar ele empurara o adversario para o final da fila e anulara seu ataque.");
         else
             super.alterHp(alter);

@@ -5,6 +5,7 @@
 package mainapplication.models;
 
 import java.util.ArrayList;
+import mainapplication.controllers.BattleSettings;
 
 /**
  *
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 public class DroideAranha extends DarkSide{
     
     public DroideAranha(String name, int age, double weight) {
-        super(name, age, weight , 10);
+        super(name, age, weight , 10 , "Droide Aranha");
     }
     
     public DroideAranha(Guerreiro G) {
@@ -21,11 +22,12 @@ public class DroideAranha extends DarkSide{
     }
 
     @Override
-    public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
-        super.attack(Gs);
+    public void attack() {// Função N° 13
+        super.attack();
         System.out.println("\n\n->> [HABILIDADE] Droide Aranha usa seu canhão para causar dano a todos os presente na fila adversaria!!");
+        ArrayList<Guerreiro> Gs = BattleSettings.getCurrentLineJediClones();
         for(int i = 0; i < Gs.size();i++)
-          if (hit(Gs,i, "Droide Aranha", this.getHit())) i--;
+          if (hit(i)) i--;
     }
 
 }
