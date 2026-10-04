@@ -32,7 +32,7 @@ public class Presentation {
         for(int i = 0 ; i < Constants.MAX_FILES ; i++){
             System.out.println("\nGuerreiro da fila " + (i+1) + ":\n");
             for (Guerreiro G : ((side == 1)? BattleSettings.getSideJediClones().get(i):BattleSettings.getSideSithDroides().get(i))) {
-                System.out.println(G.getBaseName() + " | " + G.getName() + " | " + G.getAge() + " anos | " + String.format("%.2f", G.getWeight()) + " kg | " + G.getHp() + " HP | "+ G.getHit() + " HIT");
+                System.out.println(G.getBaseName() + " | " + G.getName() + " | " + G.getAge() + " anos | " + String.format("%.2f", G.getWeight()) + " kg | " + G.getHp() + " HP | "+ (-G.getHit()) + " HIT");
                 total_weight += G.getWeight();
                 if (Most_Weight == null || G.getWeight() > Most_Weight.getWeight())
                     Most_Weight = G;
@@ -59,7 +59,7 @@ public class Presentation {
                 System.out.println("[DEROTADO] -> Guerreiros da fila " + (i+1) + " foram eliminados!\n");
             else
                 for (Guerreiro G : sideForce.get(i))
-                    System.out.println(G.getBaseName() + " | " + G.getName() + " | " + G.getAge() + " anos | " + String.format("%.2f", G.getWeight()) + " kg | " + G.getHp() + " HP | "+ G.getHit() + " HIT");
+                    System.out.println(G.getBaseName() + " | " + G.getName() + " | " + G.getAge() + " anos | " + String.format("%.2f", G.getWeight()) + " kg | " + G.getHp() + " HP | "+ (-G.getHit()) + " HIT");
         }
     }
 

@@ -130,6 +130,8 @@ public class BattleSettings {
         while(winner == 0){
             for (int i = 1; i <= 2; i++)
             {
+                if(winner != 0)
+                    break;
                 FirstAttack = true;
                 if (!firstRound)
                 {
@@ -155,8 +157,6 @@ public class BattleSettings {
                             continue;
                     }
                     winner = hasWinner();
-                    if(winner != 0)
-                        break;
                     scan.nextLine();
                     System.out.println("\n=========================================\n");
                 }

@@ -102,12 +102,12 @@ public abstract class Guerreiro {
         gs.get(order).alterHp(this.getHit());
         if (gs.get(order).getHp() > 0)
         {
-            System.out.println("\n\n> Guerreiro "+this.getBaseName()+" "+ this.getName() + " atacou o guerreiro " +gs.get(order).getBaseName() +" "+gs.get(order).getName() + " e causou "+ (-this.getHit()) +" de dano");    
+            System.out.println("\n\n> Guerreiro "+this.getBaseName()+" "+ this.getName() + " atacou o guerreiro " +gs.getFirst().getBaseName() +" "+gs.getFirst().getName() + " e causou "+ (-this.getHit()) +" de dano");    
             return false;
         }
         else 
         {
-            System.out.println("\n\n[EVENTO DA GUERRA] ->> Guerreiro "+this.getBaseName()+" "+ this.getName() + " MATOU " + gs.get(order).getBaseName() +" "+ gs.get(order).getName()+" foi derrotado(MORREU)!!\n\n");
+            System.out.println("\n\n[EVENTO DA GUERRA] ->> Guerreiro "+this.getBaseName()+" "+ this.getName() + " MATOU " + gs.getFirst().getBaseName() +" "+ gs.getFirst().getName()+" foi derrotado(MORREU)!!\n\n");
             gs.remove(order);
             return true;
         }
