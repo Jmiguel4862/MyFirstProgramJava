@@ -32,7 +32,7 @@ public class Presentation {
         for(int i = 0 ; i < Constants.MAX_FILES ; i++){
             System.out.println("\n->> Guerreiro da fila " + (i+1) + ":\n");
             System.out.println(String.format("%-20s | %-40s | %-10s | %-10s | %-10s | %-10s", "TIPO", "NOME", "IDADE", "PESO", "HP", "DANO"));
-            System.out.println("------------------------------------------------------------------------------------------");
+            System.out.println("------------------------------------------------------------------------------------------------------------------------");
             for (Guerreiro G : ((side == 1)? BattleSettings.getSideJediClones().get(i):BattleSettings.getSideSithDroides().get(i))) {
                 System.out.println(String.format("%-20s | %-40s | %-10d | %-10.2f | %-10d | %+-10d", G.getBaseName(), G.getName(), G.getAge(), G.getWeight(), G.getHp(), -G.getHit()));
                 total_weight += G.getWeight();
@@ -58,12 +58,12 @@ public class Presentation {
         for(int i = 0 ; i < Constants.MAX_FILES ; i++){
             System.out.println("\nGuerreiro da fila " + (i+1) + ":\n");
             System.out.println(String.format("%-20s | %-40s | %-10s | %-10s | %-10s | %-10s", "TIPO", "NOME", "IDADE", "PESO", "HP", "DANO"));
-            System.out.println("------------------------------------------------------------------------------------------");
+            System.out.println("------------------------------------------------------------------------------------------------------------------------");
             if (sideForce.get(i).size() < 1)
                 System.out.println("[DEROTADO] -> Guerreiros da fila " + (i+1) + " foram eliminados!\n");
             else
                 for (Guerreiro G : sideForce.get(i))
-                    System.out.println(String.format("%-20s | %-20s | %-10d | %-10.2f | %-10d | %+-10d", G.getBaseName(), G.getName(), G.getAge(), G.getWeight(), G.getHp(), -G.getHit()));
+                    System.out.println(String.format("%-20s | %-40s | %-10d | %-10.2f | %-10d | %+-10d", G.getBaseName(), G.getName(), G.getAge(), G.getWeight(), G.getHp(), -G.getHit()));
         }
     }
 
