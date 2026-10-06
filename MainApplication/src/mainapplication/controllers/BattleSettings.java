@@ -61,7 +61,7 @@ public class BattleSettings {
     }
 
     private static void resetVeriablesBattle(){
-        DarkSide.setPreference_hit(0);
+        DarkSide.setPreference_hit(-1);
     }
     
     private static boolean LileSettings(ArrayList<ArrayList<Guerreiro>> Gs, int side){
@@ -91,7 +91,6 @@ public class BattleSettings {
             return false;
         if(!LileSettings(wholesale, sideW ))
             return  false;
-        System.out.println("\n\n guerreiro da fila " + getOrder(sideW) + "esta sendo atacado!");
         attacker.get(getOrder(side)).getFirst().attack();
         return true;
     }

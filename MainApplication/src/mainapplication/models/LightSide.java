@@ -36,7 +36,7 @@ public abstract class LightSide extends Guerreiro{
         if (poisoned)
         {
             System.out.println("\n ->> O guerreiro que esta atacando esta envenenado por algum assasino e vai perder 5 ponto de HP por isso. ");
-            this.alterHp(5);
+            this.alterHp(-5);
         }
 
     }
