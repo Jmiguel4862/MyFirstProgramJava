@@ -64,7 +64,7 @@ public class BattleSettings {
         DarkSide.setPreference_hit(0);
     }
     
-    private static boolean fileSettings(ArrayList<ArrayList<Guerreiro>> Gs, int side){
+    private static boolean LileSettings(ArrayList<ArrayList<Guerreiro>> Gs, int side){
         int i = side -1;
         for(int j = orderOfBattle[i]; j <  Constants.MAX_FILES;j++)
         {
@@ -89,10 +89,9 @@ public class BattleSettings {
         int sideW= (side==1)?2:1;
         if (attacker.get(getOrder(side)).size() < 1)
             return false;
-        if(!fileSettings(wholesale, sideW ))
+        if(!LileSettings(wholesale, sideW ))
             return  false;
-        //System.out.println("\n\nOrdem de ataque: " + getOrder(sideW));
-        //System.out.println("Quantidade de guerreiros: " + wholesale.get(getOrder(sideW)).size());
+        System.out.println("\n\n guerreiro da fila " + getOrder(sideW) + "esta sendo atacado!");
         attacker.get(getOrder(side)).getFirst().attack();
         return true;
     }
@@ -130,10 +129,10 @@ public class BattleSettings {
                 if(winner != 0)
                     break;
                 FirstAttack = true;
-                if (!firstRound)
+                if (firstRound)
                 {
                     firstRound = false;
-                    i = ran.nextInt() / 2 + 1;   
+                    i = ran.nextInt(2) + 1;
                 }
                 if (i == 1)
                     System.out.println("JEDI E CLONES VÃO ATACAR O SITH E OS DROIDES ");

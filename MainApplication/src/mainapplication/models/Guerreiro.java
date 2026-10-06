@@ -108,7 +108,6 @@ public abstract class Guerreiro {
         else 
         {
             System.out.println("\n\n[EVENTO DA GUERRA] ->> Guerreiro "+this.getBaseName()+" "+ this.getName() + " MATOU " + gs.getFirst().getBaseName() +" "+ gs.getFirst().getName()+" foi derrotado(MORREU)!!\n\n");
-            
             return gs.remove(order);
         }
     }

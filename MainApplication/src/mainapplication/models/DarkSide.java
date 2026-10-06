@@ -19,16 +19,15 @@ public abstract class DarkSide extends Guerreiro{
     }
 
     public static void setPreference_hit(int preferece){// Função N° 16
-        preferece--;
         if (preferece >= 0 && preferece < Constants.MAX_FILES)
             preference_hit = preferece;
+        else 
+            preference_hit = -1;
     }
     
     @Override 
     public void attack(){// Função N° 13
-        if (preference_hit > -1){
+        if (preference_hit > -1)
             BattleSettings.setOrder(1, preference_hit);
-        }
-        //System.out.println("\n\nQuantidade de Guerreiros sendo atacados: " + BattleSettings.getCurrentLineSithDroides().size());
     }
 }
