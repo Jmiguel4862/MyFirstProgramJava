@@ -23,6 +23,6 @@ public class Acolito extends DarkSide{
         ArrayList<Guerreiro> Gs = BattleSettings.getCurrentLineJediClones();
         System.out.println("\n->> [HABILIDADE] Acalito atacou o primeiro da fila saltou e atacou o ultimo da fila ");
         hit(0);
-        if(Gs.size() > 0)hit(Gs.size() - 1);
+        if(Gs.size() > 0) hit(Gs.size() - 1);
     }
 }

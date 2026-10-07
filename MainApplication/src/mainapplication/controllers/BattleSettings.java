@@ -15,6 +15,8 @@ public class BattleSettings {
     private static int[] orderOfBattle = new int[]{0,0};
     private static ArrayList<ArrayList<Guerreiro>> SideJediClones = new ArrayList<>();
     private static ArrayList<ArrayList<Guerreiro>> SideSithDroides = new ArrayList<>();
+    private static Guerreiro lastdie = null;
+    private static Guerreiro lastattacker = null; 
     
     private static boolean FirstAttack = false;
 
