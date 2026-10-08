@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package mainapplication.models;
-import mainapplication.controllers.BattleSettings;
+import mainapplication.controllers.BattleArena;
 
 /**
  *
@@ -25,7 +25,7 @@ public class JediMestre extends LightSide{
 
     @Override
     public void alterHp(int alter) {// Função N° 11
-        if(BattleSettings.getFirstAttack() && this == BattleSettings.getSideJediClones().get(BattleSettings.getOrder(1)).getFirst())
+        if(BattleArena.getFirstAttack() && this == BattleArena.getSideJediClones().get(BattleArena.getOrder(1)).getFirst())
             System.out.println("\n\n->> [HABILIDADE] Devido a habilidade do Jedi Mestre por ser o primeiro a atacar ele empurara o adversario para o final da fila e anulara seu ataque.");
         else
             super.alterHp(alter);

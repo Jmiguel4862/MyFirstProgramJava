@@ -34,7 +34,7 @@ public class ClonePesado extends LightSide{
     public void alterHp(int alter) {// Função N° 11
         if((this.getHp() + alter) > 0 && DarkSide.getPreference_hit() >= 0)
         {
-            if(this == BattleSettings.getCurrentLineJediClones().getFirst()) System.out.println("\n\n->> [HABILIDADE] enquanto clone pessado estiver vivo ou a rodada acabar o este clone pessado será atacado!!");
+            if(this == BattleArena.getCurrentLineJediClones().getFirst()) System.out.println("\n\n->> [HABILIDADE] enquanto clone pessado estiver vivo ou a rodada acabar o este clone pessado será atacado!!");
         }
         else
         {
@@ -49,13 +49,13 @@ public class ClonePesado extends LightSide{
         ArrayList<Guerreiro> temp;
         super.attack();
         hit(0);
-        if(BattleSettings.getFirstAttack())
+        if(BattleArena.getFirstAttack())
         {
-            index = BattleSettings.getOrder(1);
+            index = BattleArena.getOrder(1);
             do{
                 index++;
                 if(index >= Constants.MAX_FILES) break;
-                temp = BattleSettings.getSideJediClones().get(index);
+                temp = BattleArena.getSideJediClones().get(index);
             }while(temp.size() > 0 && temp.getFirst().getClass() == ClonePesado.class);
             DarkSide.setPreference_hit(index-1);
         }

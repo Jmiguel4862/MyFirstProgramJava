@@ -4,7 +4,7 @@
  */
 package mainapplication.models;
 
-import mainapplication.controllers.BattleSettings;
+import mainapplication.controllers.BattleArena;
 
 /**
  *
@@ -36,7 +36,7 @@ public class DroideBatalhaB2 extends DarkSide{
                 newb2.setHp(this.getHp_ref()/2);
                 newb2.setHp_ref(this.getHp_ref()/2);
                 newb2.setName(this.getName()+"."+i);
-                BattleSettings.getCurrentLineSithDroides().add(newb2);
+                BattleArena.getCurrentLineSithDroides().add(newb2);
                 newb2 = null;
             }
         }

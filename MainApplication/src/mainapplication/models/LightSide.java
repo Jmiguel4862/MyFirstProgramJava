@@ -1,6 +1,6 @@
 package mainapplication.models;
 
-import mainapplication.controllers.BattleSettings;
+import mainapplication.controllers.BattleArena;
 
 public abstract class LightSide extends Guerreiro{
 
@@ -25,7 +25,7 @@ public abstract class LightSide extends Guerreiro{
     @Override 
     public void alterHp(int alter){// Função N° 11
         super.alterHp(alter);
-        if ( alter < 0 && BattleSettings.getSideSithDroides().get(BattleSettings.getOrder(2)).getFirst().getClass() == Assassino.class) {
+        if ( alter < 0 && BattleArena.getSideSithDroides().get(BattleArena.getOrder(2)).getFirst().getClass() == Assassino.class) {
             this.poisoned =true;
         }
     }

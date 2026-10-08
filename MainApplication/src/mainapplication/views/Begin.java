@@ -1,7 +1,7 @@
 package mainapplication.views;
 
 import java.util.Scanner;
-import mainapplication.controllers.BattleSettings;
+import mainapplication.controllers.BattleArena;
 import mainapplication.controllers.Generate;
 
 public class Begin {
@@ -11,7 +11,7 @@ public class Begin {
         {
             System.out.println("\n <<< CLIQUE EM QUALQUER TECLA PARA CARREGAR OS GUERREIROS >>>");
             scan.nextLine();
-            BattleSettings.loadingGuerreiros();
+            BattleArena.loadingGuerreiros();
             Presentation.presentationGuerreiros();
             System.out.println("\n <<< CLIQUE EM QUALQUER TECLA PARA COMEÇAR AS BATALHAS >>>");
             scan.nextLine();// Espera pelo entrada do usuario
@@ -21,15 +21,15 @@ public class Begin {
                 System.out.println("\n <<< OS SITH &DROIDES VENCERAM A BATALHA >>>");
 
             System.out.println("\n\n ULTIMO GUERREIRO A MORRER:\n ");
-            System.out.println("Nome:" + BattleSettings.getLastDie().getName()+ "\n");
-            System.out.println("Idade:" + BattleSettings.getLastDie().getAge()+ "\n");
-            System.out.println("Altura:" + BattleSettings.getLastDie().getWeight()+ "\n");
-            System.out.println("Tipo :" + BattleSettings.getLastDie().getBaseName()+ "\n");
+            System.out.println("Nome:" + BattleArena.getLastDie().getName()+ "\n");
+            System.out.println("Idade:" + BattleArena.getLastDie().getAge()+ "\n");
+            System.out.println("Altura:" + BattleArena.getLastDie().getWeight()+ "\n");
+            System.out.println("Tipo :" + BattleArena.getLastDie().getBaseName()+ "\n");
             System.out.println("\n\n ULTIMO GUERREIRO A ATACAR: \n");
-            System.out.println("Nome:" + BattleSettings.getLastAttacker().getName()+ "\n");
-            System.out.println("Idade:" + BattleSettings.getLastAttacker().getAge()+ "\n");
-            System.out.println("Altura:" + BattleSettings.getLastAttacker().getWeight()+ "\n");
-            System.out.println("Tipo :" + BattleSettings.getLastAttacker().getBaseName()+ "\n");
+            System.out.println("Nome:" + BattleArena.getLastAttacker().getName()+ "\n");
+            System.out.println("Idade:" + BattleArena.getLastAttacker().getAge()+ "\n");
+            System.out.println("Altura:" + BattleArena.getLastAttacker().getWeight()+ "\n");
+            System.out.println("Tipo :" + BattleArena.getLastAttacker().getBaseName()+ "\n");
             scan.close();
         }
         else

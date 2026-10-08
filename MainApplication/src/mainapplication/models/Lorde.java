@@ -5,7 +5,7 @@
 package mainapplication.models;
 
 import java.util.ArrayList;
-import mainapplication.controllers.BattleSettings;
+import mainapplication.controllers.BattleArena;
 
 /**
  *
@@ -31,7 +31,7 @@ public class Lorde extends DarkSide{
             System.out.println("\n->> [HABILIDADE] Lorde morreu, porém deixou 4 acolitos em seu lugar para terminarem o trabalho que ele começou!!");
             for (int i = 0; i < 4; i++) {
                 acolito = new Acolito(this.getName(), this.getAge(), this.getWeight());
-                BattleSettings.getCurrentLineSithDroides().add(acolito);
+                BattleArena.getCurrentLineSithDroides().add(acolito);
                 acolito = null;
             }
         }
@@ -40,7 +40,7 @@ public class Lorde extends DarkSide{
     @Override
     public void attack() {// Função N° 13
         super.attack();
-        ArrayList<Guerreiro> Gs = BattleSettings.getCurrentLineJediClones();
+        ArrayList<Guerreiro> Gs = BattleArena.getCurrentLineJediClones();
         Lorde sith = null;
         if ((Gs.getFirst().getHp() - this.getHit()) < 1 && !espectro)
         {
@@ -49,7 +49,7 @@ public class Lorde extends DarkSide{
             sith.setHit(-5);
             sith.setBaseName("Espectro Sith");
             sith.espectro = true;
-            BattleSettings.getCurrentLineSithDroides().add(sith);
+            BattleArena.getCurrentLineSithDroides().add(sith);
         }
         hit(0);
         

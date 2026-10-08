@@ -34,7 +34,7 @@ public class Presentation {
             System.out.println("\n->> Guerreiro da fila " + (i+1) + ":\n");
             System.out.println(String.format("%-20s | %-40s | %-10s | %-10s | %-10s | %-10s", "TIPO", "NOME", "IDADE", "PESO", "HP", "DANO"));
             System.out.println("------------------------------------------------------------------------------------------------------------------------");
-            for (Guerreiro G : ((side == 1)? BattleSettings.getSideJediClones().get(i):BattleSettings.getSideSithDroides().get(i))) {
+            for (Guerreiro G : ((side == 1)? BattleArena.getSideJediClones().get(i):BattleArena.getSideSithDroides().get(i))) {
                 System.out.println(String.format("%-20s | %-40s | %-10d | %-10.2f | %-10d | %-10d", G.getBaseName(), G.getName(), G.getAge(), G.getWeight(), G.getHp(), -G.getHit()));
                 total_weight += G.getWeight();
                 if (Most_Weight == null || G.getWeight() > Most_Weight.getWeight())
@@ -55,7 +55,7 @@ public class Presentation {
 
     private static void StatusSide(int side , String SideOfForce){
         System.out.println("\n << GUERREIROS DO LADO DOS " + SideOfForce + ">>\n");
-        ArrayList<ArrayList<Guerreiro>> sideForce = (side == 1)? BattleSettings.getSideJediClones():BattleSettings.getSideSithDroides();
+        ArrayList<ArrayList<Guerreiro>> sideForce = (side == 1)? BattleArena.getSideJediClones():BattleArena.getSideSithDroides();
         for(int i = 0 ; i < Constants.MAX_FILES ; i++){
             System.out.println("\nGuerreiro da fila " + (i+1) + ":\n");
             System.out.println(String.format("%-20s | %-40s | %-10s | %-10s | %-10s | %-10s", "TIPO", "NOME", "IDADE", "PESO", "HP", "DANO"));

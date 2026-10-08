@@ -98,7 +98,7 @@ public abstract class Guerreiro {
     }
 
     public void hit(int order){// Função N° 13
-        ArrayList<Guerreiro> gs = (this instanceof LightSide) ? BattleSettings.getCurrentLineSithDroides() : BattleSettings.getCurrentLineJediClones();
+        ArrayList<Guerreiro> gs = (this instanceof LightSide) ? BattleArena.getCurrentLineSithDroides() : BattleArena.getCurrentLineJediClones();
         gs.get(order).alterHp(this.getHit());
         if (gs.get(order).getHp() > 0)
             System.out.println("\n\n> Guerreiro "+this.getBaseName()+" "+ this.getName() + " atacou o guerreiro " +gs.get(order).getBaseName() +" "+gs.get(order).getName() + " e causou "+ (-this.getHit()) +" de dano");    

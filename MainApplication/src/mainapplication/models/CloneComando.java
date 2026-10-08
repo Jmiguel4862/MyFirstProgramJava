@@ -5,7 +5,7 @@
 package mainapplication.models;
 
 import java.util.ArrayList;
-import mainapplication.controllers.BattleSettings;
+import mainapplication.controllers.BattleArena;
 
 /**
  *
@@ -21,7 +21,7 @@ public class CloneComando extends LightSide{
     public void attack() {// Função N° 13
         super.attack();
         int equals = 0;
-        ArrayList<Guerreiro> jc = BattleSettings.getCurrentLineJediClones();
+        ArrayList<Guerreiro> jc = BattleArena.getCurrentLineJediClones();
         if (jc.size() > 1)
         {
             for (int i = 1; i < jc.size(); i++) 

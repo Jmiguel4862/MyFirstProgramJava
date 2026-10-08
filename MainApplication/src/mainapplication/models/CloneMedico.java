@@ -5,7 +5,7 @@
 package mainapplication.models;
 
 import java.util.ArrayList;
-import  mainapplication.controllers.BattleSettings;
+import  mainapplication.controllers.BattleArena;
 
 /**
  *
@@ -20,7 +20,7 @@ public class CloneMedico extends LightSide{
     @Override
     public void attack() {// Função N° 13
         super.attack();
-        ArrayList <Guerreiro> gs = BattleSettings.getCurrentLineJediClones();
+        ArrayList <Guerreiro> gs = BattleArena.getCurrentLineJediClones();
         hit(0);
         if(gs.size() > 1 && gs.get(1).getHp() < gs.get(1).getHp_ref())
         {

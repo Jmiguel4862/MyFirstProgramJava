@@ -25,7 +25,7 @@ public class DroideExterminador extends DarkSide{
     @Override
     public void attack() {// Função N° 13
         super.attack();
-        System.out.println("\n\n->> [HABILIDADE] Guerreiro Droide Exterminador "+ this.getName() + " MATOU o guerreiro " + BattleSettings.getCurrentLineJediClones().get(0).getBaseName() +" "+BattleSettings.getCurrentLineJediClones().get(0).getName() + "!!!");   
+        System.out.println("\n\n->> [HABILIDADE] Guerreiro Droide Exterminador "+ this.getName() + " MATOU o guerreiro " + BattleArena.getCurrentLineJediClones().get(0).getBaseName() +" "+BattleArena.getCurrentLineJediClones().get(0).getName() + "!!!");   
         hit(0);
     }
 }

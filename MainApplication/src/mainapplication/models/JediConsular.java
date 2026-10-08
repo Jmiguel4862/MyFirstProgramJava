@@ -23,13 +23,13 @@ public class JediConsular extends LightSide{
     public void attack() {// Função N° 13
         ArrayList<Guerreiro> gsRight= null;
         ArrayList<Guerreiro> gsLeft= null;
-        int orderSith = (BattleSettings.getOrder(2));
+        int orderSith = (BattleArena.getOrder(2));
         super.attack();
         hit(0 );
         this.setHit(this.getHit()/2);
         if ((orderSith + 1 ) < Constants.MAX_FILES) 
         {
-            gsRight = BattleSettings.getSideSithDroides().get(orderSith+1);
+            gsRight = BattleArena.getSideSithDroides().get(orderSith+1);
             if (gsRight.size() > 0)
             {
                 System.out.println("\n\n->> [HABILIDADE] JIDE CONSULAR(ATACA INIMICO A DIREITA)!!");
@@ -38,7 +38,7 @@ public class JediConsular extends LightSide{
         }
         if((orderSith - 1) > -1)
         {
-            gsLeft = BattleSettings.getSideSithDroides().get(orderSith - 1);
+            gsLeft = BattleArena.getSideSithDroides().get(orderSith - 1);
             if (gsLeft.size() > 0)
             {
                 System.out.println("\n\n->> [HABILIDADE] JIDE CONSULAR(ATACA INIMICO A ESQUERDA)!!");

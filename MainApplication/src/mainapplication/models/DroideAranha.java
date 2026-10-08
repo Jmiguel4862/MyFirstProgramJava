@@ -5,7 +5,7 @@
 package mainapplication.models;
 
 import java.util.ArrayList;
-import mainapplication.controllers.BattleSettings;
+import mainapplication.controllers.BattleArena;
 
 /**
  *
@@ -25,7 +25,7 @@ public class DroideAranha extends DarkSide{
     public void attack() {// Função N° 13
         super.attack();
         System.out.println("\n\n->> [HABILIDADE] Droide Aranha usa seu canhão para causar dano a todos os presente na fila adversaria!!");
-        ArrayList<Guerreiro> Gs = BattleSettings.getCurrentLineJediClones();
+        ArrayList<Guerreiro> Gs = BattleArena.getCurrentLineJediClones();
         for(int i = 0; i < Gs.size();i++)
             hit(i);  
     }

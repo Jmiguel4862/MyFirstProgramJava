@@ -28,6 +28,6 @@ public abstract class DarkSide extends Guerreiro{
     @Override 
     public void attack(){// Função N° 13
         if (preference_hit > -1)
-            BattleSettings.setOrder(1, preference_hit);
+            BattleArena.setOrder(1, preference_hit);
     }
 }
