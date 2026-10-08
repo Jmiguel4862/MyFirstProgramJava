@@ -16,9 +16,9 @@ public class Assassino extends DarkSide{
     }
 
     @Override
-    public void attack() {// Função N° 13
-        super.attack();
+    public void attack(Arena arena) {// Função N° 13
+        super.attack(arena);
         System.out.println("\n\n->> [HABILIDADE] Este assasino enveneno o guerreiro atacado agora a cada ataque deste guereiro ele perdera 5 pontos ");
-        hit(0 );
+        hit(0 , arena);
     }   
 }

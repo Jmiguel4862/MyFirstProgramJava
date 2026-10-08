@@ -4,9 +4,6 @@
  */
 package mainapplication.models;
 
-import java.util.ArrayList;
-import mainapplication.controllers.*;
-
 /**
  *
  * @author 2025122760081
@@ -26,18 +23,14 @@ public abstract class Guerreiro {
         this.weight = weight;
         this.hit = -hit;
         this.baseName = baseName;
-
     }
 
-    public Guerreiro(Guerreiro G){
-        this.name = G.getName();
-        this.age = G.getAge();
-        this.weight = G.getWeight();
-        this.hp_ref = G.getHp_ref();
-        this.hp = G.getHp_ref();
-        this.hit = G.getHit();
-        this.baseName = G.getBaseName();
-
+    public Guerreiro(Guerreiro g){
+        this.name = g.name;
+        this.age = g.age;
+        this.weight = g.weight;
+        this.hit = g.hit;
+        this.baseName = g.baseName;
     }
 
     public String getName(){// Função N° 1
@@ -89,7 +82,7 @@ public abstract class Guerreiro {
         this.baseName = baseName;
     }
 
-    public void alterHp(int alter){// Função N° 11
+    public void alterHp(int alter , Arena arena){// Função N° 11
         this.hp = hp + alter;
         if(this.hp < 0)
             this.hp = 0;
@@ -97,15 +90,8 @@ public abstract class Guerreiro {
             this.hp = hp_ref;
     }
 
-    public void hit(int order){// Função N° 13
-        ArrayList<Guerreiro> gs = (this instanceof LightSide) ? BattleArena.getCurrentLineSithDroides() : BattleArena.getCurrentLineJediClones();
-        gs.get(order).alterHp(this.getHit());
-        if (gs.get(order).getHp() > 0)
-            System.out.println("\n\n> Guerreiro "+this.getBaseName()+" "+ this.getName() + " atacou o guerreiro " +gs.get(order).getBaseName() +" "+gs.get(order).getName() + " e causou "+ (-this.getHit()) +" de dano");    
-        else 
-            System.out.println("\n\n[EVENTO DA GUERRA] ->> Guerreiro "+this.getBaseName()+" "+ this.getName() + " MATOU " + gs.get(order).getBaseName() +" "+ gs.get(order).getName()+" foi derrotado(MORREU)!!\n\n");
-    }
+    public abstract void hit( int order , Arena arena);
     
-    public abstract void attack();// Função N° 14
+    public abstract void attack(Arena arena);// Função N° 14
 
 }

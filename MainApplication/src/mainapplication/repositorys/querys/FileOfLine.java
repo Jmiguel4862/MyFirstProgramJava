@@ -5,7 +5,6 @@
 package mainapplication.repositorys.querys;
 
 import mainapplication.models.Guerreiro;
-
 import java.io.*;
 import java.util.Scanner;
 import mainapplication.controllers.*;
@@ -27,7 +26,7 @@ public class FileOfLine {
      */
 
 
-    public static ArrayList<Guerreiro> reader_Guerreiros( int side, int queue){
+    public static ArrayList<Guerreiro> reader_Guerreiros(int side, int queue){
        try {
             String line = "src/mainapplication/repositorys/database/fila"+side+ queue +".txt";
             String last[] = null;

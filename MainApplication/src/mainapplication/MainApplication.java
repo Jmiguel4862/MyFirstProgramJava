@@ -4,9 +4,13 @@
  */
 package mainapplication;
 
+import mainapplication.views.*;
+
 import java.io.IOException;
 import java.util.Scanner;
-import mainapplication.views.*;
+
+import mainapplication.controllers.Generate;
+import mainapplication.models.Arena;
 /**
  *
  * @author 2025122760081
@@ -21,8 +25,16 @@ public class MainApplication {
         
         //java.io.File f = new File("MainApplication/src/mainapplication/repositorys/database/fila11.txt");
         //System.out.println("Arquivo existe: " + f.exists());
-        Scanner scan= new Scanner(System.in);
-        Begin.introduction(scan);
+        Scanner scan = new  Scanner(System.in);
+        Arena arena = null;
+        if (Generate.create_Side(1) && Generate.create_Side(2))
+        {
+            System.out.println("\n <<< CLIQUE EM QUALQUER TECLA PARA CARREGAR OS GUERREIROS >>>");
+            scan.nextLine();
+            Begin.introduction(arena , scan);
+        }
+        else
+            System.out.println("[ERRO] Programa não conseguiu gerar as filas");
         scan.close();
     }
 }

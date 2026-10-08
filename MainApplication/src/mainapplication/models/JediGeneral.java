@@ -4,8 +4,6 @@
  */
 package mainapplication.models;
 
-import mainapplication.controllers.BattleArena;
-
 /**
  *
  * @author João Miguel
@@ -19,14 +17,14 @@ public class JediGeneral extends LightSide{
         super(G);
     }
     @Override
-    public void attack() {// Função N° 13
-        super.attack();
-        if ((BattleArena.getCurrentLineSithDroides().get(0).getHp() + this.getHit()) < 1) {
-            this.alterHp(50);
+    public void attack(Arena arena) {// Função N° 13
+        super.attack(arena);
+        if ((arena.getCurrentLineTeam2().get(0).getHp() + this.getHit()) < 1) {
+            this.alterHp(50 ,arena);
             this.setHit(this.getHit() - 5);
             System.out.println("\n\n->> [HABILIDADE] Jide General matou o inimigo, conseguindo se aproximar mais do equilibriu da força, ganhou 5 pontos a mais de ataque e recuperou 50 pontos de vita");
         }
-        hit(0);
+        hit(0 , arena);
     }
     
 }

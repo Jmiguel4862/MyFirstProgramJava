@@ -26,7 +26,7 @@ class PresentationDatas{
 
 public class Presentation {
 
-    private static PresentationDatas presentationGuerreiros(int side , String SideOfForce ){            
+    private static PresentationDatas presentationGuerreiros(Arena arena , int side , String SideOfForce ){            
         double total_weight=0;
         Guerreiro Most_Weight = null;
         System.out.println("\n << GUERREIROS DO LADO DOS " + SideOfForce + ">>\n");
@@ -34,7 +34,7 @@ public class Presentation {
             System.out.println("\n->> Guerreiro da fila " + (i+1) + ":\n");
             System.out.println(String.format("%-20s | %-40s | %-10s | %-10s | %-10s | %-10s", "TIPO", "NOME", "IDADE", "PESO", "HP", "DANO"));
             System.out.println("------------------------------------------------------------------------------------------------------------------------");
-            for (Guerreiro G : ((side == 1)? BattleArena.getSideJediClones().get(i):BattleArena.getSideSithDroides().get(i))) {
+            for (Guerreiro G : ((side == 1)? arena.getTeam1().get(i):arena.getTeam2().get(i))) {
                 System.out.println(String.format("%-20s | %-40s | %-10d | %-10.2f | %-10d | %-10d", G.getBaseName(), G.getName(), G.getAge(), G.getWeight(), G.getHp(), -G.getHit()));
                 total_weight += G.getWeight();
                 if (Most_Weight == null || G.getWeight() > Most_Weight.getWeight())
@@ -44,18 +44,18 @@ public class Presentation {
         return new PresentationDatas(total_weight, Most_Weight);
     }
 
-    public static void presentationGuerreiros(){
-        PresentationDatas datas1 = presentationGuerreiros(1, "JEDI & CLONES");
-        PresentationDatas datas2 = presentationGuerreiros(2, "SITH & DROIDES");
+    public static void presentationGuerreiros(Arena arena){
+        PresentationDatas datas1 = presentationGuerreiros( arena , 1, "JEDI & CLONES");
+        PresentationDatas datas2 = presentationGuerreiros( arena , 2, "SITH & DROIDES");
         System.out.println("\n\nPESO TOTAL DO LADO DOS JEDI & CLONES:" + String.format("%.2f", datas1.getTotal_weight()) + " kg\n");
         System.out.println("\nGUERREIRO MAIS PESADO DO LADO DOS JEDI & CLONES: " + datas1.getMost_Weight().getName() + " - " + String.format("%.2f", datas1.getMost_Weight().getWeight()) + " kg\n");
         System.out.println("\n\nPESO TOTAL DO LADO DOS SITH & DROIDES:" + String.format("%.2f", datas2.getTotal_weight()) + " kg\n");
         System.out.println("\nGUERREIRO MAIS PESADO DO LADO DOS SITH & DROIDES: " + datas2.getMost_Weight().getName() + " - " + String.format("%.2f", datas2.getMost_Weight().getWeight()) + " kg\n");
     }
 
-    private static void StatusSide(int side , String SideOfForce){
+    private static void StatusSide(Arena arena , int side , String SideOfForce){
         System.out.println("\n << GUERREIROS DO LADO DOS " + SideOfForce + ">>\n");
-        ArrayList<ArrayList<Guerreiro>> sideForce = (side == 1)? BattleArena.getSideJediClones():BattleArena.getSideSithDroides();
+        ArrayList<ArrayList<Guerreiro>> sideForce = (side == 1)? arena.getTeam1():arena.getTeam2();
         for(int i = 0 ; i < Constants.MAX_FILES ; i++){
             System.out.println("\nGuerreiro da fila " + (i+1) + ":\n");
             System.out.println(String.format("%-20s | %-40s | %-10s | %-10s | %-10s | %-10s", "TIPO", "NOME", "IDADE", "PESO", "HP", "DANO"));
@@ -68,12 +68,12 @@ public class Presentation {
         }
     }
 
-    public static void StatusBattle(Scanner scan){
+    public static void StatusBattle(Arena arena , Scanner scan){
         for(int i = 1 ; i <= 50 ; i++) System.out.print("\n");
         System.out.println("----------------------------------------------------------------");
         System.out.println("\n\n================== STATUS DA BATALHA ==================\n");
-        StatusSide(1, "JEDI & CLONES");
-        StatusSide(2, "SITH & DROIDES");
+        StatusSide(arena , 1, "JEDI & CLONES");
+        StatusSide(arena , 2, "SITH & DROIDES");
         System.out.println("----------------------------------------------------------------");
         System.out.println("\n\nPressione ENTER para continuar a batalha");
         scan.nextLine();

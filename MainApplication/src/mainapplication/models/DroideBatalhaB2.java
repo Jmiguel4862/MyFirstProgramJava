@@ -4,8 +4,6 @@
  */
 package mainapplication.models;
 
-import mainapplication.controllers.BattleArena;
-
 /**
  *
  * @author João Miguel
@@ -15,20 +13,20 @@ public class DroideBatalhaB2 extends DarkSide{
         super(name, age, weight , 10 , "Droide de Batalha B2");
     }
     
-    public DroideBatalhaB2(Guerreiro G) {
-        super(G);
+    public DroideBatalhaB2(Guerreiro g) {
+        super(g);
     }
 
     @Override
-    public void attack() {// Função N° 13
-        super.attack();
-        hit(0);
+    public void attack(Arena arena) {// Função N° 13
+        super.attack(arena);
+        hit(0 , arena);
     }   
 
     @Override
-    public void alterHp(int alter) {// Função N° 11
+    public void alterHp(int alter , Arena arena) {// Função N° 11
         Guerreiro newb2 = null;
-        super.alterHp(alter); 
+        super.alterHp(alter , arena); 
         if (this.getHp() == 0 && this.getHp_ref() > 1) {
             System.out.println("\n\n->> [HABILIDADE] O Droide B2 se morreu e renaceu em dois novos Droides B2 cada um com " +  (this.getHp_ref()/2));
             for (int i = 1; i <= 2; i++) {
@@ -36,7 +34,7 @@ public class DroideBatalhaB2 extends DarkSide{
                 newb2.setHp(this.getHp_ref()/2);
                 newb2.setHp_ref(this.getHp_ref()/2);
                 newb2.setName(this.getName()+"."+i);
-                BattleArena.getCurrentLineSithDroides().add(newb2);
+                arena.getCurrentLineTeam2().add(newb2);
                 newb2 = null;
             }
         }

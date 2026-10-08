@@ -1,7 +1,6 @@
-package mainapplication.controllers;
+package mainapplication.models;
 
-import mainapplication.models.*;
-import  mainapplication.repositorys.querys.FileOfLine;
+import mainapplication.controllers.*;
 import mainapplication.views.Presentation;
 
 import java.util.ArrayList;
@@ -11,25 +10,29 @@ import java.util.Scanner;
 /**
  * BattleSettings
  */
-public class BattleArena {
+public class Arena {
 
     private  int[] orderOfBattle = new int[]{0,0};
-    private  ArrayList<ArrayList<Guerreiro>> SideJediClones = new ArrayList<>();
-    private  ArrayList<ArrayList<Guerreiro>> SideSithDroides = new ArrayList<>();
+    private  ArrayList<ArrayList<Guerreiro>> team1 = new ArrayList<>();
+    private  ArrayList<ArrayList<Guerreiro>> team2 = new ArrayList<>();
     private  Guerreiro lastdie = null;
     private  Guerreiro lastattacker = null; 
-    private  boolean FirstAttack = false;
+    private  boolean firstAttack = false;
+    private int winner = 0;
 
-    public BattleArena(int side , Scanner scan){
+    public Arena (ArrayList<ArrayList<Guerreiro>> team1 , ArrayList<ArrayList<Guerreiro>> team2){
+        this.team1 = team1;
+        this.team2 = team2;
+    }
+
+    public void battleArena(Scanner scan){
         Random ran = new Random();
-        boolean firstRound = true;
-        int winner = hasWinner() ,first = ran.nextInt(2)+1, last = (first == 1)?2:1, inc = (first == 1)?1:-1;
+        int first = ran.nextInt(2)+1, inc = (first == 1)?1:-1;
+        this.winner = hasWinner();
         while (winner == 0) {
-
             for (int i = first;indCpm(inc , i); i += inc)
             {
-                if(winner != 0)
-                    break;
+                if(winner != 0)   break;
                 if (i == 1)
                     System.out.println("JEDI E CLONES VÃO ATACAR O SITH E OS DROIDES ");
                 else 
@@ -38,15 +41,16 @@ public class BattleArena {
                 {
                     orderOfBattle[0] = j;
                     orderOfBattle[1] = j;
-                    if (j != 0) FirstAttack = false;
-                    if (side == 1){
-                        if(!battle(SideJediClones, SideSithDroides , side))
+                    if(j == 0) firstAttack = true;
+                    if (i == 1){
+                        if(!battle(team1, team2 , i))
                             continue;
                     }
                     else {
-                        if(!battle(SideSithDroides, SideJediClones , side))
+                        if(!battle(team2, team1 , i))
                             continue;
                     }
+                    if (!firstAttack) firstAttack = false;
                     winner = hasWinner();
                     System.out.println("\n=========================================\n");
                     if(winner != 0)
@@ -55,10 +59,10 @@ public class BattleArena {
             }
             if (winner != 0)
                 break;
-            BattleArena.resetVeriablesBattle();
-            Presentation.StatusBattle(scan);
-            BattleArena.pullSide(1);
-            BattleArena.pullSide(2);
+            Arena.resetVeriablesBattle();
+            Presentation.StatusBattle(this, scan);
+            this.pullSide(this.team1);
+            this.pullSide(this.team2);
             
         }
     }
@@ -72,6 +76,10 @@ public class BattleArena {
             if (ind >= 1) return true;
             else return false;
         }
+    }
+
+    public int getWinner(){
+        return  winner;
     }
 
     public void setLastdie(Guerreiro lastdie) {
@@ -91,23 +99,23 @@ public class BattleArena {
     }
 
     public  boolean getFirstAttack() {
-        return FirstAttack;
+        return firstAttack;
     }
 
-    public  ArrayList<ArrayList<Guerreiro>> getSideJediClones() {
-        return SideJediClones;
+    public  ArrayList<ArrayList<Guerreiro>> getTeam1() {
+        return team1;
     }
 
-    public  ArrayList<ArrayList<Guerreiro>> getSideSithDroides() {
-        return SideSithDroides;
+    public  ArrayList<ArrayList<Guerreiro>> getTeam2() {
+        return team2;
     }
 
-    public   ArrayList<Guerreiro> getCurrentLineJediClones(){
-        return SideJediClones.get(getOrder(1));
+    public   ArrayList<Guerreiro> getCurrentLineTeam1(){
+        return team1.get(getOrder(1));
     }
 
-    public   ArrayList<Guerreiro> getCurrentLineSithDroides(){
-        return SideSithDroides.get(getOrder(2));
+    public   ArrayList<Guerreiro> getCurrentLineTeam2(){
+        return team2.get(getOrder(2));
     }
 
     public  int getOrder(int team){
@@ -119,82 +127,70 @@ public class BattleArena {
             orderOfBattle[team-1] = neworder;
     }
 
-    public  void pullGuerreiro(int side , int line) {
-        ArrayList<Guerreiro> Gs = (side == 1)? SideJediClones.get(line):SideSithDroides.get(line);
-        if (Gs.size() < 1)
+    private  void pullGuerreiro(ArrayList<Guerreiro> generic) {
+        if (generic.size() < 1)
             return ;
-        Guerreiro temp = Gs.removeFirst();
-        Gs.add(temp);
+        Guerreiro temp = generic.removeFirst();
+        generic.add(temp);
     }
 
-    private static void checkKills(ArrayList<ArrayList<Guerreiro>> wholesale ){
+    private void checkKills(ArrayList<ArrayList<Guerreiro>> wholesale ){
         for(int i = 0; i < Constants.MAX_FILES; i++)
             for(int j = 0; j < wholesale.get(i).size(); j++)
                 if (wholesale.get(i).get(j).getHp() <= 0)
-                    {
-                        wholesale.setLastdie() = null;
-                        wholesale.lastdie = wholesale.get(i).remove(j);
-                    }
+                        this.setLastdie(wholesale.get(i).remove(j));
     }
 
-    public static void pullSide(int side){
+    private void pullSide(ArrayList<ArrayList<Guerreiro>> generic){
         for (int i = 0; i < Constants.MAX_FILES; i++)
-            pullGuerreiro(side, i);
+            this.pullGuerreiro(generic.get(i));
     }
 
-    public static void resetVeriablesBattle(){
+    private static void resetVeriablesBattle(){
         DarkSide.setPreference_hit(-1);
     }
     
-    private static boolean LileSettings(ArrayList<ArrayList<Guerreiro>> Gs, int side){
+    private boolean LileSettings(ArrayList<ArrayList<Guerreiro>> generic, int side){
         int i = side -1;
-        for(int j = orderOfBattle[i]; j <  Constants.MAX_FILES;j++)
+        for(int j = this.orderOfBattle[i]; j <  Constants.MAX_FILES;j++)
         {
-            if (Gs.get(j).size() > 0)
+            if (generic.get(j).size() > 0)
             {
-                orderOfBattle[i] = j;
+                this.orderOfBattle[i] = j;
                 return true;
             }
         }
-        for(int j = (orderOfBattle[i] - 1); j >= 0;j--)
+        for(int j = (this.orderOfBattle[i] - 1); j >= 0;j--)
         {
-            if (Gs.get(j).size() > 0)
+            if (generic.get(j).size() > 0)
             {
-                orderOfBattle[i] = j;
+                this.orderOfBattle[i] = j;
                 return true;
             }
         }
         return false;
     }
 
-    private static boolean battle(ArrayList<ArrayList<Guerreiro>> attacker ,ArrayList<ArrayList<Guerreiro>> wholesale , int side){
+    private boolean battle(ArrayList<ArrayList<Guerreiro>> attacker ,ArrayList<ArrayList<Guerreiro>> wholesale , int side){
         int sideW= (side==1)?2:1;
         if (attacker.get(getOrder(side)).size() < 1)
             return false;
         if(!LileSettings(wholesale, sideW ))
             return  false;
-        attacker.get(getOrder(side)).getFirst().attack();
+        attacker.get(getOrder(side)).getFirst().attack(this);
         checkKills(wholesale);
         lastattacker = null;
         lastattacker = attacker.get(getOrder(side)).getFirst();
         return true;
     }
 
-
-    public static void loadingGuerreiros(){
-        for (int i = 1; i <= Constants.MAX_FILES; i++) {
-            SideJediClones.add(FileOfLine.reader_Guerreiros(1, i));
-            SideSithDroides.add(FileOfLine.reader_Guerreiros(2, i));
-        }
-    }
-
     public int hasWinner(){
         boolean ContentLight = false, ContentDark = false;
         for(int j = 0; j < Constants.MAX_FILES; j++)
         {
-            if(this.SideJediClones.get(j).size() > 0 && !ContentLight ) 
+            if(this.team1.get(j).size() > 0 && !ContentLight ) 
                 ContentLight = true;
-            if(this.SideSithDroides.get(j).size() > 0 && !ContentDark) 
+            if(this.team2.get(j).size() > 0 && !ContentDark) 
                 ContentDark = true;
             if(ContentLight && ContentDark)
                 break;

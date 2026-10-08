@@ -10,7 +10,7 @@ import mainapplication.models.*;
  */
 public class TypeGuerreiro {
 
-    public static Guerreiro get_guerreiro(int side, String field[]){
+    public static Guerreiro get_guerreiro( int side, String field[]){
         int type = Integer.parseInt(field[0]);
         String name = field[1];
         int age = Integer.parseInt(field[2]);
@@ -19,7 +19,7 @@ public class TypeGuerreiro {
         {
             return switch (type) {
                 case 1 -> 
-                    new JediMestre(name, age, weight );
+                    new JediMestre(name, age, weight);
                 case 2 -> 
                     new JediConsular(name, age, weight);
                 case 3 -> 

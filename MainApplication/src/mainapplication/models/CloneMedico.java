@@ -5,7 +5,6 @@
 package mainapplication.models;
 
 import java.util.ArrayList;
-import  mainapplication.controllers.BattleArena;
 
 /**
  *
@@ -18,14 +17,14 @@ public class CloneMedico extends LightSide{
     }
 
     @Override
-    public void attack() {// Função N° 13
-        super.attack();
-        ArrayList <Guerreiro> gs = BattleArena.getCurrentLineJediClones();
-        hit(0);
+    public void attack(Arena arena) {// Função N° 13
+        super.attack(arena);
+        ArrayList <Guerreiro> gs = arena.getCurrentLineTeam1();
+        hit(0 , arena);
         if(gs.size() > 1 && gs.get(1).getHp() < gs.get(1).getHp_ref())
         {
             System.out.println("\n->> [HABILIDADE] Clone Medico recuperou 20 pontos de vida do guerreiro " + gs.get(1).getClass().getSimpleName() +gs.get(1).getName() +" logo atrás dele!!" );
-            gs.get(1).alterHp(20);
+            gs.get(1).alterHp(20 , arena);
         }
     }
     
