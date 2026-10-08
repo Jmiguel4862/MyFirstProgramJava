@@ -2,10 +2,8 @@ package mainapplication.controllers;
 
 import mainapplication.models.*;
 import  mainapplication.repositorys.querys.FileOfLine;
-import  mainapplication.views.Presentation;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Random;
 
 /**
  * BattleSettings
@@ -17,8 +15,15 @@ public class BattleSettings {
     private static ArrayList<ArrayList<Guerreiro>> SideSithDroides = new ArrayList<>();
     private static Guerreiro lastdie = null;
     private static Guerreiro lastattacker = null; 
-    
     private static boolean FirstAttack = false;
+    
+    public static Guerreiro getLastDie(){
+        return lastdie;
+    }
+
+    public static Guerreiro getLastAttacker(){
+        return lastattacker;
+    }
 
     public static boolean getFirstAttack() {
         return FirstAttack;
@@ -49,7 +54,7 @@ public class BattleSettings {
             orderOfBattle[team-1] = neworder;
     }
 
-    public static void pushGuerreiro(int side , int line) {
+    public static void pullGuerreiro(int side , int line) {
         ArrayList<Guerreiro> Gs = (side == 1)? SideJediClones.get(line):SideSithDroides.get(line);
         if (Gs.size() < 1)
             return ;
@@ -57,12 +62,22 @@ public class BattleSettings {
         Gs.add(temp);
     }
 
-    private static void pushSide(int side){
-        for (int i = 0; i < Constants.MAX_FILES; i++)
-            pushGuerreiro(side, i);
+    private static void checkKills(ArrayList<ArrayList<Guerreiro>> wholesale ){
+        for(int i = 0; i < Constants.MAX_FILES; i++)
+            for(int j = 0; j < wholesale.get(i).size(); j++)
+                if (wholesale.get(i).get(j).getHp() <= 0)
+                    {
+                        lastdie = null;
+                        lastdie = wholesale.get(i).remove(j);
+                    }
     }
 
-    private static void resetVeriablesBattle(){
+    public static void pullSide(int side){
+        for (int i = 0; i < Constants.MAX_FILES; i++)
+            pullGuerreiro(side, i);
+    }
+
+    public static void resetVeriablesBattle(){
         DarkSide.setPreference_hit(-1);
     }
     
@@ -94,6 +109,9 @@ public class BattleSettings {
         if(!LileSettings(wholesale, sideW ))
             return  false;
         attacker.get(getOrder(side)).getFirst().attack();
+        checkKills(wholesale);
+        lastattacker = null;
+        lastattacker = attacker.get(getOrder(side)).getFirst();
         return true;
     }
 
@@ -105,7 +123,7 @@ public class BattleSettings {
         }
     }
 
-    private static int hasWinner(){
+    public static int hasWinner(){
         boolean ContentLight = false, ContentDark = false;
         for(int j = 0; j < Constants.MAX_FILES; j++)
         {
@@ -119,56 +137,28 @@ public class BattleSettings {
         return (ContentLight && ContentDark)? 0 : (ContentLight)? 1 : 2;
     }
 
-    public static int battleArena(){  
-        Scanner scan = new Scanner(System.in);
-        Random ran = new Random();
-        boolean firstRound = true;
+    public static int battleArena(int side , Scanner scan){
         int winner = hasWinner();
-        while(winner == 0){
-            for (int i = 1; i <= 2; i++)
-            {
-                if(winner != 0)
-                    break;
-                FirstAttack = true;
-                if (firstRound)
-                {
-                    firstRound = false;
-                    i = ran.nextInt(2) + 1;
-                }
-                if (i == 1)
-                    System.out.println("JEDI E CLONES VÃO ATACAR O SITH E OS DROIDES ");
-                else 
-                    System.out.println("SITH E OS DROIDES VÃO ATACAR O JEDI E CLONES DA FILA");
-                    
-                for (int j = 0; j < Constants.MAX_FILES; j++) 
-                {
-                    orderOfBattle[0] = j;
-                    orderOfBattle[1] = j;
-                    if (j != 0) FirstAttack = false;
-                    if (i == 1){
-                        if(!battle(SideJediClones, SideSithDroides , i))
-                            continue;
-                    }
-                    else {
-                        if(!battle(SideSithDroides, SideJediClones , i))
-                            continue;
-                    }
-                    winner = hasWinner();
-                    scan.nextLine();
-                    System.out.println("\n=========================================\n");
-                }
-
+        if(winner != 0)
+            return winner;
+        for (int j = 0; j < Constants.MAX_FILES; j++) 
+        {
+            orderOfBattle[0] = j;
+            orderOfBattle[1] = j;
+            if (j != 0) FirstAttack = false;
+            if (side == 1){
+                if(!battle(SideJediClones, SideSithDroides , side))
+                    continue;
             }
-            if (winner != 0)
-                break;
-            resetVeriablesBattle();
-            Presentation.StatusBattle();
-            System.out.println("\n\nPressione ENTER para continuar a batalha");
-            scan.nextLine();
-            pushSide(1);
-            pushSide(2);
+            else {
+                if(!battle(SideSithDroides, SideJediClones , side))
+                    continue;
+            }
+            winner = hasWinner();
+            System.out.println("\n=========================================\n");
+            if(winner != 0)
+                return winner;
         }
        return  winner;
     }
-    
 }

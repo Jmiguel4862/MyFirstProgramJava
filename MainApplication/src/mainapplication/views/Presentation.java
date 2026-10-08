@@ -3,6 +3,7 @@ package mainapplication.views;
 
 import mainapplication.models.*;
 import mainapplication.controllers.*;
+import java.util.Scanner;
 import java.util.ArrayList;
 /**
  * PresentationGuerreiros
@@ -67,12 +68,14 @@ public class Presentation {
         }
     }
 
-    public static void StatusBattle(){
+    public static void StatusBattle(Scanner scan){
         for(int i = 1 ; i <= 50 ; i++) System.out.print("\n");
         System.out.println("----------------------------------------------------------------");
         System.out.println("\n\n================== STATUS DA BATALHA ==================\n");
         StatusSide(1, "JEDI & CLONES");
         StatusSide(2, "SITH & DROIDES");
         System.out.println("----------------------------------------------------------------");
+        System.out.println("\n\nPressione ENTER para continuar a batalha");
+        scan.nextLine();
     }
 }// goto line o_ceu_e_limite

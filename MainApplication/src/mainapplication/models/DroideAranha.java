@@ -27,7 +27,13 @@ public class DroideAranha extends DarkSide{
         System.out.println("\n\n->> [HABILIDADE] Droide Aranha usa seu canhão para causar dano a todos os presente na fila adversaria!!");
         ArrayList<Guerreiro> Gs = BattleSettings.getCurrentLineJediClones();
         for(int i = 0; i < Gs.size();i++)
-          if (hit(i) != null) i--;
+        {
+            if ((Gs.get(i).getHp() + this.getHit()) <= 0)
+                i--;
+            hit(i);  
+        }
+
+                
     }
 
 }
