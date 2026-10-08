@@ -5,7 +5,7 @@
 package mainapplication.models;
 
 import java.util.ArrayList;
-import mainapplication.controllers.BattleSettings;
+import mainapplication.controllers.BattleArena;
 
 /**
  *
@@ -14,14 +14,14 @@ import mainapplication.controllers.BattleSettings;
 public class CloneComando extends LightSide{
     
     public CloneComando(String name, int age, double weight) {
-        super(name, age, weight , 40);
+        super(name, age, weight , 40, "Clone Comando");
     }
 
     @Override
-    public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
-        super.attack(Gs);
+    public void attack() {// Função N° 13
+        super.attack();
         int equals = 0;
-        ArrayList<Guerreiro> jc = BattleSettings.getSideJediClones().get(BattleSettings.getOrder(1));
+        ArrayList<Guerreiro> jc = BattleArena.getCurrentLineJediClones();
         if (jc.size() > 1)
         {
             for (int i = 1; i < jc.size(); i++) 
@@ -29,7 +29,9 @@ public class CloneComando extends LightSide{
                     equals++;
             if (equals > 0)System.out.println("\n\n->> [HABILIDADE] O Clone Comando atual encontro "+equals+" semelhantes seus na fila para ajuda no ataque e vai dar "+(equals*8)+" a mais de dano neste ataque");
         }
-        hit(Gs, 0, "Clone Comando", (this.getHit()) - (equals*8));
+        setHit(getHit()-(equals*8));
+        hit(0);
+        setHit(getHit()+(equals*8));
     }
 
 }

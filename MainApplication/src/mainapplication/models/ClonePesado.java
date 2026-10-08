@@ -14,7 +14,7 @@ import mainapplication.controllers.*;
 public class ClonePesado extends LightSide{
     
     public ClonePesado(String name, int age, double weight) {
-        super(name, age, weight , 30);
+        super(name, age, (weight + 300), 30, "Clone Pesado");
         this.setHp(400);
         this.setHp_ref(400);
     }
@@ -32,29 +32,31 @@ public class ClonePesado extends LightSide{
 
     @Override
     public void alterHp(int alter) {// Função N° 11
-        if((this.getHp()-alter) > 0 && DarkSide.getPreference_hit() > -1)
+        if((this.getHp() + alter) > 0 && DarkSide.getPreference_hit() >= 0)
         {
-            if(this == BattleSettings.getCurrentLineJediClones().getFirst()) System.out.println("\n\n->> [HABILIDADE] enquanto clone pessado estiver vivo ou a rodada acabar o este clone pessado será atacado!!");
-            BattleSettings.setOrder(1, DarkSide.getPreference_hit());
+            if(this == BattleArena.getCurrentLineJediClones().getFirst()) System.out.println("\n\n->> [HABILIDADE] enquanto clone pessado estiver vivo ou a rodada acabar o este clone pessado será atacado!!");
         }
         else
-            if (DarkSide.getPreference_hit() > -1) 
+        {
+            if (DarkSide.getPreference_hit() >= 0)
                 DarkSide.setPreference_hit(DarkSide.getPreference_hit()-1);
+        }
         super.alterHp(alter);
     }
     @Override
-    public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
+    public void attack() {// Função N° 13
         int index;
-        super.attack(Gs);
-        hit(Gs, 0, "Clone Pesado", this.getHit());
-        ArrayList<Guerreiro> temp = null;
-        if(BattleSettings.getFirstAttack() && this == BattleSettings.getCurrentLineJediClones().getFirst())
-        { 
-            index = BattleSettings.getOrder(1) + 1;
+        ArrayList<Guerreiro> temp;
+        super.attack();
+        hit(0);
+        if(BattleArena.getFirstAttack())
+        {
+            index = BattleArena.getOrder(1);
             do{
-                temp = BattleSettings.getSideJediClones().get(index);
                 index++;
-            }while( index < Constants.MAX_FILES && temp.size() > 0 && temp.getFirst().getClass() == ClonePesado.class);
+                if(index >= Constants.MAX_FILES) break;
+                temp = BattleArena.getSideJediClones().get(index);
+            }while(temp.size() > 0 && temp.getFirst().getClass() == ClonePesado.class);
             DarkSide.setPreference_hit(index-1);
         }
     }

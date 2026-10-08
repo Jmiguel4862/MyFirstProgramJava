@@ -4,8 +4,7 @@
  */
 package mainapplication.models;
 
-import java.util.ArrayList;
-import mainapplication.controllers.BattleSettings;
+import mainapplication.controllers.BattleArena;
 
 /**
  *
@@ -13,7 +12,7 @@ import mainapplication.controllers.BattleSettings;
  */
 public class DroideBatalhaB2 extends DarkSide{
     public DroideBatalhaB2(String name, int age, double weight) {
-        super(name, age, weight , 10);
+        super(name, age, weight , 10 , "Droide de Batalha B2");
     }
     
     public DroideBatalhaB2(Guerreiro G) {
@@ -21,9 +20,9 @@ public class DroideBatalhaB2 extends DarkSide{
     }
 
     @Override
-    public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
-        super.attack(Gs);
-        hit(Gs, 0, "Droide de Batalha B2", this.getHit());
+    public void attack() {// Função N° 13
+        super.attack();
+        hit(0);
     }   
 
     @Override
@@ -37,7 +36,7 @@ public class DroideBatalhaB2 extends DarkSide{
                 newb2.setHp(this.getHp_ref()/2);
                 newb2.setHp_ref(this.getHp_ref()/2);
                 newb2.setName(this.getName()+"."+i);
-                BattleSettings.getCurrentLineSithDroides().add(newb2);
+                BattleArena.getCurrentLineSithDroides().add(newb2);
                 newb2 = null;
             }
         }

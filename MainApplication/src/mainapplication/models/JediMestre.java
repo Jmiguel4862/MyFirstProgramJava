@@ -3,8 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package mainapplication.models;
-import mainapplication.controllers.BattleSettings;
-import java.util.ArrayList;
+import mainapplication.controllers.BattleArena;
 
 /**
  *
@@ -12,21 +11,21 @@ import java.util.ArrayList;
  */
 public class JediMestre extends LightSide{
     public JediMestre(String name, int age, double weight) {
-        super(name, age, weight , 35);
+        super(name, age, weight , 35 , "Jedi Mestre");
     }
     public JediMestre(Guerreiro G) {
         super(G);
     }
 
     @Override
-    public void attack(ArrayList<Guerreiro> Gs) {// Função N° 13
-        super.attack(Gs);
-        hit(Gs, 0, "Jedi Mestre" , this.getHit());
+    public void attack() {// Função N° 13
+        super.attack();
+        hit(0);
     }
 
     @Override
     public void alterHp(int alter) {// Função N° 11
-        if(BattleSettings.getFirstAttack() && this == BattleSettings.getSideJediClones().get(BattleSettings.getOrder(1)).getFirst())
+        if(BattleArena.getFirstAttack() && this == BattleArena.getSideJediClones().get(BattleArena.getOrder(1)).getFirst())
             System.out.println("\n\n->> [HABILIDADE] Devido a habilidade do Jedi Mestre por ser o primeiro a atacar ele empurara o adversario para o final da fila e anulara seu ataque.");
         else
             super.alterHp(alter);

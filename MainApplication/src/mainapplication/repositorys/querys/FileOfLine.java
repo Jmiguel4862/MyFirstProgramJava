@@ -29,7 +29,7 @@ public class FileOfLine {
 
     public static ArrayList<Guerreiro> reader_Guerreiros( int side, int queue){
        try {
-            String line = "MainApplication/src/mainapplication/repositorys/database/fila"+side+ queue +".txt";
+            String line = "src/mainapplication/repositorys/database/fila"+side+ queue +".txt";
             String last[] = null;
             Scanner scan = new Scanner(new FileInputStream(line));
             ArrayList<Guerreiro> Gs = new ArrayList<>();
@@ -48,7 +48,7 @@ public class FileOfLine {
 
     public  static boolean write_Guerreiros( ArrayList<Guerreiro> Gs , int side, int queue){
         try {
-            String line = "MainApplication/src/mainapplication/repositorys/database/fila"+side+ queue +".txt";
+            String line = "src/mainapplication/repositorys/database/fila"+side+ queue +".txt";
             String guerreiros = null;
             Formatter form;
             if ( Gs == null || Gs.size() == 0)
@@ -58,7 +58,7 @@ public class FileOfLine {
                 return true;
             }
             for (Guerreiro G : Gs)
-                guerreiros = (guerreiros == null) ? TypeGuerreiro.get_guerreiro(side, G) + " "+ G.getName() + " " + G.getAge() + " " + G.getWeight() + " " + G.getHp() : guerreiros + "\n" + TypeGuerreiro.get_guerreiro(side, G) + " "+ G.getName() + " " + G.getAge() + " " + G.getWeight();
+                guerreiros = (guerreiros == null) ? TypeGuerreiro.get_guerreiro(side, G) + " "+ G.getName() + " " + G.getAge() + " " + G.getWeight() + " ": guerreiros + "\n" + TypeGuerreiro.get_guerreiro(side, G) + " "+ G.getName() + " " + G.getAge() + " " + G.getWeight();
             form = new Formatter(line);
             form.format(guerreiros);
             form.close();

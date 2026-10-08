@@ -4,8 +4,6 @@
  */
 package mainapplication;
 
-import mainapplication.controllers.*;
-
 import java.io.IOException;
 import java.util.Scanner;
 import mainapplication.views.*;
@@ -23,23 +21,8 @@ public class MainApplication {
         
         //java.io.File f = new File("MainApplication/src/mainapplication/repositorys/database/fila11.txt");
         //System.out.println("Arquivo existe: " + f.exists());
-
         Scanner scan= new Scanner(System.in);
-        if (Generate.create_Side(1) && Generate.create_Side(2))
-        {
-            System.out.println("\n <<< CLIQUE EM QUALQUER TECLA PARA CARREGAR OS GUERREIROS >>>");
-            scan.nextLine();
-            BattleSettings.loadingGuerreiros();
-            Presentation.presentationGuerreiros();
-            System.out.println("\n <<< CLIQUE EM QUALQUER TECLA PARA COMEÇAR AS BATALHAS >>>");
-            scan.nextLine();// Espera pelo entrada do usuario
-            if(BattleSettings.battleArena() == 1)
-                System.out.println("\n <<< OS JEDI & CLONES VENCERAM A BATALHA >>>");
-            else
-                System.out.println("\n <<< OS SITH &DROIDES VENCERAM A BATALHA >>>");
-            scan.close();
-        }
-        else
-            System.out.println("[ERRO] Programa não conseguiu gerar as filas");
+        Begin.introduction(scan);
+        scan.close();
     }
 }

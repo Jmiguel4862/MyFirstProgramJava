@@ -12,7 +12,7 @@ public class Generate {
         String name = ManipulationTxt.ReadTxt(ind_name);
         int age = rand.nextInt(50) + 18; // idade entre 18 e 67
         double weight = rand.nextDouble() * 100 + 50; // peso entre 50 e 150
-        String fields[] = {String.valueOf(rand.nextInt(Constants.MAX_GUERREIROS) + 1), name, String.valueOf(age), String.valueOf(weight)};
+        String fields[] = {String.valueOf(rand.nextInt(Constants.MAX_GUERREIROS) + 1) , name , String.valueOf(age) , String.valueOf(weight)};
         return TypeGuerreiro.get_guerreiro(line, fields);
     }
     private static ArrayList<Guerreiro> generateGuerreiros(int side , ArrayList<Integer> usedIndices) {

@@ -5,6 +5,7 @@
 package mainapplication.models;
 
 import java.util.ArrayList;
+import mainapplication.controllers.*;
 
 /**
  *
@@ -17,12 +18,14 @@ public abstract class Guerreiro {
     private int hp_ref = 100;
     private int hp = 100;
     private int hit = -10;
+    private String baseName = null;
     
-    public Guerreiro(String name, int age, double weight , int hit){
+    public Guerreiro(String name, int age, double weight , int hit , String baseName){
         this.name = name;
         this.age = age;
         this.weight = weight;
         this.hit = -hit;
+        this.baseName = baseName;
 
     }
 
@@ -33,6 +36,7 @@ public abstract class Guerreiro {
         this.hp_ref = G.getHp_ref();
         this.hp = G.getHp_ref();
         this.hit = G.getHit();
+        this.baseName = G.getBaseName();
 
     }
 
@@ -72,11 +76,18 @@ public abstract class Guerreiro {
         return hit;
     }
     
+    public String getBaseName(){// Função N° 12
+        return baseName;
+    }
 
     public void setHit(int hit){// Função N° 10
         this.hit = hit;
     }
 
+
+    public void setBaseName(String baseName){// Função N° 12
+        this.baseName = baseName;
+    }
 
     public void alterHp(int alter){// Função N° 11
         this.hp = hp + alter;
@@ -86,22 +97,15 @@ public abstract class Guerreiro {
             this.hp = hp_ref;
     }
 
-    public boolean hit(ArrayList<Guerreiro> gs , int order, String sideName , int damage){// Função N° 13
-        gs.get(order).alterHp(damage);
+    public void hit(int order){// Função N° 13
+        ArrayList<Guerreiro> gs = (this instanceof LightSide) ? BattleArena.getCurrentLineSithDroides() : BattleArena.getCurrentLineJediClones();
+        gs.get(order).alterHp(this.getHit());
         if (gs.get(order).getHp() > 0)
-        {
-            System.out.println("\n\n> Guerreiro "+sideName+" "+ this.getName() + " atacou o guerreiro " +gs.get(order).getClass().getSimpleName() +" "+gs.get(order).getName() + " e causou "+ (-damage) +" de dano");    
-            return false;
-        }
+            System.out.println("\n\n> Guerreiro "+this.getBaseName()+" "+ this.getName() + " atacou o guerreiro " +gs.get(order).getBaseName() +" "+gs.get(order).getName() + " e causou "+ (-this.getHit()) +" de dano");    
         else 
-        {
-            System.out.println("\n\n[EVENTO DA GUERRA] ->> Guerreiro "+sideName+" "+ this.getName() + " MATOU " + gs.get(order).getClass().getSimpleName() +" "+ gs.get(order).getName()+" foi derrotado(MORREU)!!\n\n");
-            gs.remove(order);
-            return true;
-        }
+            System.out.println("\n\n[EVENTO DA GUERRA] ->> Guerreiro "+this.getBaseName()+" "+ this.getName() + " MATOU " + gs.get(order).getBaseName() +" "+ gs.get(order).getName()+" foi derrotado(MORREU)!!\n\n");
     }
     
-    
-    public abstract void attack(ArrayList<Guerreiro> Gs);// Função N° 14
+    public abstract void attack();// Função N° 14
 
 }
