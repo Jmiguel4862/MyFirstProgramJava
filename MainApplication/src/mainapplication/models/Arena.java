@@ -12,12 +12,13 @@ import java.util.Scanner;
  */
 public class Arena {
 
-    private  int[] orderOfBattle = new int[]{0,0};
-    private  ArrayList<ArrayList<Guerreiro>> team1 = new ArrayList<>();
-    private  ArrayList<ArrayList<Guerreiro>> team2 = new ArrayList<>();
-    private  Guerreiro lastdie = null;
-    private  Guerreiro lastattacker = null; 
-    private  boolean firstAttack = false;
+    private int[] orderOfBattle = new int[]{0,0};
+    private int[] prefereceOrder = new int[] {-1, -1};
+    private ArrayList<ArrayList<Guerreiro>> team1 = new ArrayList<>();
+    private ArrayList<ArrayList<Guerreiro>> team2 = new ArrayList<>();
+    private Guerreiro lastdie = null;
+    private Guerreiro lastattacker = null; 
+    private boolean firstAttack = false;
     private int winner = 0;
 
     public Arena (ArrayList<ArrayList<Guerreiro>> team1 , ArrayList<ArrayList<Guerreiro>> team2){
@@ -32,7 +33,7 @@ public class Arena {
         while (winner == 0) {
             for (int i = first;indCpm(inc , i); i += inc)
             {
-                if(winner != 0)   break;
+                if(winner != 0)break;
                 if (i == 1)
                     System.out.println("JEDI E CLONES VÃO ATACAR O SITH E OS DROIDES ");
                 else 
@@ -127,6 +128,17 @@ public class Arena {
             orderOfBattle[team-1] = neworder;
     }
 
+    public int getPreferenceOrder(){// Função N° 15
+        return  preference_hit;
+    }
+
+    public void setPreferenceOrder(int preferece){// Função N° 16
+        if (preferece >= 0 && preferece < Constants.MAX_FILES)
+            preference_hit = preferece;
+        else 
+            preference_hit = -1;
+    }
+
     private  void pullGuerreiro(ArrayList<Guerreiro> generic) {
         if (generic.size() < 1)
             return ;
@@ -146,8 +158,8 @@ public class Arena {
             this.pullGuerreiro(generic.get(i));
     }
 
-    private static void resetVeriablesBattle(){
-        DarkSide.setPreference_hit(-1);
+    private void resetVeriablesBattle(){
+        this.PreferenceOrder(1) = -1;
     }
     
     private boolean LileSettings(ArrayList<ArrayList<Guerreiro>> generic, int side){
@@ -184,7 +196,7 @@ public class Arena {
         return true;
     }
 
-    public int hasWinner(){
+    private int hasWinner(){
         boolean ContentLight = false, ContentDark = false;
         for(int j = 0; j < Constants.MAX_FILES; j++)
         {

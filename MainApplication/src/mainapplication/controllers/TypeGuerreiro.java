@@ -52,10 +52,10 @@ public class TypeGuerreiro {
             };
         }
     }
-    public static int get_guerreiro(int side, Guerreiro G){
+    public static int get_guerreiro(int side, Guerreiro guerreiros){
         if(side == 1)
         {
-            return switch (G.getClass().getSimpleName()) {
+            return switch (guerreiros.getClass().getSimpleName()) {
                 case "JediMestre" -> 1;
                 case "JediConsular" -> 2;
                 case "JediGeneral" -> 3;
@@ -67,7 +67,7 @@ public class TypeGuerreiro {
         }
         else 
         {
-            return switch (G.getClass().getSimpleName()) {
+            return switch (guerreiros.getClass().getSimpleName()) {
                 case "DroideBatalhaB2" -> 1;
                 case "DroideAranha" -> 2;
                 case "DroideExterminador" -> 3;

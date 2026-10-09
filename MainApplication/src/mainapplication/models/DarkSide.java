@@ -6,7 +6,6 @@ import mainapplication.controllers.*;
 
 public abstract class DarkSide extends Guerreiro{
 
-    private static int preference_hit = -1 ;
     private static String nameSide = "Sith & Droides";
 
     public DarkSide(String name, int age, double weight , int hit , String baseName) {
@@ -21,17 +20,6 @@ public abstract class DarkSide extends Guerreiro{
         return nameSide;
     }
 
-    public static int getPreference_hit(){// Função N° 15
-        return  preference_hit;
-    }
-
-    public static void setPreference_hit(int preferece){// Função N° 16
-        if (preferece >= 0 && preferece < Constants.MAX_FILES)
-            preference_hit = preferece;
-        else 
-            preference_hit = -1;
-    }
-
     @Override 
     public void hit(int order , Arena arena){// Função N° 13
         ArrayList<Guerreiro> gs = arena.getCurrentLineTeam1();
@@ -44,7 +32,7 @@ public abstract class DarkSide extends Guerreiro{
     
     @Override 
     public void attack(Arena arena){// Função N° 13
-        if (preference_hit > -1)
+        if (arena.preferenceOrder() > -1)
             arena.setOrder(1, preference_hit);
     }
 }

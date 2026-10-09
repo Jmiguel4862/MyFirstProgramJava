@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class ManipulationTxt {
 
-    public static String ReadTxt(int n){
+    public static String readTxt(int n){
         try{
             String result = null;
             Scanner scan = new Scanner(new FileInputStream("src/mainapplication/repositorys/database/nomes.txt"));

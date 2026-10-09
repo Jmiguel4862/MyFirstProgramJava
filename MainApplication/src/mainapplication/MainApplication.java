@@ -27,7 +27,7 @@ public class MainApplication {
         //System.out.println("Arquivo existe: " + f.exists());
         Scanner scan = new  Scanner(System.in);
         Arena arena = null;
-        if (Generate.create_Side(1) && Generate.create_Side(2))
+        if (Generate.createSide(1) && Generate.createSide(2))
         {
             System.out.println("\n <<< CLIQUE EM QUALQUER TECLA PARA CARREGAR OS GUERREIROS >>>");
             scan.nextLine();
