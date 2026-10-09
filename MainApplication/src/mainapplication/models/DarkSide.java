@@ -2,8 +2,6 @@ package mainapplication.models;
 
 import java.util.ArrayList;
 
-import mainapplication.controllers.*;
-
 public abstract class DarkSide extends Guerreiro{
 
     private static String nameSide = "Sith & Droides";
@@ -32,7 +30,7 @@ public abstract class DarkSide extends Guerreiro{
     
     @Override 
     public void attack(Arena arena){// Função N° 13
-        if (arena.preferenceOrder() > -1)
-            arena.setOrder(1, preference_hit);
+        if (arena.getPreferenceOrder(2) > -1)
+            arena.setOrder(1, arena.getPreferenceOrder(2));
     }
 }

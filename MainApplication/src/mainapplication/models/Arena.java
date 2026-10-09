@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class Arena {
 
     private int[] orderOfBattle = new int[]{0,0};
-    private int[] prefereceOrder = new int[] {-1, -1};
+    private int[] preferenceOrder = new int[] {-1, -1};
     private ArrayList<ArrayList<Guerreiro>> team1 = new ArrayList<>();
     private ArrayList<ArrayList<Guerreiro>> team2 = new ArrayList<>();
     private Guerreiro lastdie = null;
@@ -51,7 +51,7 @@ public class Arena {
                         if(!battle(team2, team1 , i))
                             continue;
                     }
-                    if (!firstAttack) firstAttack = false;
+                    if (firstAttack) firstAttack = false;
                     winner = hasWinner();
                     System.out.println("\n=========================================\n");
                     if(winner != 0)
@@ -60,7 +60,7 @@ public class Arena {
             }
             if (winner != 0)
                 break;
-            Arena.resetVeriablesBattle();
+            this.resetVeriablesBattle();
             Presentation.StatusBattle(this, scan);
             this.pullSide(this.team1);
             this.pullSide(this.team2);
@@ -128,15 +128,17 @@ public class Arena {
             orderOfBattle[team-1] = neworder;
     }
 
-    public int getPreferenceOrder(){// Função N° 15
-        return  preference_hit;
+    public int getPreferenceOrder(int side){// Função N° 15
+        return  preferenceOrder[side-1];
     }
 
-    public void setPreferenceOrder(int preferece){// Função N° 16
-        if (preferece >= 0 && preferece < Constants.MAX_FILES)
-            preference_hit = preferece;
+    public void setPreferenceOrder(int side ,int preference){// Função N° 16
+        if(side > 2 || side < 1)
+            return;
+        if (preference >= 0 && preference < Constants.MAX_FILES)
+            preferenceOrder[side-1] = preference;
         else 
-            preference_hit = -1;
+            preferenceOrder[side-1]= -1;
     }
 
     private  void pullGuerreiro(ArrayList<Guerreiro> generic) {
@@ -159,7 +161,8 @@ public class Arena {
     }
 
     private void resetVeriablesBattle(){
-        this.PreferenceOrder(1) = -1;
+        this.preferenceOrder[0]= -1;
+        this.preferenceOrder[1] = -1;
     }
     
     private boolean LileSettings(ArrayList<ArrayList<Guerreiro>> generic, int side){

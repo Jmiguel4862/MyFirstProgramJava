@@ -26,14 +26,14 @@ public class ClonePesado extends LightSide{
 
     @Override
     public void alterHp(int alter , Arena arena) {// Função N° 11
-        if((this.getHp() + alter) > 0 && arena.getPreferenceOrder() >= 0)
+        if((this.getHp() + alter) > 0 && arena.getPreferenceOrder(2) >= 0)
         {
             if(this == arena.getCurrentLineTeam1().getFirst()) System.out.println("\n\n->> [HABILIDADE] enquanto clone pessado estiver vivo ou a rodada acabar o este clone pessado será atacado!!");
         }
         else
         {
-            if (arena.getPreferenceOrder() >= 0)
-                arena.setPreferenceOrder(arena.getPreferenceOrder()-1);
+            if (arena.getPreferenceOrder(2) >= 0)
+                arena.setPreferenceOrder( 2, arena.getPreferenceOrder(2)-1);
         }
         super.alterHp(alter , arena);
     }
@@ -51,7 +51,7 @@ public class ClonePesado extends LightSide{
                 if(index >= Constants.MAX_FILES) break;
                 temp = arena.getTeam1().get(index);
             }while(temp.size() > 0 && temp.getFirst().getClass() == ClonePesado.class);
-            arena.setPreferenceOrder(index-1);
+            arena.setPreferenceOrder(2 , (index-1));
         }
     }
     
