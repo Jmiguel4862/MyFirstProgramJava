@@ -13,8 +13,8 @@ public class DroideBatalhaB2 extends DarkSide{
         super(name, age, weight , 10 , "Droide de Batalha B2");
     }
     
-    public DroideBatalhaB2(Guerreiro g) {
-        super(g);
+    public DroideBatalhaB2(Guerreiro guerreiro) {
+        super(guerreiro);
     }
 
     @Override

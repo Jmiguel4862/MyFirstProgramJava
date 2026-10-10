@@ -68,6 +68,78 @@ public class Arena {
         }
     }
 
+    private boolean battle(ArrayList<ArrayList<Guerreiro>> attacker ,ArrayList<ArrayList<Guerreiro>> wholesale , int side){
+        int sideW= (side==1)?2:1;
+        if (attacker.get(getOrder(side)).size() < 1)
+            return false;
+        if(!LineSettings(wholesale, sideW ))
+            return  false;
+        attacker.get(getOrder(side)).getFirst().attack(this);
+        checkKills(wholesale);
+        lastattacker = null;
+        lastattacker = attacker.get(getOrder(side)).getFirst();
+        return true;
+    }
+
+    private boolean LineSettings(ArrayList<ArrayList<Guerreiro>> generic, int side){
+        int i = side -1;
+        for(int j = this.orderOfBattle[i]; j <  Constants.MAX_FILES;j++)
+        {
+            if (generic.get(j).size() > 0)
+            {
+                this.orderOfBattle[i] = j;
+                return true;
+            }
+        }
+        for(int j = (this.orderOfBattle[i] - 1); j >= 0;j--)
+        {
+            if (generic.get(j).size() > 0)
+            {
+                this.orderOfBattle[i] = j;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private  void pullGuerreiro(ArrayList<Guerreiro> generic) {
+        if (generic.size() < 1)
+            return ;
+        Guerreiro temp = generic.removeFirst();
+        generic.add(temp);
+    }
+
+    private void pullSide(ArrayList<ArrayList<Guerreiro>> generic){
+        for (int i = 0; i < Constants.MAX_FILES; i++)
+            this.pullGuerreiro(generic.get(i));
+    }
+
+    private void checkKills(ArrayList<ArrayList<Guerreiro>> wholesale ){
+        for(int i = 0; i < Constants.MAX_FILES; i++)
+            for(int j = 0; j < wholesale.get(i).size(); j++)
+                if (wholesale.get(i).get(j).getHp() <= 0)
+                        this.lastdie = wholesale.get(i).remove(j);
+    }
+
+    private void resetVeriablesBattle(){
+        this.preferenceOrder[0]= -1;
+        this.preferenceOrder[1] = -1;
+    }
+
+    private int hasWinner(){
+        boolean contentLight = false, contentDark = false;
+        for(int j = 0; j < Constants.MAX_FILES; j++)
+        {
+            if(!contentLight && this.team1.get(j).size() > 0) 
+                contentLight = true;
+            if(!contentDark && this.team2.get(j).size() > 0) 
+                contentDark = true;
+            if(contentLight && contentDark)
+                break;
+        }
+        return (contentLight && contentDark)? 0 : (contentLight)? 1 : 2;
+    }
+
     public static boolean indCpm(int inc , int ind){
         if (inc > 0)
         {
@@ -81,14 +153,6 @@ public class Arena {
 
     public int getWinner(){
         return  winner;
-    }
-
-    public void setLastdie(Guerreiro lastdie) {
-        this.lastdie = lastdie;
-    }
-
-    public void setLastattacker(Guerreiro lastattacker) {
-        this.lastattacker = lastattacker;
     }
     
     public  Guerreiro getLastDie(){
@@ -123,13 +187,13 @@ public class Arena {
         return orderOfBattle[team-1];
     }
 
+    public int getPreferenceOrder(int side){// Função N° 15
+        return  preferenceOrder[side-1];
+    }
+
     public  void setOrder(int team , int neworder){
         if(neworder < 4 && neworder >= 0)
             orderOfBattle[team-1] = neworder;
-    }
-
-    public int getPreferenceOrder(int side){// Função N° 15
-        return  preferenceOrder[side-1];
     }
 
     public void setPreferenceOrder(int side ,int preference){// Função N° 16
@@ -139,77 +203,5 @@ public class Arena {
             preferenceOrder[side-1] = preference;
         else 
             preferenceOrder[side-1]= -1;
-    }
-
-    private  void pullGuerreiro(ArrayList<Guerreiro> generic) {
-        if (generic.size() < 1)
-            return ;
-        Guerreiro temp = generic.removeFirst();
-        generic.add(temp);
-    }
-
-    private void checkKills(ArrayList<ArrayList<Guerreiro>> wholesale ){
-        for(int i = 0; i < Constants.MAX_FILES; i++)
-            for(int j = 0; j < wholesale.get(i).size(); j++)
-                if (wholesale.get(i).get(j).getHp() <= 0)
-                        this.setLastdie(wholesale.get(i).remove(j));
-    }
-
-    private void pullSide(ArrayList<ArrayList<Guerreiro>> generic){
-        for (int i = 0; i < Constants.MAX_FILES; i++)
-            this.pullGuerreiro(generic.get(i));
-    }
-
-    private void resetVeriablesBattle(){
-        this.preferenceOrder[0]= -1;
-        this.preferenceOrder[1] = -1;
-    }
-    
-    private boolean LileSettings(ArrayList<ArrayList<Guerreiro>> generic, int side){
-        int i = side -1;
-        for(int j = this.orderOfBattle[i]; j <  Constants.MAX_FILES;j++)
-        {
-            if (generic.get(j).size() > 0)
-            {
-                this.orderOfBattle[i] = j;
-                return true;
-            }
-        }
-        for(int j = (this.orderOfBattle[i] - 1); j >= 0;j--)
-        {
-            if (generic.get(j).size() > 0)
-            {
-                this.orderOfBattle[i] = j;
-                return true;
-            }
-        }
-        return false;
-    }
-
-    private boolean battle(ArrayList<ArrayList<Guerreiro>> attacker ,ArrayList<ArrayList<Guerreiro>> wholesale , int side){
-        int sideW= (side==1)?2:1;
-        if (attacker.get(getOrder(side)).size() < 1)
-            return false;
-        if(!LileSettings(wholesale, sideW ))
-            return  false;
-        attacker.get(getOrder(side)).getFirst().attack(this);
-        checkKills(wholesale);
-        lastattacker = null;
-        lastattacker = attacker.get(getOrder(side)).getFirst();
-        return true;
-    }
-
-    private int hasWinner(){
-        boolean ContentLight = false, ContentDark = false;
-        for(int j = 0; j < Constants.MAX_FILES; j++)
-        {
-            if(this.team1.get(j).size() > 0 && !ContentLight ) 
-                ContentLight = true;
-            if(this.team2.get(j).size() > 0 && !ContentDark) 
-                ContentDark = true;
-            if(ContentLight && ContentDark)
-                break;
-        }
-        return (ContentLight && ContentDark)? 0 : (ContentLight)? 1 : 2;
     }
 }

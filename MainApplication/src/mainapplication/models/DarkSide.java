@@ -20,12 +20,12 @@ public abstract class DarkSide extends Guerreiro{
 
     @Override 
     public void hit(int order , Arena arena){// Função N° 13
-        ArrayList<Guerreiro> gs = arena.getCurrentLineTeam1();
-        gs.get(order).alterHp(this.getHit()  , arena);
-        if (gs.get(order).getHp() > 0)
-            System.out.println("\n\n> Guerreiro "+this.getBaseName()+" "+ this.getName() + " atacou o guerreiro " +gs.get(order).getBaseName() +" "+gs.get(order).getName() + " e causou "+ (-this.getHit()) +" de dano");    
+        ArrayList<Guerreiro> guerreiros = arena.getCurrentLineTeam1();
+        guerreiros.get(order).alterHp(this.getHit()  , arena);
+        if (guerreiros.get(order).getHp() > 0)
+            System.out.println("\n\n> Guerreiro "+this.getBaseName()+" "+ this.getName() + " atacou o guerreiro " +guerreiros.get(order).getBaseName() +" "+guerreiros.get(order).getName() + " e causou "+ (-this.getHit()) +" de dano");    
         else 
-            System.out.println("\n\n[EVENTO DA GUERRA] ->> Guerreiro "+this.getBaseName()+" "+ this.getName() + " MATOU " + gs.get(order).getBaseName() +" "+ gs.get(order).getName()+" foi derrotado(MORREU)!!\n\n");
+            System.out.println("\n\n[EVENTO DA GUERRA] ->> Guerreiro "+this.getBaseName()+" "+ this.getName() + " MATOU " + guerreiros.get(order).getBaseName() +" "+ guerreiros.get(order).getName()+" foi derrotado(MORREU)!!\n\n");
     }
     
     @Override 

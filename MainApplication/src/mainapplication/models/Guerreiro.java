@@ -25,12 +25,12 @@ public abstract class Guerreiro {
         this.baseName = baseName;
     }
 
-    public Guerreiro(Guerreiro g){
-        this.name = g.name;
-        this.age = g.age;
-        this.weight = g.weight;
-        this.hit = g.hit;
-        this.baseName = g.baseName;
+    public Guerreiro(Guerreiro guerreiro){
+        this.name = guerreiro.name;
+        this.age = guerreiro.age;
+        this.weight = guerreiro.weight;
+        this.hit = guerreiro.hit;
+        this.baseName = guerreiro.baseName;
     }
 
     public String getName(){// Função N° 1

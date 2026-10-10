@@ -19,11 +19,6 @@ public class ClonePesado extends LightSide{
         this.setHp_ref(400);
     }
 
-    @Override 
-    public void setHp(int hp){
-        super.setHp(hp);
-    }
-
     @Override
     public void alterHp(int alter , Arena arena) {// Função N° 11
         if((this.getHp() + alter) > 0 && arena.getPreferenceOrder(2) >= 0)

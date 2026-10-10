@@ -20,8 +20,8 @@ public class DroideAranha extends DarkSide{
     public void attack(Arena arena) {// Função N° 13
         super.attack(arena);
         System.out.println("\n\n->> [HABILIDADE] Droide Aranha usa seu canhão para causar dano a todos os presente na fila adversaria!!");
-        ArrayList<Guerreiro> Gs = arena.getCurrentLineTeam1();
-        for(int i = 0; i < Gs.size();i++)
+        ArrayList<Guerreiro> guerreiros = arena.getCurrentLineTeam1();
+        for(int i = 0; i < guerreiros.size();i++)
             hit(i , arena);  
     }
 

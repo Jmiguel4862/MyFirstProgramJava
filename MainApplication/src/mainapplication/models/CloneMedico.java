@@ -19,12 +19,12 @@ public class CloneMedico extends LightSide{
     @Override
     public void attack(Arena arena) {// Função N° 13
         super.attack(arena);
-        ArrayList <Guerreiro> gs = arena.getCurrentLineTeam1();
+        ArrayList <Guerreiro> guerreiros = arena.getCurrentLineTeam1();
         hit(0 , arena);
-        if(gs.size() > 1 && gs.get(1).getHp() < gs.get(1).getHp_ref())
+        if(guerreiros.size() > 1 && guerreiros.get(1).getHp() < guerreiros.get(1).getHp_ref())
         {
-            System.out.println("\n->> [HABILIDADE] Clone Medico recuperou 20 pontos de vida do guerreiro " + gs.get(1).getClass().getSimpleName() +gs.get(1).getName() +" logo atrás dele!!" );
-            gs.get(1).alterHp(20 , arena);
+            System.out.println("\n->> [HABILIDADE] Clone Medico recuperou 20 pontos de vida do guerreiro " + guerreiros.get(1).getClass().getSimpleName() +guerreiros.get(1).getName() +" logo atrás dele!!" );
+            guerreiros.get(1).alterHp(20 , arena);
         }
     }
     

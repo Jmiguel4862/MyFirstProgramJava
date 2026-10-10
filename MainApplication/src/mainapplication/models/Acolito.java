@@ -19,9 +19,9 @@ public class Acolito extends DarkSide{
     @Override
     public void attack(Arena arena) {// Função N° 13
         super.attack(arena);
-        ArrayList<Guerreiro> Gs = arena.getCurrentLineTeam1();
+        ArrayList<Guerreiro> guerreiros = arena.getCurrentLineTeam1();
         System.out.println("\n->> [HABILIDADE] Acalito atacou o primeiro da fila saltou e atacou o ultimo da fila ");
         hit(0 , arena);
-        if(Gs.size() > 0) hit((Gs.size() - 1) , arena);
+        if(guerreiros.size() > 0) hit((guerreiros.size() - 1) , arena);
     }
 }

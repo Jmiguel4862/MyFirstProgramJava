@@ -17,11 +17,7 @@ public class DroideExterminador extends DarkSide{
         setHp_ref(60);
         setHp(60);
     }
-    public DroideExterminador(Guerreiro G) {
-        super(G);
-        setHp(60);
-        setHp(60);
-    }
+    
     @Override
     public void attack(Arena arena) {// Função N° 13
         super.attack(arena);
