@@ -34,11 +34,11 @@ public class Presentation {
             System.out.println("\n->> Guerreiro da fila " + (i+1) + ":\n");
             System.out.println(String.format("%-20s | %-40s | %-10s | %-10s | %-10s | %-10s", "TIPO", "NOME", "IDADE", "PESO", "HP", "DANO"));
             System.out.println("------------------------------------------------------------------------------------------------------------------------");
-            for (Guerreiro G : ((side == 1)? arena.getTeam1().get(i):arena.getTeam2().get(i))) {
-                System.out.println(String.format("%-20s | %-40s | %-10d | %-10.2f | %-10d | %-10d", G.getBaseName(), G.getName(), G.getAge(), G.getWeight(), G.getHp(), -G.getHit()));
-                total_weight += G.getWeight();
-                if (Most_Weight == null || G.getWeight() > Most_Weight.getWeight())
-                    Most_Weight = G;
+            for (Guerreiro guerreiro : ((side == 1)? arena.getTeam1().get(i):arena.getTeam2().get(i))) {
+                System.out.println(String.format("%-20s | %-40s | %-10d | %-10.2f | %-10d | %-10d", guerreiro.getBaseName(), guerreiro.getName(), guerreiro.getAge(), guerreiro.getWeight(), guerreiro.getHp(), -guerreiro.getHit()));
+                total_weight += guerreiro.getWeight();
+                if (Most_Weight == null || guerreiro.getWeight() > Most_Weight.getWeight())
+                    Most_Weight = guerreiro;
             }
         }
         return new PresentationDatas(total_weight, Most_Weight);
@@ -63,8 +63,8 @@ public class Presentation {
             if (sideForce.get(i).size() < 1)
                 System.out.println("[DEROTADO] -> Guerreiros da fila " + (i+1) + " foram eliminados!\n");
             else
-                for (Guerreiro G : sideForce.get(i))
-                    System.out.println(String.format("%-20s | %-40s | %-10d | %-10.2f | %-10d | %-10d", G.getBaseName(), G.getName(), G.getAge(), G.getWeight(), G.getHp(), -G.getHit()));
+                for (Guerreiro guerreiro : sideForce.get(i))
+                    System.out.println(String.format("%-20s | %-40s | %-10d | %-10.2f | %-10d | %-10d", guerreiro.getBaseName(), guerreiro.getName(), guerreiro.getAge(), guerreiro.getWeight(), guerreiro.getHp(), -guerreiro.getHit()));
         }
     }
 
