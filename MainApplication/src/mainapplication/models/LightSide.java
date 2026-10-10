@@ -6,29 +6,14 @@ public abstract class LightSide extends Guerreiro{
 
 
     private boolean poisoned = false;
-    private static String nameSide = "Jide & Clones";
 
     public LightSide(String name, int age, double weight , int hit, String baseName) {
         super(name, age, weight , hit , baseName);
     }
 
-    public LightSide(Guerreiro g){
-        super(g);
-    }
-
-    public static String getNameSide(){
-        return nameSide;
-    }
-
-    public void set_poisoned(boolean poisoned){
+    public void setPoisoned(boolean poisoned){
         this.poisoned = poisoned;
     }
-
-    public boolean get_poisoned(){
-        return poisoned;
-    }
-
-
 
     @Override 
     public void alterHp(int alter , Arena arena){// Função N° 11
@@ -40,12 +25,12 @@ public abstract class LightSide extends Guerreiro{
 
     @Override 
     public void hit(int order , Arena arena){// Função N° 13
-        ArrayList<Guerreiro> gs = arena.getCurrentLineTeam2();
-        gs.get(order).alterHp(this.getHit() , arena);
-        if (gs.get(order).getHp() > 0)
-            System.out.println("\n\n> Guerreiro "+this.getBaseName()+" "+ this.getName() + " atacou o guerreiro " +gs.get(order).getBaseName() +" "+gs.get(order).getName() + " e causou "+ (-this.getHit()) +" de dano");    
+        ArrayList<Guerreiro> guerreiros = arena.getCurrentLineTeam2();
+        guerreiros.get(order).alterHp(this.getHit() , arena);
+        if (guerreiros.get(order).getHp() > 0)
+            System.out.println("\n\n> Guerreiro "+this.getBaseName()+" "+ this.getName() + " atacou o guerreiro " +guerreiros.get(order).getBaseName() +" "+guerreiros.get(order).getName() + " e causou "+ (-this.getHit()) +" de dano");    
         else 
-            System.out.println("\n\n[EVENTO DA GUERRA] ->> Guerreiro "+this.getBaseName()+" "+ this.getName() + " MATOU " + gs.get(order).getBaseName() +" "+ gs.get(order).getName()+" foi derrotado(MORREU)!!\n\n");
+            System.out.println("\n\n[EVENTO DA GUERRA] ->> Guerreiro "+this.getBaseName()+" "+ this.getName() + " MATOU " + guerreiros.get(order).getBaseName() +" "+ guerreiros.get(order).getName()+" foi derrotado(MORREU)!!\n\n");
     }
     
     @Override

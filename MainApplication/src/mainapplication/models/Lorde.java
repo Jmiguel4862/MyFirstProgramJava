@@ -15,12 +15,6 @@ public class Lorde extends DarkSide{
     public Lorde(String name, int age, double weight) {
         super(name, age, weight , 50 , "Lorde");
     }
-    public Lorde(Guerreiro G) {
-        super(G);
-    }
-    public void setEspectro(boolean bool){
-        this.espectro = bool;
-    }
 
     @Override 
     public void alterHp(int alter , Arena arena){// Função N° 11
@@ -39,11 +33,11 @@ public class Lorde extends DarkSide{
     @Override
     public void attack(Arena arena) {// Função N° 13
         super.attack(arena);
-        ArrayList<Guerreiro> gs = arena.getCurrentLineTeam1();
+        ArrayList<Guerreiro> guerreiros = arena.getCurrentLineTeam1();
         Lorde sith = null;
-        if ((gs.getFirst().getHp() - this.getHit()) < 1 && !espectro)
+        if ((guerreiros.getFirst().getHp() - this.getHit()) < 1 && !espectro)
         {
-            sith = new Lorde(gs.getFirst().getName(), gs.getFirst().getAge(), gs.getFirst().getWeight());
+            sith = new Lorde(guerreiros.getFirst().getName(), guerreiros.getFirst().getAge(), guerreiros.getFirst().getWeight());
             System.out.println("\n->> [HABILIDADE] Lorde fez seu Ritual de reanimação e trouxe inimigo derrotado de volta a vida");
             sith.setHit(-5);
             sith.setBaseName("Espectro Sith");

@@ -13,9 +13,6 @@ public class JediMestre extends LightSide{
     public JediMestre(String name, int age, double weight) {
         super(name, age, weight , 35 , "Jedi Mestre");
     }
-    public JediMestre(Guerreiro G) {
-        super(G);
-    }
 
     @Override
     public void attack(Arena arena) {// Função N° 13
