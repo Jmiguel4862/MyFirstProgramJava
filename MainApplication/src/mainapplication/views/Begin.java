@@ -16,7 +16,7 @@ public class Begin {
         else
             System.out.println("\n <<< OS SITH &DROIDES VENCERAM A BATALHA >>>");
 
-        System.out.println("\n\n ULTIMO GUERREIRO A MORRER:\n ");
+        System.out.println("\n\n ULTIMO GUERREIRO A MORRER:\n");
         System.out.println("Nome:" + arena.getLastDie().getName()+ "\n");
         System.out.println("Idade:" + arena.getLastDie().getAge()+ "\n");
         System.out.println("Altura:" + arena.getLastDie().getWeight()+ "\n");

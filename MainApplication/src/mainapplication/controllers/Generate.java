@@ -31,7 +31,7 @@ public class Generate {
     public static boolean createSide(int side) {
     ArrayList<Integer> usedIndices = new ArrayList<>();
     for (int i = 1; i <= Constants.MAX_FILES; i++)
-        if(! FileOfLine.write_Guerreiros(Generate.generateGuerreiros(side, usedIndices), side, i))
+        if(! FileOfLine.writeGuerreiros(Generate.generateGuerreiros(side, usedIndices), side, i))
             return false;
     return true;
 }

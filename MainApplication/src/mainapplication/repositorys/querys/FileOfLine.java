@@ -26,7 +26,7 @@ public class FileOfLine {
      */
 
 
-    public static ArrayList<Guerreiro> reader_Guerreiros(int side, int queue){
+    public static ArrayList<Guerreiro> readerGuerreiros(int side, int queue){
        try {
             String line = "src/mainapplication/repositorys/database/fila"+side+ queue +".txt";
             String last[] = null;
@@ -45,7 +45,7 @@ public class FileOfLine {
        }
     }
 
-    public  static boolean write_Guerreiros( ArrayList<Guerreiro> Gs , int side, int queue){
+    public  static boolean writeGuerreiros( ArrayList<Guerreiro> Gs , int side, int queue){
         try {
             String line = "src/mainapplication/repositorys/database/fila"+side+ queue +".txt";
             String guerreiros = null;
