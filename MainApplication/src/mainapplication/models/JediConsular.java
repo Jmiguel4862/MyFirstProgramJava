@@ -5,7 +5,6 @@
 package mainapplication.models;
 
 import java.util.ArrayList;
-import mainapplication.controllers.*;
 
 /**
  *
@@ -25,7 +24,7 @@ public class JediConsular extends LightSide{
         super.attack(arena);
         hit(0 , arena );
         this.setHit(this.getHit()/2);
-        if ((orderSith + 1 ) < Constants.MAX_FILES) 
+        if ((orderSith + 1 ) < arena.getQuantityLine()) 
         {
             guerreirosRight = arena.getTeam2().get(orderSith+1);
             if (guerreirosRight.size() > 0)

@@ -5,7 +5,6 @@
 package mainapplication.models;
 
 import java.util.ArrayList;
-import mainapplication.controllers.*;
 
 /**
  *
@@ -43,7 +42,7 @@ public class ClonePesado extends LightSide{
             index = arena.getOrder(1);
             do{
                 index++;
-                if(index >= Constants.MAX_FILES) break;
+                if(index >= arena.getQuantityLine()) break;
                 temp = arena.getTeam1().get(index);
             }while(temp.size() > 0 && temp.getFirst().getClass() == ClonePesado.class);
             arena.setPreferenceOrder(2 , (index-1));

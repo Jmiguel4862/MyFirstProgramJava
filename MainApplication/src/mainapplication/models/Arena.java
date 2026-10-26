@@ -1,6 +1,5 @@
 package mainapplication.models;
 
-import mainapplication.controllers.*;
 import mainapplication.views.Presentation;
 
 import java.util.ArrayList;
@@ -12,18 +11,22 @@ import java.util.Scanner;
  */
 public class Arena {
 
-    private int[] orderOfBattle = new int[]{0,0};
-    private int[] preferenceOrder = new int[] {-1, -1};
     private ArrayList<ArrayList<Guerreiro>> team1 = new ArrayList<>();
     private ArrayList<ArrayList<Guerreiro>> team2 = new ArrayList<>();
+    private int quantityLines;
+    private int[] orderOfBattle = new int[]{0,0};
+    private int[] preferenceOrder = new int[] {-1, -1};
+    private  int quantityLineGuerreiros;
     private Guerreiro lastdie = null;
     private Guerreiro lastattacker = null; 
     private boolean firstAttack = false;
     private int winner = 0;
 
-    public Arena (ArrayList<ArrayList<Guerreiro>> team1 , ArrayList<ArrayList<Guerreiro>> team2){
+    public Arena (ArrayList<ArrayList<Guerreiro>> team1 , ArrayList<ArrayList<Guerreiro>> team2 , int quantityLines){
         this.team1 = team1;
         this.team2 = team2;
+        this.quantityLineGuerreiros = team1.size();
+        this.quantityLines = quantityLines;
     }
 
     public void battleArena(Scanner scan){
@@ -38,7 +41,7 @@ public class Arena {
                     System.out.println("JEDI E CLONES VÃO ATACAR O SITH E OS DROIDES ");
                 else 
                     System.out.println("SITH E OS DROIDES VÃO ATACAR O JEDI E CLONES DA FILA");
-                for (int j = 0; j < Constants.MAX_FILES; j++) 
+                for (int j = 0; j < this.quantityLineGuerreiros; j++) 
                 {
                     orderOfBattle[0] = j;
                     orderOfBattle[1] = j;
@@ -83,7 +86,7 @@ public class Arena {
 
     private boolean LineSettings(ArrayList<ArrayList<Guerreiro>> generic, int side){
         int i = side -1;
-        for(int j = this.orderOfBattle[i]; j <  Constants.MAX_FILES;j++)
+        for(int j = this.orderOfBattle[i]; j <  this.quantityLineGuerreiros;j++)
         {
             if (generic.get(j).size() > 0)
             {
@@ -110,12 +113,12 @@ public class Arena {
     }
 
     private void pullSide(ArrayList<ArrayList<Guerreiro>> generic){
-        for (int i = 0; i < Constants.MAX_FILES; i++)
+        for (int i = 0; i < this.quantityLineGuerreiros; i++)
             this.pullGuerreiro(generic.get(i));
     }
 
     private void checkKills(ArrayList<ArrayList<Guerreiro>> wholesale ){
-        for(int i = 0; i < Constants.MAX_FILES; i++)
+        for(int i = 0; i < this.quantityLineGuerreiros; i++)
             for(int j = 0; j < wholesale.get(i).size(); j++)
                 if (wholesale.get(i).get(j).getHp() <= 0)
                         this.lastdie = wholesale.get(i).remove(j);
@@ -128,7 +131,7 @@ public class Arena {
 
     private int hasWinner(){
         boolean contentLight = false, contentDark = false;
-        for(int j = 0; j < Constants.MAX_FILES; j++)
+        for(int j = 0; j < this.quantityLineGuerreiros; j++)
         {
             if(!contentLight && this.team1.get(j).size() > 0) 
                 contentLight = true;
@@ -149,6 +152,10 @@ public class Arena {
             if (ind >= 1) return true;
             else return false;
         }
+    }
+
+    public int getQuantityLine(){
+        return quantityLines;
     }
 
     public int getWinner(){
@@ -199,7 +206,7 @@ public class Arena {
     public void setPreferenceOrder(int side ,int preference){// Função N° 16
         if(side > 2 || side < 1)
             return;
-        if (preference >= 0 && preference < Constants.MAX_FILES)
+        if (preference >= 0 && preference < this.quantityLineGuerreiros)
             preferenceOrder[side-1] = preference;
         else 
             preferenceOrder[side-1]= -1;

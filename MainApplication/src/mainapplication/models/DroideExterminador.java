@@ -4,7 +4,7 @@
  */
 package mainapplication.models;
 
-import mainapplication.controllers.*;
+import mainapplication.repositorys.querys.Constants;
 
 /**
  *

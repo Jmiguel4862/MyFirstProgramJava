@@ -7,7 +7,6 @@ package mainapplication.repositorys.querys;
 import mainapplication.models.Guerreiro;
 import java.io.*;
 import java.util.Scanner;
-import mainapplication.controllers.*;
 import java.util.Formatter;
 import java.util.ArrayList;
 

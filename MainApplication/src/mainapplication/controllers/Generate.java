@@ -2,7 +2,7 @@ package mainapplication.controllers;
 
 import mainapplication.models.*;
 import mainapplication.repositorys.querys.*;
-import mainapplication.repositorys.querys.ManipulationTxt;
+
 import java.util.Random;
 import java.util.ArrayList;
 
@@ -30,7 +30,7 @@ public class Generate {
     }
     public static boolean createSide(int side) {
     ArrayList<Integer> usedIndices = new ArrayList<>();
-    for (int i = 1; i <= Constants.MAX_FILES; i++)
+    for (int i = 1; i <= 4; i++)
         if(! FileOfLine.writeGuerreiros(Generate.generateGuerreiros(side, usedIndices), side, i))
             return false;
     return true;

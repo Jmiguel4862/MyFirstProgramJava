@@ -2,7 +2,6 @@ package mainapplication.views;
 
 
 import mainapplication.models.*;
-import mainapplication.controllers.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 /**
@@ -30,7 +29,7 @@ public class Presentation {
         double total_weight=0;
         Guerreiro Most_Weight = null;
         System.out.println("\n << GUERREIROS DO LADO DOS " + SideOfForce + ">>\n");
-        for(int i = 0 ; i < Constants.MAX_FILES ; i++){
+        for(int i = 0 ; i < arena.getQuantityLine() ; i++){
             System.out.println("\n->> Guerreiro da fila " + (i+1) + ":\n");
             System.out.println(String.format("%-20s | %-40s | %-10s | %-10s | %-10s | %-10s", "TIPO", "NOME", "IDADE", "PESO", "HP", "DANO"));
             System.out.println("------------------------------------------------------------------------------------------------------------------------");
@@ -56,7 +55,7 @@ public class Presentation {
     private static void StatusSide(Arena arena , int side , String SideOfForce){
         System.out.println("\n << GUERREIROS DO LADO DOS " + SideOfForce + ">>\n");
         ArrayList<ArrayList<Guerreiro>> sideForce = (side == 1)? arena.getTeam1():arena.getTeam2();
-        for(int i = 0 ; i < Constants.MAX_FILES ; i++){
+        for(int i = 0 ; i < arena.getQuantityLine() ; i++){
             System.out.println("\nGuerreiro da fila " + (i+1) + ":\n");
             System.out.println(String.format("%-20s | %-40s | %-10s | %-10s | %-10s | %-10s", "TIPO", "NOME", "IDADE", "PESO", "HP", "DANO"));
             System.out.println("------------------------------------------------------------------------------------------------------------------------");

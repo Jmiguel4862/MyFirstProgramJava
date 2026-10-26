@@ -6,7 +6,7 @@ import mainapplication.controllers.*;
 
 public class Begin {
     public static void introduction(Arena arena , Scanner scan){
-        arena = InsertGuerreiros.loadingGuerreiros();
+        arena = InsertGuerreiros.loadingGuerreiros(4);
         Presentation.presentationGuerreiros(arena);
         System.out.println("\n <<< CLIQUE EM QUALQUER TECLA PARA COMEÇAR AS BATALHAS >>>");
         scan.nextLine();// Espera pelo entrada do usuario
