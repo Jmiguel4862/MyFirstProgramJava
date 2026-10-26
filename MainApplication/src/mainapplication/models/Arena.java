@@ -130,17 +130,17 @@ public class Arena {
     }
 
     private int hasWinner(){
-        boolean contentLight = false, contentDark = false;
+        boolean contentTeam01 = false, contentTeam02 = false;// Assume que as filas estão vazias
         for(int j = 0; j < this.quantityLineGuerreiros; j++)
         {
-            if(!contentLight && this.team1.get(j).size() > 0) 
-                contentLight = true;
-            if(!contentDark && this.team2.get(j).size() > 0) 
-                contentDark = true;
-            if(contentLight && contentDark)
-                break;
+            if(!contentTeam01 && this.team1.get(j).size() > 0)// Se entra aqui defina que tem gente na fila light
+                contentTeam01 = true;
+            if(!contentTeam02 && this.team2.get(j).size() > 0)// Se entra aqui defina que tem gente na fila dark
+                contentTeam02 = true;
+            if(contentTeam01 && contentTeam02)// se em algum momento do for o hasWinner concluir que os dois tem guerreiros ele returna 0 para indicar que a batalha vai continuar;
+                return 0;
         }
-        return (contentLight && contentDark)? 0 : (contentLight)? 1 : 2;
+        return (contentTeam01)? 1 : 2;// verifica quem venceu
     }
 
     public static boolean indCpm(int inc , int ind){

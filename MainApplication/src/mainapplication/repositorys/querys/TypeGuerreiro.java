@@ -44,7 +44,7 @@ public class TypeGuerreiro {
                     new DroideExterminador(name, age, weight);
                 case 4 -> 
                     new Acolito(name, age, weight);
-                case 5 -> 
+                case 5 ->
                     new Assassino(name, age, weight);
                 case 6 -> 
                     new Lorde(name, age, weight);
