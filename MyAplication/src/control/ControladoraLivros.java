@@ -6,7 +6,7 @@
 package control;
 
 import dao.*;
-import domain.Filme;
+import domain.Livro;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Vector;
@@ -26,6 +26,8 @@ public class ControladoraLivros {
             return "genero";
         if (coluna.equals("Produtora"))
             return "produtora";
+        if(coluna.equals("Preco"))
+            return "Preco";
         if (coluna.equals("Data Compra"))
             return "datacompra";
         return "id";
@@ -36,11 +38,12 @@ public class ControladoraLivros {
     }
     
     private void atualizarLivro(Livro livro, Vector linha){
-        livro.setCodigo(linha.get(0).toString());
+        livro.setCodigo(Integer.parseInt(linha.get(0).toString()));
         livro.setNome(linha.get(1).toString());
         livro.setGenero(linha.get(2).toString());
         livro.setProdutora(linha.get(3).toString());
-        livro.setDatacompra(linha.get(4).toString());       
+        livro.setPreco(Double.parseDouble(linha.get(4).toString()));
+        livro.setDatacompra(linha.get(5).toString());       
     }
     
     private Vector criarLinhaLivro(Livro livro) {
@@ -49,6 +52,7 @@ public class ControladoraLivros {
         linha.addElement(livro.getNome());
         linha.addElement(livro.getGenero());
         linha.addElement(livro.getProdutora());
+        linha.addElement(livro.getPreco());
         linha.addElement(livro.getDatacompra());
         return linha;
     }
@@ -57,7 +61,7 @@ public class ControladoraLivros {
     public void inserirNovoLivro(Vector linha) throws FileNotFoundException, IOException, ClassNotFoundException{
         Livro livro = new Livro();
         this.atualizarLivro(livro, linha);
-        this.livros.add(Livro);
+        this.livros.add(livro);
         livroDao.salvarLivros(this.livros);
     }
     
@@ -66,20 +70,20 @@ public class ControladoraLivros {
     }
 
     public void alterarLivro(Vector linha) throws FileNotFoundException, IOException, ClassNotFoundException {
-        Livro Livro = Livros.get(marcador);
-        this.atualizarLivro(Livro, linha);
-        LivroDao.salvarLivros(this.Livros);
+        Livro livro = livros.get(marcador);
+        this.atualizarLivro(livro, linha);
+        livroDao.salvarLivros(this.livros);
     }
     
     public void  excluirLivro() throws FileNotFoundException, IOException, ClassNotFoundException{
-        Livros.remove(marcador);
-        LivroDao.salvarLivros(this.Livros);
+        livros.remove(marcador);
+        livroDao.salvarLivros(this.livros);
     }
     
     private Vector<Livro> obterLivros(String coluna, boolean crescente) throws FileNotFoundException, IOException, ClassNotFoundException{
         String nomeColunaBanco = this.obterNomeColunaBanco(coluna);
-        Livros = LivroDao.obterLivros(nomeColunaBanco, crescente);
-        return Livros; 
+        livros = livroDao.obterLivros(nomeColunaBanco, crescente);
+        return livros; 
     }
 
     public Vector obterLinhasLivros(String coluna, boolean crescente) throws FileNotFoundException, IOException, ClassNotFoundException {

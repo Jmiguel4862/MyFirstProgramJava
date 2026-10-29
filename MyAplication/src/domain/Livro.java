@@ -12,11 +12,11 @@ import java.io.Serializable;
  *
  * @author Giovany
  */
-public class Filme implements Serializable {
-    private int codigo;
+public class Livro implements Serializable {
+    private Integer codigo;
     private String nome, genero, produtora, datacompra;
-    private double preco;
-    public int getCodigo() {
+    private Double preco;
+    public Integer getCodigo() {
         return codigo;
     }
 
@@ -56,11 +56,11 @@ public class Filme implements Serializable {
         this.produtora = produtora;
     }
     
-    public double getPreco(){
+    public Double getPreco(){
         return preco;
     }
 
-    public void setPreco(double preco){
+    public void setPreco(Double preco){
         this.preco = preco;
     }
 

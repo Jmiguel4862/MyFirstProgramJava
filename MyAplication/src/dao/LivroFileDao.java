@@ -5,12 +5,13 @@
 package dao;
 
 import domain.ComparatorLivroPorCodigoCrescente;
-import domain.ComparatorLivroPorCodigoDecrescente;
+import domain.ComparatorLivroPorPrecoDecrescente;
 import domain.ComparatorLivroPorGeneroCrescente;
 import domain.ComparatorLivroPorGeneroDecrescente;
 import domain.ComparatorLivroPorNomeCrescente;
 import domain.ComparatorLivroPorNomeDecrescente;
-import domain.Filme;
+import domain.ComparatorLivroPorPrecoCrescente;
+import domain.Livro;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -67,25 +68,29 @@ public class LivroFileDao {
 
    
     public Vector<Livro> obterLivros(String coluna, boolean crescente) throws FileNotFoundException, IOException, ClassNotFoundException {
-        Vector<Livro> Livros = this.obterLivros();
+        Vector<Livro> livros = this.obterLivros();
         if (coluna.equals("codigo")){
-            if (crescente) Collections.sort(Livros, new ComparatorLivroPorCodigoCrescente());
-            else Collections.sort(Livros, new ComparatorLivroPorCodigoDecrescente());
+            if (crescente) Collections.sort(livros, new ComparatorLivroPorCodigoCrescente());
+            else Collections.sort(livros, new ComparatorLivroPorPrecoDecrescente());
         }
         else if (coluna.equals("nome")){
-            if (crescente) Collections.sort(Livros, new ComparatorLivroPorNomeCrescente());
-            else Collections.sort(Livros, new ComparatorLivroPorNomeDecrescente());
+            if (crescente) Collections.sort(livros, new ComparatorLivroPorNomeCrescente());
+            else Collections.sort(livros, new ComparatorLivroPorNomeDecrescente());
         }
         else if (coluna.equals("genero")){
-            if (crescente) Collections.sort(Livros, new ComparatorLivroPorGeneroCrescente());
-            else Collections.sort(Livros, new ComparatorLivroPorGeneroDecrescente());
+            if (crescente) Collections.sort(livros, new ComparatorLivroPorGeneroCrescente());
+            else Collections.sort(livros, new ComparatorLivroPorGeneroDecrescente());
         }
         else if (coluna.equals("produtora")){
             // Exercício - o aluno deve terminar
         }
+        else if (coluna.equals("preco")){
+            if (crescente) Collections.sort(livros, new ComparatorLivroPorPrecoCrescente());
+            else Collections.sort(livros, new ComparatorLivroPorPrecoDecrescente());
+        }
         else if (coluna.equals("datacompra")){
             // Exercício - o aluno deve terminar
         }
-        return Livros;
+        return livros;
     }
 }

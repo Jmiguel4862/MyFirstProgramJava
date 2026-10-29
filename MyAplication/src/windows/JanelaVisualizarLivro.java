@@ -16,9 +16,9 @@ import java.util.*;
  *
  * @author Joao Miguel
  */
-public class JanelaVisualizarFilme {
+public class JanelaVisualizarLivro {
 
-    protected ControladoraFilmes controladora;
+    protected ControladoraLivros controladora;
     protected String coluna;
     protected boolean crescente;
     private Vector colunas = null;
@@ -31,6 +31,7 @@ public class JanelaVisualizarFilme {
             colunas.addElement("Nome");
             colunas.addElement("Genero");
             colunas.addElement("Produtora");
+            colunas.addElement("Preco");
             colunas.addElement("Data Compra");
         }
 
@@ -46,7 +47,7 @@ public class JanelaVisualizarFilme {
     protected void preencherTabelaFilmes() {
         try {
             Vector linhas;
-            linhas = controladora.obterLinhasFilmes(coluna, crescente);
+            linhas = controladora.obterLinhasLivros(coluna, crescente);
 
 
 
@@ -76,11 +77,11 @@ public class JanelaVisualizarFilme {
             }
             System.out.println("===========================================================================================================");
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(JanelaVisualizarFilme.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JanelaVisualizarLivro.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(JanelaVisualizarFilme.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JanelaVisualizarLivro.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(JanelaVisualizarFilme.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JanelaVisualizarLivro.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -106,8 +107,8 @@ public class JanelaVisualizarFilme {
         this.preencherTabelaFilmes();
     }
 
-    public JanelaVisualizarFilme() {
-        controladora = new ControladoraFilmes();
+    public JanelaVisualizarLivro() {
+        controladora = new ControladoraLivros();
         this.obterNomeColunasTabela();
         this.coluna = colunas.get(0).toString();
         this.crescente = true;

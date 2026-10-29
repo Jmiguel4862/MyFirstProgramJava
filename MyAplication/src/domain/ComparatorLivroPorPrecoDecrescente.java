@@ -11,8 +11,8 @@ import java.util.Comparator;
  *
  * @author Joao Miguel
  */
-public class ComparatorFilmePorNomeCrescente implements Comparator<Filme> {
-    public int compare(Filme o1, Filme o2) {
-        return o1.getNome().compareTo(o2.getNome());
+public class ComparatorLivroPorPrecoDecrescente implements Comparator<Livro>{
+    public int compare(Livro o1, Livro o2) {
+        return ((-1) * o1.getPreco().compareTo(o2.getPreco()));
     }
 }
